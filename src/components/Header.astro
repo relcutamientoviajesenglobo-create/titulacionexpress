@@ -97,48 +97,75 @@ const recursos = [
     </nav>
 
     <!-- Mobile Toggle -->
-    <button class="header__mobile-toggle" aria-label="Menú" aria-expanded="false" id="mobile-toggle" type="button">
-      <span class="header__hamburger"></span>
+    <button class="mob-toggle" id="mob-toggle" aria-label="Abrir menú" aria-expanded="false" type="button">
+      <svg class="mob-toggle__icon mob-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="mob-toggle__icon mob-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-  </div>
-
-  <!-- Mobile Full Screen Menu -->
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="/titulacion-por-experiencia-laboral/" class="mobile-nav__link">Titulación por Experiencia</a>
-    <div class="mobile-nav__accordion">
-      <button class="mobile-nav__link mobile-nav__accordion-btn" type="button" id="mob-carreras-btn">
-        Carreras
-        <span class="mobile-nav__chevron">›</span>
-      </button>
-      <div class="mobile-nav__panel" id="mob-carreras-panel">
-        <p class="mobile-nav__sub-heading">Reguladas</p>
-        {carrerasReguladas.map(c => (
-          <a href={`/carreras/${c.slug}/`} class="mobile-nav__sub-link">{c.nombre}</a>
-        ))}
-        <p class="mobile-nav__sub-heading">No Reguladas</p>
-        {carrerasNoReguladas.map(c => (
-          <a href={`/carreras/${c.slug}/`} class="mobile-nav__sub-link">{c.nombre}</a>
-        ))}
-        <a href="/carreras/" class="mobile-nav__sub-link mobile-nav__sub-link--all">Ver todas las carreras →</a>
-      </div>
-    </div>
-    <a href="/acuerdo-286/" class="mobile-nav__link">Acuerdo 286</a>
-    <a href="/cedula-profesional/" class="mobile-nav__link">Cédula Profesional</a>
-    <a href="/blog/" class="mobile-nav__link">Blog</a>
-    <a href="/contacto/" class="mobile-nav__cta">Evalúa tu Perfil Gratis →</a>
   </div>
 </header>
 
-<!-- ALL STYLES GLOBAL — no Astro scoping issues -->
+<!-- ========== MOBILE FULLSCREEN MENU ========== -->
+<div class="mob-menu" id="mob-menu" aria-hidden="true">
+  <div class="mob-menu__inner">
+    <nav class="mob-menu__nav">
+      <a href="/titulacion-por-experiencia-laboral/" class="mob-menu__item">
+        <span class="mob-menu__icon">📋</span>
+        <span class="mob-menu__label">Titulación por Experiencia</span>
+      </a>
+
+      <button class="mob-menu__item mob-menu__item--expandable" id="mob-carreras-toggle" type="button">
+        <span class="mob-menu__icon">🎓</span>
+        <span class="mob-menu__label">Carreras</span>
+        <svg class="mob-menu__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mob-menu__submenu" id="mob-carreras-sub">
+        <p class="mob-menu__sub-heading">🔒 Reguladas</p>
+        {carrerasReguladas.map(c => (
+          <a href={`/carreras/${c.slug}/`} class="mob-menu__sub-link">{c.nombre}</a>
+        ))}
+        <p class="mob-menu__sub-heading">✅ No Reguladas</p>
+        {carrerasNoReguladas.map(c => (
+          <a href={`/carreras/${c.slug}/`} class="mob-menu__sub-link">{c.nombre}</a>
+        ))}
+        <a href="/carreras/" class="mob-menu__sub-all">Ver las 15 carreras →</a>
+      </div>
+
+      <a href="/acuerdo-286/" class="mob-menu__item">
+        <span class="mob-menu__icon">📜</span>
+        <span class="mob-menu__label">Acuerdo 286</span>
+      </a>
+      <a href="/cedula-profesional/" class="mob-menu__item">
+        <span class="mob-menu__icon">🏛️</span>
+        <span class="mob-menu__label">Cédula Profesional</span>
+      </a>
+      <a href="/blog/" class="mob-menu__item">
+        <span class="mob-menu__icon">📝</span>
+        <span class="mob-menu__label">Blog</span>
+      </a>
+    </nav>
+
+    <a href="/contacto/" class="mob-menu__cta">
+      Evalúa tu Perfil Gratis
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+
+    <div class="mob-menu__footer">
+      <a href="https://wa.me/5215512345678" class="mob-menu__wa">
+        💬 WhatsApp Directo
+      </a>
+    </div>
+  </div>
+</div>
+
 <style is:global>
   /* ===== HEADER ===== */
   .header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0,0,0,0.06);
     height: 72px;
   }
@@ -156,6 +183,7 @@ const recursos = [
     color: #0F2640;
     font-size: 1.125rem;
     flex-shrink: 0;
+    z-index: 1002;
   }
   .header__logo-icon { font-size: 1.5rem; }
   .header__logo-text strong { font-weight: 800; }
@@ -211,9 +239,7 @@ const recursos = [
   }
   .header__item--mega:hover .mega-menu,
   .header__item--mega:focus-within .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    opacity: 1; visibility: visible; transform: translateY(0);
   }
   .header__item--mega:hover .header__chevron { transform: rotate(180deg); }
   .mega-menu__inner {
@@ -224,106 +250,98 @@ const recursos = [
   .mega-menu__col:not(:last-child) { border-right: 1px solid #F1F3F5; }
   .mega-menu__col--recursos { background: rgba(232,168,56,0.04); }
   .mega-menu__heading {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #1B3A5C;
-    margin-bottom: 4px;
+    font-size: 0.6875rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #1B3A5C; margin-bottom: 4px;
   }
-  .mega-menu__subtext {
-    font-size: 0.6875rem;
-    color: #ADB5BD;
-    margin-bottom: 1rem;
-  }
+  .mega-menu__subtext { font-size: 0.6875rem; color: #ADB5BD; margin-bottom: 1rem; }
   .mega-menu__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
   .mega-menu__link {
-    display: block;
-    padding: 8px 12px;
-    color: #495057;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    border-radius: 8px;
+    display: block; padding: 8px 12px; color: #495057;
+    text-decoration: none; font-size: 0.9375rem; border-radius: 8px;
     transition: background 0.15s, color 0.15s;
   }
   .mega-menu__link:hover { background: #F8F9FA; color: #0F2640; }
   .mega-menu__ver-todas {
-    display: inline-flex;
-    margin-top: 1.25rem;
-    padding: 0.625rem 1rem;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: #fff;
+    display: inline-flex; margin-top: 1.25rem; padding: 0.625rem 1rem;
+    font-size: 0.8125rem; font-weight: 700; color: #fff;
     background: linear-gradient(135deg, #E8A838, #C78A1E);
-    text-decoration: none;
-    border-radius: 8px;
+    text-decoration: none; border-radius: 8px;
   }
 
   /* ===== MOBILE TOGGLE ===== */
-  .header__mobile-toggle {
+  .mob-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
+    color: #343A40;
     -webkit-tap-highlight-color: transparent;
     z-index: 1002;
+    position: relative;
   }
-  .header__hamburger,
-  .header__hamburger::before,
-  .header__hamburger::after {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: #343A40;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-  .header__hamburger { position: relative; }
-  .header__hamburger::before,
-  .header__hamburger::after {
-    content: '';
+  .mob-toggle__icon {
+    width: 24px;
+    height: 24px;
     position: absolute;
-    left: 0;
+    transition: opacity 0.2s, transform 0.2s;
   }
-  .header__hamburger::before { top: -7px; }
-  .header__hamburger::after { top: 7px; }
+  .mob-toggle__close {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  .mob-toggle.is-active .mob-toggle__open {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  .mob-toggle.is-active .mob-toggle__close {
+    opacity: 1;
+    transform: rotate(0);
+  }
 
-  /* X state */
-  .header__mobile-toggle.is-active .header__hamburger { background: transparent; }
-  .header__mobile-toggle.is-active .header__hamburger::before { transform: rotate(45deg); top: 0; }
-  .header__mobile-toggle.is-active .header__hamburger::after { transform: rotate(-45deg); top: 0; }
-
-  /* ===== MOBILE NAV — FULL SCREEN ===== */
-  .mobile-nav {
-    display: none;
+  /* ===== MOBILE FULLSCREEN MENU ===== */
+  .mob-menu {
     position: fixed;
-    top: 72px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 72px);
-    height: calc(100dvh - 72px);
-    background: #ffffff;
+    height: 100vh;
+    height: 100dvh;
+    background: #fff;
     z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    overflow: hidden;
+  }
+  .mob-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mob-menu__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 84px 20px 24px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 0 0 100px;
-    flex-direction: column;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
   }
-  .mobile-nav.is-open {
+  .mob-menu__nav {
+    flex: 1;
     display: flex;
+    flex-direction: column;
   }
 
-  .mobile-nav__link {
+  /* Menu items */
+  .mob-menu__item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
+    gap: 14px;
+    padding: 16px 12px;
     color: #1a1a2e;
     text-decoration: none;
     font-size: 17px;
@@ -338,124 +356,176 @@ const recursos = [
     text-align: left;
     cursor: pointer;
     font-family: inherit;
+    transition: background 0.15s;
   }
-  .mobile-nav__link:active { background: #f5f5f5; }
+  .mob-menu__item:active { background: #f5f7fa; }
+  .mob-menu__icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; }
+  .mob-menu__label { flex: 1; }
 
-  .mobile-nav__chevron {
-    font-size: 20px;
-    font-weight: 300;
-    color: #aaa;
-    transition: transform 0.2s;
+  /* Expandable chevron */
+  .mob-menu__chevron {
+    width: 20px;
+    height: 20px;
+    color: #adb5bd;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
   }
-  .mobile-nav__accordion-btn.is-open .mobile-nav__chevron {
-    transform: rotate(90deg);
+  .mob-menu__item--expandable.is-open .mob-menu__chevron {
+    transform: rotate(180deg);
   }
 
-  .mobile-nav__panel {
-    display: none;
-    padding: 0 12px 12px 12px;
-    background: #f9f9f9;
+  /* Submenu */
+  .mob-menu__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: #f8f9fa;
+    border-radius: 0 0 12px 12px;
+    margin: 0 0 4px;
   }
-  .mobile-nav__panel.is-open { display: block; }
-
-  .mobile-nav__sub-heading {
+  .mob-menu__submenu.is-open {
+    max-height: 800px;
+  }
+  .mob-menu__sub-heading {
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: #1B3A5C;
-    padding: 12px 12px 4px;
+    padding: 14px 16px 6px;
     margin: 0;
   }
-  .mobile-nav__sub-link {
+  .mob-menu__sub-link {
     display: block;
-    padding: 8px 12px;
-    color: #6C757D;
+    padding: 10px 16px 10px 28px;
+    color: #495057;
     text-decoration: none;
     font-size: 15px;
-    border-radius: 8px;
+    transition: background 0.15s;
     -webkit-tap-highlight-color: transparent;
   }
-  .mobile-nav__sub-link:active { background: #e9ecef; color: #1B3A5C; }
-  .mobile-nav__sub-link--all {
-    color: #C78A1E;
+  .mob-menu__sub-link:active { background: #e9ecef; }
+  .mob-menu__sub-all {
+    display: block;
+    padding: 12px 16px;
+    margin: 8px 12px 12px;
+    color: #0a1932;
     font-weight: 700;
-    margin-top: 8px;
-    padding: 10px 12px;
-    background: rgba(232,168,56,0.08);
-    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, rgba(232,168,56,0.15), rgba(232,168,56,0.08));
+    border-radius: 10px;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .mobile-nav__cta {
-    display: block;
-    margin: 20px 16px 0;
-    padding: 16px;
-    background: linear-gradient(135deg, #E8A838, #C78A1E);
+  /* CTA button */
+  .mob-menu__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px 0 12px;
+    padding: 18px;
+    background: linear-gradient(135deg, #E8A838, #d49520);
     color: #0a1932;
     font-weight: 700;
     font-size: 17px;
     text-align: center;
     text-decoration: none;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(232,168,56,0.35);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.15s;
+    flex-shrink: 0;
+  }
+  .mob-menu__cta:active { transform: scale(0.97); }
+
+  /* Footer */
+  .mob-menu__footer {
+    padding: 12px 0 0;
+    border-top: 1px solid #f0f0f0;
+    flex-shrink: 0;
+  }
+  .mob-menu__wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    color: #25d366;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
     border-radius: 12px;
+    background: rgba(37,211,102,0.08);
     -webkit-tap-highlight-color: transparent;
   }
-  .mobile-nav__cta:active { opacity: 0.9; }
 
-  /* ===== DESKTOP BREAKPOINT ===== */
+  /* ===== DESKTOP ===== */
   @media (min-width: 1024px) {
     .header__nav { display: flex; }
-    .header__mobile-toggle { display: none; }
-    .mobile-nav { display: none !important; }
+    .mob-toggle { display: none; }
+    .mob-menu { display: none !important; }
   }
 </style>
 
 <script is:inline>
 (function(){
-  var toggle = document.getElementById('mobile-toggle');
-  var nav = document.getElementById('mobile-nav');
-  var carrerasBtn = document.getElementById('mob-carreras-btn');
-  var carrerasPanel = document.getElementById('mob-carreras-panel');
+  var toggle = document.getElementById('mob-toggle');
+  var menu = document.getElementById('mob-menu');
+  var carrerasToggle = document.getElementById('mob-carreras-toggle');
+  var carrerasSub = document.getElementById('mob-carreras-sub');
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', function(){
-      var isOpen = nav.classList.contains('is-open');
-      if (isOpen) {
-        nav.classList.remove('is-open');
-        toggle.classList.remove('is-active');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      } else {
-        nav.classList.add('is-open');
-        toggle.classList.add('is-active');
-        toggle.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.contains('is-open');
+    if (isOpen) {
+      menu.classList.remove('is-open');
+      menu.setAttribute('aria-hidden', 'true');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menú');
+      document.body.style.overflow = '';
+    } else {
+      menu.classList.add('is-open');
+      menu.setAttribute('aria-hidden', 'false');
+      toggle.classList.add('is-active');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Cerrar menú');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  if (carrerasToggle && carrerasSub) {
+    carrerasToggle.addEventListener('click', function(){
+      var isOpen = carrerasSub.classList.contains('is-open');
+      carrerasSub.classList.toggle('is-open');
+      carrerasToggle.classList.toggle('is-open');
     });
   }
 
-  if (carrerasBtn && carrerasPanel) {
-    carrerasBtn.addEventListener('click', function(){
-      var isOpen = carrerasPanel.classList.contains('is-open');
-      if (isOpen) {
-        carrerasPanel.classList.remove('is-open');
-        carrerasBtn.classList.remove('is-open');
-      } else {
-        carrerasPanel.classList.add('is-open');
-        carrerasBtn.classList.add('is-open');
-      }
+  // Close on link click
+  var links = menu.querySelectorAll('a[href]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function(){
+      menu.classList.remove('is-open');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
   }
 
   // Header scroll shadow
   var header = document.getElementById('header');
   if (header) {
+    var lastScroll = 0;
     window.addEventListener('scroll', function(){
-      if (window.scrollY > 10) {
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
+      var y = window.scrollY;
+      header.style.boxShadow = y > 10 ? '0 4px 20px rgba(0,0,0,0.06)' : 'none';
+      lastScroll = y;
+    }, { passive: true });
   }
 })();
 </script>

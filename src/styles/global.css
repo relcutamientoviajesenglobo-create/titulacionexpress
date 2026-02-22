@@ -924,7 +924,7 @@ html {
 }
 
 .about-visual {
-  display: none;
+  display: block;
 }
 
 .about-photo-stack {
@@ -1167,7 +1167,7 @@ html {
 }
 
 .acuerdo-visual {
-  display: none;
+  display: block;
   text-align: center;
 }
 
@@ -1270,7 +1270,7 @@ html {
 }
 
 .costos-card__visual {
-  display: none;
+  display: block;
 }
 
 .costos-card__visual img {
@@ -1579,7 +1579,7 @@ html {
   .hero__blob--gold { width: 300px; height: 300px; }
   .hero__blob--blue { width: 250px; height: 250px; }
   .hero__blob--teal { width: 200px; height: 200px; }
-  .hero__blob--purple { display: none; }
+  .hero__blob--purple { opacity: 0.3; }
 }
 
 /* === TRUST SIGNALS MOBILE === */
@@ -1731,7 +1731,7 @@ html {
   }
 
   .silo-sidebar {
-    display: none;
+    order: -1;
   }
 
   .blog-grid {
@@ -1754,5 +1754,100 @@ html {
 @media (min-width: 641px) and (max-width: 1023px) {
   .grid--3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =============================================
+   100% RESPONSIVE — No hidden content
+   ============================================= */
+
+/* About photo stack - mobile */
+@media (max-width: 767px) {
+  .about-photo-stack {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about-photo--main {
+    width: 100%;
+    height: 240px;
+    border-radius: 16px;
+  }
+
+  .about-photo--accent {
+    position: static;
+    width: 100%;
+    height: 160px;
+    border-radius: 12px;
+    border: none;
+  }
+}
+
+/* Acuerdo visual - mobile */
+@media (max-width: 767px) {
+  .acuerdo-visual img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+/* Costos visual - mobile stacked */
+@media (max-width: 767px) {
+  .costos-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .costos-card__visual {
+    height: 200px;
+    order: -1;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+  }
+
+  .costos-card__visual img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Silo sidebar on mobile - horizontal nav */
+@media (max-width: 767px) {
+  .silo-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .silo-sidebar {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+
+  .silo-sidebar .silo-nav__list {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .silo-sidebar .silo-nav__item {
+    flex-shrink: 0;
+  }
+
+  .silo-sidebar .silo-nav__link {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    background: var(--color-gray-100);
+    border-left: none;
+    font-size: 0.8125rem;
+  }
+
+  .silo-sidebar .silo-nav__link--active {
+    background: var(--color-primary);
+    color: #fff;
+    border-left: none;
   }
 }
