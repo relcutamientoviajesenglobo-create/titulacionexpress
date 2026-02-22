@@ -15,9 +15,9 @@
   --color-primary: #1B3A5C;
   --color-primary-dark: #0F2640;
   --color-primary-light: #2A5580;
-  --color-accent: #F0A500;
-  --color-accent-dark: #B07A08;
-  --color-accent-light: #FFB81C;
+  --color-accent: #E8A838;
+  --color-accent-dark: #C78A1E;
+  --color-accent-light: #F5C563;
   --color-success: #2E7D32;
   --color-trust: #1565C0;
 
@@ -409,7 +409,7 @@ details > p {
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(232, 168, 56, 0.3);
 }
 
 .btn--outline:hover {
@@ -794,7 +794,7 @@ html {
 }
 
 .section-label--light {
-  color: #D4940C;
+  color: #e8a838;
 }
 
 .section-header-center {
@@ -924,7 +924,7 @@ html {
 }
 
 .about-visual {
-  display: block;
+  display: none;
 }
 
 .about-photo-stack {
@@ -1093,7 +1093,7 @@ html {
 .home-acuerdo__orb--2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(240, 165, 0, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232, 168, 56, 0.15) 0%, transparent 70%);
   bottom: -15%;
   right: -5%;
   animation: blobDrift 22s ease-in-out infinite reverse;
@@ -1167,7 +1167,7 @@ html {
 }
 
 .acuerdo-visual {
-  display: block;
+  display: none;
   text-align: center;
 }
 
@@ -1270,7 +1270,7 @@ html {
 }
 
 .costos-card__visual {
-  display: block;
+  display: none;
 }
 
 .costos-card__visual img {
@@ -1316,7 +1316,7 @@ html {
 }
 
 .testi-card__stars {
-  color: #D4940C;
+  color: #f59e0b;
   font-size: 1rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
@@ -1424,7 +1424,7 @@ html {
   display: block;
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #F0A500, #FFB81C);
+  background: linear-gradient(135deg, #e8a838, #f0c060);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1466,7 +1466,7 @@ html {
 .home-cta-final__orb--1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(240, 165, 0, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(232, 168, 56, 0.25) 0%, transparent 70%);
   top: -30%;
   left: 20%;
   animation: blobDrift 16s ease-in-out infinite;
@@ -1504,7 +1504,7 @@ html {
 }
 
 .home-cta-final__content h2 span {
-  background: linear-gradient(135deg, #D4940C 0%, #E6B44A 50%, #D4940C 100%);
+  background: linear-gradient(135deg, #e8a838 0%, #f0c060 50%, #e8a838 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1552,7 +1552,7 @@ html {
 @media (max-width: 640px) {
   .hero {
     min-height: auto;
-    padding: 2rem 0 1.5rem;
+    padding: 2rem 0 2.5rem;
   }
 
   .hero__title {
@@ -1569,46 +1569,17 @@ html {
   }
 
   .hero__stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 1rem 0;
-  }
-
-  .hero__stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2px;
-    position: relative;
-  }
-
-  .hero__stat:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 15%;
-    height: 70%;
-    width: 1px;
-    background: rgba(255,255,255,0.1);
+    gap: 0.75rem;
   }
 
   .hero__stat-number {
     font-size: 1.5rem;
   }
 
-  .hero__stat-label {
-    font-size: 0.6875rem;
-  }
-
   .hero__blob--gold { width: 300px; height: 300px; }
   .hero__blob--blue { width: 250px; height: 250px; }
   .hero__blob--teal { width: 200px; height: 200px; }
-  .hero__blob--purple { opacity: 0.3; }
+  .hero__blob--purple { display: none; }
 }
 
 /* === TRUST SIGNALS MOBILE === */
@@ -1760,7 +1731,7 @@ html {
   }
 
   .silo-sidebar {
-    order: -1;
+    display: none;
   }
 
   .blog-grid {
@@ -1783,100 +1754,5 @@ html {
 @media (min-width: 641px) and (max-width: 1023px) {
   .grid--3 {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* =============================================
-   100% RESPONSIVE — No hidden content
-   ============================================= */
-
-/* About photo stack - mobile */
-@media (max-width: 767px) {
-  .about-photo-stack {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .about-photo--main {
-    width: 100%;
-    height: 240px;
-    border-radius: 16px;
-  }
-
-  .about-photo--accent {
-    position: static;
-    width: 100%;
-    height: 160px;
-    border-radius: 12px;
-    border: none;
-  }
-}
-
-/* Acuerdo visual - mobile */
-@media (max-width: 767px) {
-  .acuerdo-visual img {
-    max-width: 240px;
-    margin: 0 auto;
-  }
-}
-
-/* Costos visual - mobile stacked */
-@media (max-width: 767px) {
-  .costos-card {
-    grid-template-columns: 1fr;
-  }
-  
-  .costos-card__visual {
-    height: 200px;
-    order: -1;
-    border-radius: 24px 24px 0 0;
-    overflow: hidden;
-  }
-
-  .costos-card__visual img {
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-/* Silo sidebar on mobile - horizontal nav */
-@media (max-width: 767px) {
-  .silo-layout {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .silo-sidebar {
-    order: -1;
-    margin-bottom: 1.5rem;
-  }
-
-  .silo-sidebar .silo-nav__list {
-    display: flex;
-    overflow-x: auto;
-    gap: 0.5rem;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .silo-sidebar .silo-nav__item {
-    flex-shrink: 0;
-  }
-
-  .silo-sidebar .silo-nav__link {
-    white-space: nowrap;
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    background: var(--color-gray-100);
-    border-left: none;
-    font-size: 0.8125rem;
-  }
-
-  .silo-sidebar .silo-nav__link--active {
-    background: var(--color-primary);
-    color: #fff;
-    border-left: none;
   }
 }

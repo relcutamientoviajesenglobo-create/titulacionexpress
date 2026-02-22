@@ -373,7 +373,7 @@ const faqItems = [
 
   <!-- ========== BANNER PARALLAX — Graduación ========== -->
   <section class="home-parallax">
-    <div class="home-parallax__bg" style="background-image: url(/images/photos/graduation-hats.jpg)"></div>
+    <div class="home-parallax__bg" style="background-image: url(/images/photos/cap-and-diploma.jpg)"></div>
     <div class="home-parallax__overlay"></div>
     <div class="container home-parallax__content">
       <h2>Tu Título de Licenciatura Te Espera</h2>
@@ -694,7 +694,7 @@ const faqItems = [
     border-radius: 999px;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: #e8a838;
+    color: #D4940C;
     letter-spacing: 0.02em;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -712,7 +712,7 @@ const faqItems = [
 
   .hero__highlight {
     display: block;
-    background: linear-gradient(135deg, #e8a838 0%, #f0c060 50%, #e8a838 100%);
+    background: linear-gradient(135deg, #D4940C 0%, #E6B44A 50%, #D4940C 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -758,7 +758,7 @@ const faqItems = [
     align-items: center;
     gap: 0.625rem;
     padding: 0.9375rem 2rem;
-    background: linear-gradient(135deg, #e8a838 0%, #d49520 100%);
+    background: linear-gradient(135deg, #D4940C 0%, #B07A08 100%);
     color: #0a1932;
     font-weight: 700;
     font-size: 1rem;
@@ -815,7 +815,7 @@ const faqItems = [
     display: block;
     font-size: 1.875rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #e8a838, #f0c060);
+    background: linear-gradient(135deg, #D4940C, #E6B44A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -914,25 +914,91 @@ const faqItems = [
 
   @media (max-width: 768px) {
     .hero {
-      min-height: 550px;
-      padding: var(--space-2xl) 0;
+      min-height: auto;
+      padding: 2.5rem 0 2rem;
     }
 
-    .hero__stats {
+    .hero__title {
+      font-size: 1.75rem;
+      margin: 0.75rem 0;
+    }
+
+    .hero__desc {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero__actions {
       flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .hero__stat {
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-sm);
+      gap: 0.75rem;
     }
 
     .hero__btn-primary,
     .hero__btn-glass {
       width: 100%;
       justify-content: center;
+    }
+
+    /* Stats in row — compact like trust badges */
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1rem 0;
+    }
+
+    .hero__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      padding: 0 0.5rem;
+      position: relative;
+    }
+
+    .hero__stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero__stat-number {
+      font-size: 1.5rem;
+    }
+
+    .hero__stat-label {
+      font-size: 0.6875rem;
+    }
+
+    /* Show diploma visual on mobile */
+    .hero__visual {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .hero__card {
+      max-width: 220px;
+      margin: 0 auto;
+    }
+
+    .hero__card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .hero__card-glow {
+      width: 200px;
+      height: 200px;
     }
   }
 
