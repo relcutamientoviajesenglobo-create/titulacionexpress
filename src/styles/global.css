@@ -15,9 +15,9 @@
   --color-primary: #1B3A5C;
   --color-primary-dark: #0F2640;
   --color-primary-light: #2A5580;
-  --color-accent: #E8A838;
-  --color-accent-dark: #C78A1E;
-  --color-accent-light: #F5C563;
+  --color-accent: #F0A500;
+  --color-accent-dark: #B07A08;
+  --color-accent-light: #FFB81C;
   --color-success: #2E7D32;
   --color-trust: #1565C0;
 
@@ -409,7 +409,7 @@ details > p {
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(232, 168, 56, 0.3);
+  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.3);
 }
 
 .btn--outline:hover {
@@ -794,7 +794,7 @@ html {
 }
 
 .section-label--light {
-  color: #e8a838;
+  color: #D4940C;
 }
 
 .section-header-center {
@@ -1093,7 +1093,7 @@ html {
 .home-acuerdo__orb--2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(232, 168, 56, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(240, 165, 0, 0.15) 0%, transparent 70%);
   bottom: -15%;
   right: -5%;
   animation: blobDrift 22s ease-in-out infinite reverse;
@@ -1316,7 +1316,7 @@ html {
 }
 
 .testi-card__stars {
-  color: #f59e0b;
+  color: #D4940C;
   font-size: 1rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
@@ -1424,7 +1424,7 @@ html {
   display: block;
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #e8a838, #f0c060);
+  background: linear-gradient(135deg, #F0A500, #FFB81C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1466,7 +1466,7 @@ html {
 .home-cta-final__orb--1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(232, 168, 56, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(240, 165, 0, 0.25) 0%, transparent 70%);
   top: -30%;
   left: 20%;
   animation: blobDrift 16s ease-in-out infinite;
@@ -1504,7 +1504,7 @@ html {
 }
 
 .home-cta-final__content h2 span {
-  background: linear-gradient(135deg, #e8a838 0%, #f0c060 50%, #e8a838 100%);
+  background: linear-gradient(135deg, #D4940C 0%, #E6B44A 50%, #D4940C 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
