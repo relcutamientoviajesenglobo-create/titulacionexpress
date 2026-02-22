@@ -3,6 +3,3 @@ dist/
 .astro/
 .DS_Store
 *.log
-node_modules/
-dist/
-.astro/

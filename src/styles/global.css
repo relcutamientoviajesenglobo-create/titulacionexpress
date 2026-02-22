@@ -1543,3 +1543,216 @@ html {
 .wave-divider--white-to-gray svg { fill: var(--color-white); }
 .wave-divider--dark-to-white svg { fill: #060d1f; }
 
+
+/* =============================================
+   MOBILE-FIRST COMPREHENSIVE FIX
+   ============================================= */
+
+/* === HERO MOBILE === */
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding: 2rem 0 2.5rem;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .hero__desc {
+    font-size: 0.9375rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__stats {
+    gap: 0.75rem;
+  }
+
+  .hero__stat-number {
+    font-size: 1.5rem;
+  }
+
+  .hero__blob--gold { width: 300px; height: 300px; }
+  .hero__blob--blue { width: 250px; height: 250px; }
+  .hero__blob--teal { width: 200px; height: 200px; }
+  .hero__blob--purple { display: none; }
+}
+
+/* === TRUST SIGNALS MOBILE === */
+@media (max-width: 768px) {
+  .home-trust {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+/* === QUÉ ES (ABOUT) MOBILE === */
+@media (max-width: 768px) {
+  .about-grid {
+    gap: var(--space-xl);
+  }
+
+  .about-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === PROCESO MOBILE === */
+@media (max-width: 768px) {
+  .home-proceso {
+    padding: var(--space-2xl) 0;
+  }
+
+  .step-card__number {
+    font-size: 2rem;
+  }
+}
+
+/* === CARRERAS MOBILE === */
+@media (max-width: 768px) {
+  .section-header-center h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === ACUERDO 286 DARK MOBILE === */
+@media (max-width: 768px) {
+  .home-acuerdo {
+    padding: var(--space-2xl) 0;
+  }
+
+  .acuerdo-features {
+    grid-template-columns: 1fr;
+    gap: 0.625rem;
+  }
+
+  .acuerdo-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === PARALLAX MOBILE === */
+@media (max-width: 768px) {
+  .home-parallax {
+    min-height: 300px;
+  }
+
+  .home-parallax__content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* === COSTOS MOBILE === */
+@media (max-width: 768px) {
+  .home-costos {
+    padding: var(--space-2xl) 0;
+  }
+
+  .costos-card__content {
+    padding: 1.75rem;
+  }
+}
+
+/* === TESTIMONIOS MOBILE === */
+@media (max-width: 768px) {
+  .home-testimonios {
+    padding: var(--space-2xl) 0;
+  }
+
+  .testimonios-grid {
+    gap: 1rem;
+  }
+}
+
+/* === FAQ MOBILE === */
+@media (max-width: 768px) {
+  .home-faq {
+    padding: var(--space-2xl) 0;
+  }
+
+  .faq-layout {
+    gap: var(--space-xl);
+  }
+}
+
+/* === STATS MOBILE === */
+@media (max-width: 640px) {
+  .stats-grid-premium {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.875rem;
+  }
+
+  .stat-item__number {
+    font-size: 1.75rem;
+  }
+}
+
+/* === CTA FINAL MOBILE === */
+@media (max-width: 768px) {
+  .home-cta-final__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-cta-final__actions .hero__btn-primary,
+  .home-cta-final__actions .hero__btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-cta-final__orb--1 { width: 250px; height: 250px; }
+  .home-cta-final__orb--2 { width: 200px; height: 200px; }
+  .home-cta-final__orb--3 { display: none; }
+}
+
+/* === GLOBAL MOBILE TYPOGRAPHY === */
+@media (max-width: 768px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.375rem; }
+  h3 { font-size: 1.125rem; }
+
+  .section-label {
+    font-size: 0.6875rem;
+  }
+
+  .section-header-center p,
+  .section-cta-center {
+    font-size: 0.875rem;
+  }
+}
+
+/* === SILO / INTERIOR PAGES MOBILE === */
+@media (max-width: 768px) {
+  .silo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .silo-sidebar {
+    display: none;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carrera-card__photo {
+    aspect-ratio: 16/10;
+  }
+}
+
+/* === CARRERAS GRID PAGE MOBILE === */
+@media (max-width: 640px) {
+  .grid--2,
+  .grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
