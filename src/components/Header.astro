@@ -38,7 +38,7 @@ const recursos = [
 <header class="header" id="header">
   <div class="header__inner container">
     <a href="/" class="header__logo" aria-label="Titulación Express — Inicio">
-      <span class="header__logo-icon">🎓</span>
+      <img src="/images/illustrations/hero-diploma.svg" alt="" class="header__logo-icon" width="32" height="32" />
       <span class="header__logo-text"><strong>Titulación</strong> Express</span>
     </a>
 
@@ -98,67 +98,131 @@ const recursos = [
 
     <!-- Mobile Toggle -->
     <button class="mob-toggle" id="mob-toggle" aria-label="Abrir menú" aria-expanded="false" type="button">
-      <svg class="mob-toggle__icon mob-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      <svg class="mob-toggle__icon mob-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <span class="mob-toggle__bar"></span>
+      <span class="mob-toggle__bar"></span>
+      <span class="mob-toggle__bar"></span>
     </button>
   </div>
 </header>
 
-<!-- ========== MOBILE FULLSCREEN MENU ========== -->
-<div class="mob-menu" id="mob-menu" aria-hidden="true">
-  <div class="mob-menu__inner">
-    <nav class="mob-menu__nav">
-      <a href="/titulacion-por-experiencia-laboral/" class="mob-menu__item">
-        <span class="mob-menu__icon">📋</span>
-        <span class="mob-menu__label">Titulación por Experiencia</span>
+<!-- ========== CINEMATIC MOBILE MENU ========== -->
+<div class="mob" id="mob-menu" aria-hidden="true">
+  <!-- Dark cinematic background -->
+  <div class="mob__bg">
+    <div class="mob__orb mob__orb--1"></div>
+    <div class="mob__orb mob__orb--2"></div>
+    <div class="mob__orb mob__orb--3"></div>
+  </div>
+
+  <div class="mob__scroll">
+    <!-- Header area with logo -->
+    <div class="mob__header">
+      <img src="/images/illustrations/hero-diploma.svg" alt="" width="44" height="44" class="mob__logo-img" />
+      <div>
+        <p class="mob__brand"><strong>Titulación</strong> Express</p>
+        <p class="mob__tagline">Tu título universitario, respaldado por la SEP</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="mob__nav">
+      <a href="/titulacion-por-experiencia-laboral/" class="mob__link" style="--i:1">
+        <span class="mob__link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </span>
+        <span class="mob__link-text">
+          <span class="mob__link-title">Titulación por Experiencia</span>
+          <span class="mob__link-desc">Obtén tu título con tu experiencia laboral</span>
+        </span>
+        <svg class="mob__link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
 
-      <button class="mob-menu__item mob-menu__item--expandable" id="mob-carreras-toggle" type="button">
-        <span class="mob-menu__icon">🎓</span>
-        <span class="mob-menu__label">Carreras</span>
-        <svg class="mob-menu__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      <button class="mob__link mob__link--expand" id="mob-carreras-btn" type="button" style="--i:2">
+        <span class="mob__link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        </span>
+        <span class="mob__link-text">
+          <span class="mob__link-title">Carreras Disponibles</span>
+          <span class="mob__link-desc">15 licenciaturas con validez oficial</span>
+        </span>
+        <svg class="mob__link-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
-      <div class="mob-menu__submenu" id="mob-carreras-sub">
-        <p class="mob-menu__sub-heading">🔒 Reguladas</p>
-        {carrerasReguladas.map(c => (
-          <a href={`/carreras/${c.slug}/`} class="mob-menu__sub-link">{c.nombre}</a>
-        ))}
-        <p class="mob-menu__sub-heading">✅ No Reguladas</p>
-        {carrerasNoReguladas.map(c => (
-          <a href={`/carreras/${c.slug}/`} class="mob-menu__sub-link">{c.nombre}</a>
-        ))}
-        <a href="/carreras/" class="mob-menu__sub-all">Ver las 15 carreras →</a>
+
+      <!-- Carreras submenu -->
+      <div class="mob__sub" id="mob-carreras-sub">
+        <div class="mob__sub-inner">
+          <p class="mob__sub-label">Reguladas <span class="mob__sub-badge">Req. créditos</span></p>
+          {carrerasReguladas.map(c => (
+            <a href={`/carreras/${c.slug}/`} class="mob__sub-item">{c.nombre}</a>
+          ))}
+          <p class="mob__sub-label" style="margin-top:12px">No Reguladas <span class="mob__sub-badge mob__sub-badge--green">Sin créditos</span></p>
+          {carrerasNoReguladas.map(c => (
+            <a href={`/carreras/${c.slug}/`} class="mob__sub-item">{c.nombre}</a>
+          ))}
+          <a href="/carreras/" class="mob__sub-all">
+            Explorar las 15 carreras
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
       </div>
 
-      <a href="/acuerdo-286/" class="mob-menu__item">
-        <span class="mob-menu__icon">📜</span>
-        <span class="mob-menu__label">Acuerdo 286</span>
+      <a href="/acuerdo-286/" class="mob__link" style="--i:3">
+        <span class="mob__link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </span>
+        <span class="mob__link-text">
+          <span class="mob__link-title">Acuerdo 286</span>
+          <span class="mob__link-desc">Marco legal de la SEP que lo hace posible</span>
+        </span>
+        <svg class="mob__link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a href="/cedula-profesional/" class="mob-menu__item">
-        <span class="mob-menu__icon">🏛️</span>
-        <span class="mob-menu__label">Cédula Profesional</span>
+
+      <a href="/cedula-profesional/" class="mob__link" style="--i:4">
+        <span class="mob__link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0"/></svg>
+        </span>
+        <span class="mob__link-text">
+          <span class="mob__link-title">Cédula Profesional</span>
+          <span class="mob__link-desc">Tu documento federal para ejercer</span>
+        </span>
+        <svg class="mob__link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
-      <a href="/blog/" class="mob-menu__item">
-        <span class="mob-menu__icon">📝</span>
-        <span class="mob-menu__label">Blog</span>
+
+      <a href="/blog/" class="mob__link" style="--i:5">
+        <span class="mob__link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2"/></svg>
+        </span>
+        <span class="mob__link-text">
+          <span class="mob__link-title">Blog</span>
+          <span class="mob__link-desc">Guías, tips y noticias sobre titulación</span>
+        </span>
+        <svg class="mob__link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
     </nav>
 
-    <a href="/contacto/" class="mob-menu__cta">
-      Evalúa tu Perfil Gratis
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-
-    <div class="mob-menu__footer">
-      <a href="https://wa.me/5215512345678" class="mob-menu__wa">
-        💬 WhatsApp Directo
+    <!-- CTA -->
+    <div class="mob__cta-area">
+      <a href="/contacto/" class="mob__cta">
+        <span>Evalúa tu Perfil Gratis</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
+      <a href="https://wa.me/5215512345678" class="mob__wa">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        WhatsApp Directo
+      </a>
+    </div>
+
+    <!-- Trust footer -->
+    <div class="mob__trust">
+      <span>✓ Validez SEP</span>
+      <span>✓ 11 años operando</span>
+      <span>✓ 15 carreras</span>
     </div>
   </div>
 </div>
 
 <style is:global>
-  /* ===== HEADER ===== */
+  /* ===== HEADER BAR ===== */
   .header {
     position: sticky;
     top: 0;
@@ -185,269 +249,290 @@ const recursos = [
     flex-shrink: 0;
     z-index: 1002;
   }
-  .header__logo-icon { font-size: 1.5rem; }
+  .header__logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
   .header__logo-text strong { font-weight: 800; }
 
   /* ===== DESKTOP NAV ===== */
   .header__nav { display: none; }
-  .header__menu {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    list-style: none;
-  }
+  .header__menu { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
   .header__link {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 0.5rem 1rem;
-    color: #495057;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    border-radius: 8px;
+    display: flex; align-items: center; gap: 4px;
+    padding: 0.5rem 1rem; color: #495057; text-decoration: none;
+    font-size: 0.9375rem; font-weight: 500; border-radius: 8px;
     transition: color 0.15s, background 0.15s;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
+    background: none; border: none; cursor: pointer; font-family: inherit; white-space: nowrap;
   }
   .header__link:hover { color: #1B3A5C; background: #F8F9FA; }
   .header__link--cta { padding: 0.5rem 1.25rem; font-size: 0.875rem; }
-  .header__chevron {
-    font-size: 0.625rem;
-    transition: transform 0.3s;
-    display: inline-flex;
-  }
+  .header__chevron { font-size: 0.625rem; transition: transform 0.3s; display: inline-flex; }
 
   /* ===== MEGA MENU ===== */
   .mega-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
+    position: absolute; top: 100%; left: 0; width: 100%;
+    background: #fff; box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+    opacity: 0; visibility: hidden; transform: translateY(8px);
     transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
-    z-index: 999;
-    border-radius: 0 0 16px 16px;
-    overflow: hidden;
+    z-index: 999; border-radius: 0 0 16px 16px; overflow: hidden;
   }
   .header__item--mega:hover .mega-menu,
-  .header__item--mega:focus-within .mega-menu {
-    opacity: 1; visibility: visible; transform: translateY(0);
-  }
+  .header__item--mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
   .header__item--mega:hover .header__chevron { transform: rotate(180deg); }
-  .mega-menu__inner {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-  }
+  .mega-menu__inner { display: grid; grid-template-columns: 1fr 1.5fr 1fr; }
   .mega-menu__col { padding: 1.75rem 2rem; }
   .mega-menu__col:not(:last-child) { border-right: 1px solid #F1F3F5; }
-  .mega-menu__col--recursos { background: rgba(232,168,56,0.04); }
-  .mega-menu__heading {
-    font-size: 0.6875rem; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 0.1em; color: #1B3A5C; margin-bottom: 4px;
-  }
+  .mega-menu__col--recursos { background: rgba(240,165,0,0.04); }
+  .mega-menu__heading { font-size: 0.6875rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #1B3A5C; margin-bottom: 4px; }
   .mega-menu__subtext { font-size: 0.6875rem; color: #ADB5BD; margin-bottom: 1rem; }
   .mega-menu__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
-  .mega-menu__link {
-    display: block; padding: 8px 12px; color: #495057;
-    text-decoration: none; font-size: 0.9375rem; border-radius: 8px;
-    transition: background 0.15s, color 0.15s;
-  }
+  .mega-menu__link { display: block; padding: 8px 12px; color: #495057; text-decoration: none; font-size: 0.9375rem; border-radius: 8px; transition: background 0.15s, color 0.15s; }
   .mega-menu__link:hover { background: #F8F9FA; color: #0F2640; }
-  .mega-menu__ver-todas {
-    display: inline-flex; margin-top: 1.25rem; padding: 0.625rem 1rem;
-    font-size: 0.8125rem; font-weight: 700; color: #fff;
-    background: linear-gradient(135deg, #F0A500, #CC8800);
-    text-decoration: none; border-radius: 8px;
-  }
+  .mega-menu__ver-todas { display: inline-flex; margin-top: 1.25rem; padding: 0.625rem 1rem; font-size: 0.8125rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #F0A500, #B07A08); text-decoration: none; border-radius: 8px; }
 
-  /* ===== MOBILE TOGGLE ===== */
+  /* ===== MOBILE TOGGLE — 3 bars to X ===== */
   .mob-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: #343A40;
-    -webkit-tap-highlight-color: transparent;
-    z-index: 1002;
-    position: relative;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 44px; height: 44px;
+    background: none; border: none; cursor: pointer; padding: 0;
+    -webkit-tap-highlight-color: transparent; z-index: 1002;
   }
-  .mob-toggle__icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    transition: opacity 0.2s, transform 0.2s;
+  .mob-toggle__bar {
+    display: block; width: 22px; height: 2px; background: #1a1a2e;
+    border-radius: 2px; transition: all 0.35s cubic-bezier(0.77,0,0.18,1);
+    transform-origin: center;
   }
-  .mob-toggle__close {
+  .mob-toggle.is-active .mob-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .mob-toggle.is-active .mob-toggle__bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .mob-toggle.is-active .mob-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mob-toggle.is-active .mob-toggle__bar { background: #fff; }
+
+  /* ===== CINEMATIC MOBILE MENU ===== */
+  .mob {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    visibility: hidden;
     opacity: 0;
-    transform: rotate(-90deg);
+    transition: opacity 0.4s ease, visibility 0.4s;
   }
-  .mob-toggle.is-active .mob-toggle__open {
-    opacity: 0;
-    transform: rotate(90deg);
-  }
-  .mob-toggle.is-active .mob-toggle__close {
+  .mob.is-open {
+    visibility: visible;
     opacity: 1;
-    transform: rotate(0);
   }
 
-  /* ===== MOBILE FULLSCREEN MENU ===== */
-  .mob-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    background: #fff;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s;
+  /* Background */
+  .mob__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(165deg, #060d1f 0%, #0F2640 40%, #1B3A5C 100%);
     overflow: hidden;
   }
-  .mob-menu.is-open {
-    opacity: 1;
-    visibility: visible;
+  .mob__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
   }
-  .mob-menu__inner {
-    display: flex;
-    flex-direction: column;
+  .mob.is-open .mob__orb { opacity: 1; }
+  .mob__orb--1 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(240,165,0,0.2) 0%, transparent 70%);
+    top: -80px; right: -60px;
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .mob__orb--2 {
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(30,80,180,0.2) 0%, transparent 70%);
+    bottom: 10%; left: -40px;
+    animation: orbFloat 16s ease-in-out infinite reverse;
+  }
+  .mob__orb--3 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
+    top: 50%; right: 20%;
+    animation: orbFloat 14s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(20px, -15px); }
+    66% { transform: translate(-15px, 10px); }
+  }
+
+  /* Scrollable content */
+  .mob__scroll {
+    position: relative;
+    z-index: 2;
     height: 100%;
-    padding: 84px 20px 24px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-  }
-  .mob-menu__nav {
-    flex: 1;
+    padding: 24px 20px calc(env(safe-area-inset-bottom, 20px) + 24px);
     display: flex;
     flex-direction: column;
   }
 
-  /* Menu items */
-  .mob-menu__item {
+  /* Header area */
+  .mob__header {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 16px 12px;
-    color: #1a1a2e;
+    padding: 16px 0 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+  }
+  .mob.is-open .mob__header { opacity: 1; transform: translateY(0); }
+  .mob__logo-img { width: 44px; height: 44px; filter: drop-shadow(0 2px 8px rgba(240,165,0,0.4)); }
+  .mob__brand { color: #fff; font-size: 1.125rem; line-height: 1.2; margin: 0; }
+  .mob__brand strong { font-weight: 800; }
+  .mob__tagline { color: rgba(255,255,255,0.45); font-size: 0.75rem; margin: 2px 0 0; }
+
+  /* Nav links */
+  .mob__nav { flex: 1; padding: 8px 0; }
+  .mob__link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 14px;
+    color: #fff;
     text-decoration: none;
-    font-size: 17px;
-    font-weight: 500;
-    border-bottom: 1px solid #f0f0f0;
+    border-radius: 14px;
+    transition: background 0.2s;
     -webkit-tap-highlight-color: transparent;
     background: none;
-    border-left: none;
-    border-right: none;
-    border-top: none;
+    border: none;
     width: 100%;
     text-align: left;
     cursor: pointer;
     font-family: inherit;
-    transition: background 0.15s;
+    /* Stagger animation */
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.35s ease calc(var(--i) * 0.06s + 0.2s),
+                transform 0.35s ease calc(var(--i) * 0.06s + 0.2s),
+                background 0.2s;
   }
-  .mob-menu__item:active { background: #f5f7fa; }
-  .mob-menu__icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; }
-  .mob-menu__label { flex: 1; }
+  .mob.is-open .mob__link { opacity: 1; transform: translateX(0); }
+  .mob__link:active { background: rgba(255,255,255,0.06); }
 
-  /* Expandable chevron */
-  .mob-menu__chevron {
-    width: 20px;
-    height: 20px;
-    color: #adb5bd;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
+  .mob__link-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    color: #F0A500;
+    transition: background 0.2s, border-color 0.2s;
   }
-  .mob-menu__item--expandable.is-open .mob-menu__chevron {
-    transform: rotate(180deg);
+  .mob__link:active .mob__link-icon {
+    background: rgba(240,165,0,0.12);
+    border-color: rgba(240,165,0,0.2);
   }
+
+  .mob__link-text { flex: 1; min-width: 0; }
+  .mob__link-title { display: block; font-size: 16px; font-weight: 600; color: #fff; line-height: 1.3; }
+  .mob__link-desc { display: block; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 2px; line-height: 1.3; }
+
+  .mob__link-arrow { color: rgba(255,255,255,0.2); flex-shrink: 0; transition: transform 0.2s, color 0.2s; }
+  .mob__link:active .mob__link-arrow { transform: translateX(3px); color: #F0A500; }
+
+  .mob__link-chevron { color: rgba(255,255,255,0.3); flex-shrink: 0; transition: transform 0.3s ease; }
+  .mob__link--expand.is-open .mob__link-chevron { transform: rotate(180deg); color: #F0A500; }
 
   /* Submenu */
-  .mob-menu__submenu {
+  .mob__sub {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease;
-    background: #f8f9fa;
-    border-radius: 0 0 12px 12px;
-    margin: 0 0 4px;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .mob-menu__submenu.is-open {
-    max-height: 800px;
+  .mob__sub.is-open { max-height: 700px; }
+  .mob__sub-inner {
+    padding: 4px 0 8px 58px;
   }
-  .mob-menu__sub-heading {
-    font-size: 11px;
-    font-weight: 800;
+  .mob__sub-label {
+    font-size: 10px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #1B3A5C;
-    padding: 14px 16px 6px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.35);
+    padding: 10px 0 4px;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .mob-menu__sub-link {
+  .mob__sub-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(240,165,0,0.15);
+    color: #F0A500;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+  .mob__sub-badge--green { background: rgba(46,125,50,0.15); color: #66BB6A; }
+  .mob__sub-item {
     display: block;
-    padding: 10px 16px 10px 28px;
-    color: #495057;
+    padding: 9px 12px;
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
-    font-size: 15px;
-    transition: background 0.15s;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
     -webkit-tap-highlight-color: transparent;
   }
-  .mob-menu__sub-link:active { background: #e9ecef; }
-  .mob-menu__sub-all {
-    display: block;
-    padding: 12px 16px;
-    margin: 8px 12px 12px;
-    color: #0a1932;
+  .mob__sub-item:active { background: rgba(255,255,255,0.06); color: #fff; }
+  .mob__sub-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
     font-weight: 700;
-    font-size: 14px;
-    text-align: center;
+    color: #F0A500;
     text-decoration: none;
-    background: linear-gradient(135deg, rgba(232,168,56,0.15), rgba(232,168,56,0.08));
-    border-radius: 10px;
+    background: rgba(240,165,0,0.08);
+    border: 1px solid rgba(240,165,0,0.15);
+    border-radius: 8px;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* CTA button */
-  .mob-menu__cta {
+  /* CTA area */
+  .mob__cta-area {
+    padding: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+  }
+  .mob.is-open .mob__cta-area { opacity: 1; transform: translateY(0); }
+
+  .mob__cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin: 16px 0 12px;
+    gap: 10px;
     padding: 18px;
-    background: linear-gradient(135deg, #F0A500, #CC8800);
+    background: linear-gradient(135deg, #F0A500, #D48E00);
     color: #0a1932;
     font-weight: 700;
     font-size: 17px;
-    text-align: center;
     text-decoration: none;
-    border-radius: 14px;
-    box-shadow: 0 4px 20px rgba(232,168,56,0.35);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(240,165,0,0.3), 0 0 0 1px rgba(240,165,0,0.1);
     -webkit-tap-highlight-color: transparent;
-    transition: transform 0.15s;
-    flex-shrink: 0;
+    transition: transform 0.15s, box-shadow 0.15s;
   }
-  .mob-menu__cta:active { transform: scale(0.97); }
+  .mob__cta:active { transform: scale(0.97); }
 
-  /* Footer */
-  .mob-menu__footer {
-    padding: 12px 0 0;
-    border-top: 1px solid #f0f0f0;
-    flex-shrink: 0;
-  }
-  .mob-menu__wa {
+  .mob__wa {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -455,18 +540,37 @@ const recursos = [
     padding: 14px;
     color: #25d366;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
     border-radius: 12px;
     background: rgba(37,211,102,0.08);
+    border: 1px solid rgba(37,211,102,0.12);
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Trust footer */
+  .mob__trust {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 0 8px;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.6s;
+  }
+  .mob.is-open .mob__trust { opacity: 1; }
+  .mob__trust span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    white-space: nowrap;
   }
 
   /* ===== DESKTOP ===== */
   @media (min-width: 1024px) {
     .header__nav { display: flex; }
     .mob-toggle { display: none; }
-    .mob-menu { display: none !important; }
+    .mob { display: none !important; }
   }
 </style>
 
@@ -474,7 +578,7 @@ const recursos = [
 (function(){
   var toggle = document.getElementById('mob-toggle');
   var menu = document.getElementById('mob-menu');
-  var carrerasToggle = document.getElementById('mob-carreras-toggle');
+  var carrerasBtn = document.getElementById('mob-carreras-btn');
   var carrerasSub = document.getElementById('mob-carreras-sub');
 
   if (!toggle || !menu) return;
@@ -486,45 +590,38 @@ const recursos = [
       menu.setAttribute('aria-hidden', 'true');
       toggle.classList.remove('is-active');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menú');
       document.body.style.overflow = '';
     } else {
       menu.classList.add('is-open');
       menu.setAttribute('aria-hidden', 'false');
       toggle.classList.add('is-active');
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Cerrar menú');
       document.body.style.overflow = 'hidden';
     }
   });
 
-  if (carrerasToggle && carrerasSub) {
-    carrerasToggle.addEventListener('click', function(){
-      var isOpen = carrerasSub.classList.contains('is-open');
+  if (carrerasBtn && carrerasSub) {
+    carrerasBtn.addEventListener('click', function(){
       carrerasSub.classList.toggle('is-open');
-      carrerasToggle.classList.toggle('is-open');
+      carrerasBtn.classList.toggle('is-open');
     });
   }
 
   // Close on link click
-  var links = menu.querySelectorAll('a[href]');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', function(){
+  menu.querySelectorAll('a[href]').forEach(function(link){
+    link.addEventListener('click', function(){
       menu.classList.remove('is-open');
       toggle.classList.remove('is-active');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
-  }
+  });
 
   // Header scroll shadow
   var header = document.getElementById('header');
   if (header) {
-    var lastScroll = 0;
     window.addEventListener('scroll', function(){
-      var y = window.scrollY;
-      header.style.boxShadow = y > 10 ? '0 4px 20px rgba(0,0,0,0.06)' : 'none';
-      lastScroll = y;
+      header.style.boxShadow = window.scrollY > 10 ? '0 4px 20px rgba(0,0,0,0.06)' : 'none';
     }, { passive: true });
   }
 })();
