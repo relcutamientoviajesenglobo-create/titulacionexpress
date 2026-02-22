@@ -304,14 +304,16 @@ const recursos = [
     position: fixed;
     top: 72px;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: #fff;
+    width: 100%;
+    height: calc(100vh - 72px);
+    height: calc(100dvh - 72px);
+    background: #ffffff;
     z-index: 999;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 0 0 100px;
     flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
   }
   .mobile-nav.is-open {
     display: flex;
