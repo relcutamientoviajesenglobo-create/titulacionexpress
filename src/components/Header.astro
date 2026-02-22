@@ -38,7 +38,7 @@ const recursos = [
 <header class="header" id="header">
   <div class="header__inner container">
     <a href="/" class="header__logo" aria-label="Titulación Express — Inicio">
-      <img src="/images/illustrations/hero-diploma.svg" alt="" class="header__logo-icon" width="32" height="32" />
+      <span class="header__logo-icon">🎓</span>
       <span class="header__logo-text"><strong>Titulación</strong> Express</span>
     </a>
 
@@ -117,7 +117,7 @@ const recursos = [
   <div class="mob__scroll">
     <!-- Header area with logo -->
     <div class="mob__header">
-      <img src="/images/illustrations/hero-diploma.svg" alt="" width="44" height="44" class="mob__logo-img" />
+      <span class="mob__logo-emoji">🎓</span>
       <div>
         <p class="mob__brand"><strong>Titulación</strong> Express</p>
         <p class="mob__tagline">Tu título universitario, respaldado por la SEP</p>
@@ -249,7 +249,7 @@ const recursos = [
     flex-shrink: 0;
     z-index: 1002;
   }
-  .header__logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
+  .header__logo-icon { font-size: 1.5rem; }
   .header__logo-text strong { font-weight: 800; }
 
   /* ===== DESKTOP NAV ===== */
@@ -384,7 +384,7 @@ const recursos = [
     transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
   }
   .mob.is-open .mob__header { opacity: 1; transform: translateY(0); }
-  .mob__logo-img { width: 44px; height: 44px; filter: drop-shadow(0 2px 8px rgba(240,165,0,0.4)); }
+  .mob__logo-emoji { font-size: 2.5rem; filter: drop-shadow(0 2px 8px rgba(240,165,0,0.4)); }
   .mob__brand { color: #fff; font-size: 1.125rem; line-height: 1.2; margin: 0; }
   .mob__brand strong { font-weight: 800; }
   .mob__tagline { color: rgba(255,255,255,0.45); font-size: 0.75rem; margin: 2px 0 0; }
