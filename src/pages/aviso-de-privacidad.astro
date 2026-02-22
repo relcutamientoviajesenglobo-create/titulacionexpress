@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="Aviso de Privacidad — Titulación Express"
+  description="Aviso de privacidad de Titulación Express. Conoce cómo protegemos y utilizamos tus datos personales conforme a la Ley Federal de Protección de Datos Personales."
+  canonical="/aviso-de-privacidad/"
+  schemaType="page"
+  breadcrumbs={[{ name: 'Aviso de Privacidad', url: '/aviso-de-privacidad/' }]}
+>
+
+  <div class="legal-page">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Aviso de Privacidad', url: '/aviso-de-privacidad/' }]} />
+
+      <h1>Aviso de Privacidad</h1>
+
+      <p class="legal-page__updated">Última actualización: febrero de 2026</p>
+
+      <h2>Responsable del Tratamiento de Datos</h2>
+
+      <p>
+        Titulación Express, con domicilio en Ciudad de México, México, es responsable del tratamiento de los datos personales que nos proporcione, conforme a lo dispuesto por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y su Reglamento.
+      </p>
+
+      <h2>Datos Personales que Recabamos</h2>
+
+      <p>
+        Para las finalidades señaladas en este aviso de privacidad, podemos recabar los siguientes datos personales: nombre completo, correo electrónico, número de teléfono o WhatsApp, carrera de interés, años de experiencia laboral y área de desempeño profesional. Estos datos se recaban a través de nuestro <a href="/contacto/">formulario de contacto</a>, vía WhatsApp, por correo electrónico o por teléfono.
+      </p>
+
+      <h2>Finalidades del Tratamiento</h2>
+
+      <p>
+        Los datos personales que recabamos serán utilizados para las siguientes finalidades necesarias: evaluar tu perfil profesional para determinar la viabilidad de la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a>, brindarte orientación sobre el proceso del <a href="/acuerdo-286/que-es/">Acuerdo 286</a>, dar seguimiento a tu solicitud de información, y contactarte para atender tus consultas. De manera adicional, podríamos utilizar tus datos para enviarte información y novedades relacionadas con nuestros servicios. Si no deseas que tus datos sean tratados para estas finalidades adicionales, puedes solicitarlo al correo indicado más adelante.
+      </p>
+
+      <h2>Transferencia de Datos</h2>
+
+      <p>
+        Titulación Express no transfiere ni comparte tus datos personales con terceros, salvo en los casos previstos por la ley. Tus datos son tratados de forma confidencial y están protegidos mediante medidas de seguridad administrativas, técnicas y físicas para prevenir su daño, pérdida, alteración, destrucción, uso, acceso o divulgación indebida.
+      </p>
+
+      <h2>Derechos ARCO</h2>
+
+      <p>
+        Tienes derecho a Acceder, Rectificar, Cancelar u Oponerte al tratamiento de tus datos personales (derechos ARCO). Para ejercer cualquiera de estos derechos, puedes enviar una solicitud al correo electrónico: <strong>privacidad@titulacionexpress.com</strong>. Tu solicitud deberá contener tu nombre completo, una descripción clara de los datos respecto a los cuales deseas ejercer alguno de los derechos ARCO, y cualquier documento que acredite tu identidad. Responderemos en un plazo máximo de 20 días hábiles.
+      </p>
+
+      <h2>Cambios al Aviso de Privacidad</h2>
+
+      <p>
+        Nos reservamos el derecho de efectuar modificaciones o actualizaciones a este aviso de privacidad. Cualquier cambio será publicado en esta misma página. Te recomendamos consultarla periódicamente.
+      </p>
+
+      <p>
+        Si tienes dudas sobre este aviso de privacidad o sobre el tratamiento de tus datos, contáctanos en <a href="/contacto/">nuestra página de contacto</a> o escríbenos a <strong>privacidad@titulacionexpress.com</strong>.
+      </p>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .legal-page { padding: var(--space-2xl) 0 var(--space-3xl); }
+  .legal-page h1 { margin-bottom: var(--space-sm); }
+  .legal-page__updated { font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--space-2xl); }
+  .legal-page h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
+  .legal-page p { max-width: 70ch; line-height: 1.7; margin-bottom: var(--space-md); }
+</style>

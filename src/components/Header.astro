@@ -1,0 +1,579 @@
+---
+/**
+ * Header.astro — Navegación principal + Mega Menú de Carreras
+ * Desktop: CSS hover | Mobile: Alpine.js client:media
+ * Distribuye PageRank desde TODAS las páginas hacia los SILOs y carreras
+ */
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const baseUrl = 'https://titulacionexpress.com';
+
+const carrerasReguladas = [
+  { nombre: 'Derecho', slug: 'derecho' },
+  { nombre: 'Contaduría', slug: 'contaduria' },
+  { nombre: 'Ingeniería Industrial', slug: 'ingenieria-industrial' },
+  { nombre: 'Ingeniería Computacional', slug: 'ingenieria-computacional' },
+];
+
+const carrerasNoReguladas = [
+  { nombre: 'Administración', slug: 'administracion' },
+  { nombre: 'Mercadotecnia', slug: 'mercadotecnia' },
+  { nombre: 'Pedagogía', slug: 'pedagogia' },
+  { nombre: 'Ciencias de la Comunicación', slug: 'ciencias-de-la-comunicacion' },
+  { nombre: 'Ciencias Políticas', slug: 'ciencias-politicas' },
+  { nombre: 'Turismo', slug: 'turismo' },
+  { nombre: 'Gastronomía', slug: 'gastronomia' },
+  { nombre: 'Diseño Gráfico', slug: 'diseno-grafico' },
+  { nombre: 'Economía', slug: 'economia' },
+  { nombre: 'Comercio Internacional', slug: 'comercio-internacional' },
+  { nombre: 'Educación Preescolar', slug: 'educacion-preescolar' },
+];
+
+const recursos = [
+  { nombre: 'Acuerdo 286 — Guía Completa', url: '/acuerdo-286/' },
+  { nombre: 'Requisitos', url: '/titulacion-por-experiencia-laboral/requisitos/' },
+  { nombre: 'Proceso Paso a Paso', url: '/titulacion-por-experiencia-laboral/proceso-paso-a-paso/' },
+  { nombre: 'Costos', url: '/titulacion-por-experiencia-laboral/costo/' },
+  { nombre: 'Cédula Profesional', url: '/cedula-profesional/' },
+  { nombre: 'Preguntas Frecuentes', url: '/titulacion-por-experiencia-laboral/preguntas-frecuentes/' },
+];
+---
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="Titulación Express — Inicio">
+      <span class="header__logo-icon">🎓</span>
+      <span class="header__logo-text">
+        <strong>Titulación</strong> Express
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav" aria-label="Navegación principal">
+      <ul class="header__menu">
+        <li class="header__item">
+          <a href="/titulacion-por-experiencia-laboral/" class="header__link">
+            Titulación
+          </a>
+        </li>
+
+        <!-- Carreras Mega Menu -->
+        <li class="header__item header__item--mega">
+          <button class="header__link header__link--dropdown" aria-expanded="false" aria-haspopup="true">
+            Carreras <span class="header__chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="mega-menu" role="menu" aria-label="Carreras disponibles">
+            <div class="mega-menu__inner container">
+              <div class="mega-menu__col">
+                <h3 class="mega-menu__heading">Carreras Reguladas</h3>
+                <p class="mega-menu__subtext">Requieren 50% de créditos universitarios</p>
+                <ul class="mega-menu__list">
+                  {carrerasReguladas.map(c => (
+                    <li><a href={`/carreras/${c.slug}/`} class="mega-menu__link">{c.nombre}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div class="mega-menu__col">
+                <h3 class="mega-menu__heading">Carreras No Reguladas</h3>
+                <p class="mega-menu__subtext">Sin requisito de créditos previos</p>
+                <ul class="mega-menu__list">
+                  {carrerasNoReguladas.map(c => (
+                    <li><a href={`/carreras/${c.slug}/`} class="mega-menu__link">{c.nombre}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div class="mega-menu__col mega-menu__col--recursos">
+                <h3 class="mega-menu__heading">Recursos</h3>
+                <ul class="mega-menu__list">
+                  {recursos.map(r => (
+                    <li><a href={r.url} class="mega-menu__link">{r.nombre}</a></li>
+                  ))}
+                </ul>
+                <a href="/carreras/" class="mega-menu__ver-todas">
+                  Ver las 15 carreras disponibles →
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="header__item">
+          <a href="/acuerdo-286/" class="header__link">Acuerdo 286</a>
+        </li>
+
+        <li class="header__item">
+          <a href="/blog/" class="header__link">Blog</a>
+        </li>
+
+        <li class="header__item">
+          <a href="/contacto/" class="header__link header__link--cta btn btn--primary">
+            Evalúa tu Perfil Gratis
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="header__mobile-toggle"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      id="mobile-toggle"
+    >
+      <span class="header__hamburger" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil" hidden>
+    <ul class="mobile-nav__menu">
+      <li><a href="/titulacion-por-experiencia-laboral/" class="mobile-nav__link">Titulación por Experiencia</a></li>
+      <li>
+        <details class="mobile-nav__details">
+          <summary class="mobile-nav__link">Carreras <span aria-hidden="true">▾</span></summary>
+          <div class="mobile-nav__sub">
+            <p class="mobile-nav__sub-heading">Reguladas</p>
+            {carrerasReguladas.map(c => (
+              <a href={`/carreras/${c.slug}/`} class="mobile-nav__sub-link">{c.nombre}</a>
+            ))}
+            <p class="mobile-nav__sub-heading">No Reguladas</p>
+            {carrerasNoReguladas.map(c => (
+              <a href={`/carreras/${c.slug}/`} class="mobile-nav__sub-link">{c.nombre}</a>
+            ))}
+            <a href="/carreras/" class="mobile-nav__sub-link mobile-nav__sub-link--all">Ver todas las carreras →</a>
+          </div>
+        </details>
+      </li>
+      <li><a href="/acuerdo-286/" class="mobile-nav__link">Acuerdo 286</a></li>
+      <li><a href="/cedula-profesional/" class="mobile-nav__link">Cédula Profesional</a></li>
+      <li><a href="/blog/" class="mobile-nav__link">Blog</a></li>
+      <li><a href="/contacto/" class="mobile-nav__link mobile-nav__link--cta">Evalúa tu Perfil Gratis</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  /* --- Header Base — Premium --- */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    height: var(--header-height);
+    transition: box-shadow 0.3s, background 0.3s;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  /* --- Logo --- */
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  .header__logo-icon { font-size: 1.5rem; }
+  .header__logo-text strong { font-weight: 800; }
+
+  /* --- Desktop Nav --- */
+  .header__nav { display: none; }
+
+  .header__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+  }
+
+  .header__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-gray-700);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background var(--transition-fast);
+    white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .header__link:hover {
+    color: var(--color-primary);
+    background: var(--color-gray-50);
+  }
+
+  .header__link:active {
+    transform: scale(0.97);
+  }
+
+  .header__link--cta {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .header__chevron {
+    font-size: 0.625rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+  }
+
+  /* --- Mega Menu (Desktop: hover) — Premium --- */
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+    border-top: none;
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.12),
+      0 8px 20px rgba(0, 0, 0, 0.06),
+      0 0 0 1px rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px) scale(0.98);
+    transform-origin: top center;
+    transition:
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0.3s;
+    z-index: 999;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+  }
+
+  .header__item--mega:hover .mega-menu,
+  .header__item--mega:focus-within .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .header__item--mega:hover .header__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Active indicator on trigger */
+  .header__item--mega:hover .header__link--dropdown,
+  .header__item--mega:focus-within .header__link--dropdown {
+    color: var(--color-primary);
+    background: var(--color-gray-50);
+  }
+
+  .mega-menu__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 0;
+    padding: 0;
+  }
+
+  /* Columns with subtle separators */
+  .mega-menu__col {
+    padding: 1.75rem 2rem;
+    transition: background 0.2s;
+  }
+
+  .mega-menu__col:not(:last-child) {
+    border-right: 1px solid var(--color-gray-100);
+  }
+
+  .mega-menu__col:hover {
+    background: rgba(0, 0, 0, 0.01);
+  }
+
+  /* Recursos column with accent background */
+  .mega-menu__col--recursos {
+    background: linear-gradient(135deg, rgba(232, 168, 56, 0.04) 0%, rgba(232, 168, 56, 0.02) 100%);
+  }
+
+  .mega-menu__col--recursos:hover {
+    background: linear-gradient(135deg, rgba(232, 168, 56, 0.07) 0%, rgba(232, 168, 56, 0.03) 100%);
+  }
+
+  .mega-menu__heading {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    padding-bottom: 0;
+  }
+
+  .mega-menu__subtext {
+    font-size: 0.6875rem;
+    color: var(--color-gray-400);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .mega-menu__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .mega-menu__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: var(--color-gray-700);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 450;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .mega-menu__link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 3px;
+    height: 60%;
+    background: var(--color-accent);
+    border-radius: 0 4px 4px 0;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mega-menu__link:hover {
+    background: var(--color-gray-50);
+    color: var(--color-primary-dark);
+    padding-left: 18px;
+  }
+
+  .mega-menu__link:hover::before {
+    transform: translateY(-50%) scaleY(1);
+  }
+
+  /* Ver todas CTA button */
+  .mega-menu__ver-todas {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1.25rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(232, 168, 56, 0.2);
+  }
+
+  .mega-menu__ver-todas:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(232, 168, 56, 0.35);
+  }
+
+  /* --- Mobile Toggle --- */
+  .header__mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .header__hamburger,
+  .header__hamburger::before,
+  .header__hamburger::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-gray-800);
+    border-radius: 2px;
+    transition: all var(--transition-base);
+  }
+
+  .header__hamburger {
+    position: relative;
+  }
+
+  .header__hamburger::before,
+  .header__hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .header__hamburger::before { top: -7px; }
+  .header__hamburger::after { top: 7px; }
+
+  /* Active state */
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger {
+    background: transparent;
+  }
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .header__mobile-toggle[aria-expanded="true"] .header__hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* --- Mobile Nav --- */
+  .mobile-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-white);
+    overflow-y: auto;
+    padding: var(--space-lg);
+    z-index: 998;
+  }
+
+  .mobile-nav[hidden] { display: none; }
+
+  .mobile-nav__menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mobile-nav__link {
+    display: block;
+    padding: var(--space-md);
+    color: var(--color-gray-800);
+    text-decoration: none;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+  }
+
+  .mobile-nav__link:hover {
+    background: var(--color-gray-50);
+  }
+
+  .mobile-nav__link--cta {
+    margin-top: var(--space-md);
+    background: var(--color-accent);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    text-align: center;
+    border-radius: var(--radius-md);
+  }
+
+  .mobile-nav__details summary {
+    padding: 0;
+    border: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav__details summary::after { display: none; }
+
+  .mobile-nav__sub {
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+  }
+
+  .mobile-nav__sub-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-400);
+    padding: var(--space-sm) var(--space-sm) var(--space-xs);
+    margin: 0;
+  }
+
+  .mobile-nav__sub-link {
+    display: block;
+    padding: var(--space-sm);
+    color: var(--color-gray-600);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .mobile-nav__sub-link:hover {
+    background: var(--color-gray-50);
+    color: var(--color-primary);
+  }
+
+  .mobile-nav__sub-link--all {
+    color: var(--color-accent-dark);
+    font-weight: 600;
+    margin-top: var(--space-sm);
+  }
+
+  /* --- Desktop breakpoint --- */
+  @media (min-width: 1024px) {
+    .header__nav { display: flex; }
+    .header__mobile-toggle { display: none; }
+    .mobile-nav { display: none !important; }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle — vanilla JS, minimal
+  const toggle = document.getElementById('mobile-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileNav.hidden = isOpen;
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+  }
+
+  // Header scroll shadow
+  const header = document.getElementById('header');
+  if (header) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 10) {
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
+            header.style.borderBottomColor = 'transparent';
+          } else {
+            header.style.boxShadow = 'none';
+            header.style.borderBottomColor = 'rgba(0,0,0,0.06)';
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+</script>

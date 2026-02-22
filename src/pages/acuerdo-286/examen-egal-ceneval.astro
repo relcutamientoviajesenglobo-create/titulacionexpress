@@ -1,0 +1,85 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/', active: true },
+  { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/' },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+];
+---
+
+<SiloLayout
+  title="Examen EGAL del CENEVAL — Guía Completa Acuerdo 286 | Titulación Express"
+  description="Todo sobre el examen EGAL del CENEVAL para el Acuerdo 286: estructura, duración, áreas de evaluación, cómo prepararte y qué esperar el día del examen."
+  canonical="/acuerdo-286/examen-egal-ceneval/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Examen EGAL del CENEVAL — Guía Completa</h1>
+  <figure class="content-illustration">
+    <img src="/images/illustrations/examen-egal.svg" alt="Estructura del examen EGAL del CENEVAL para titulación por experiencia laboral — formato de reactivos y áreas de evaluación" width="400" height="300" loading="lazy" />
+  </figure>
+
+  <p>
+    El Examen General para la Acreditación de Licenciatura (EGAL) es el instrumento de evaluación escrita que aplica el Centro Nacional de Evaluación para la Educación Superior (CENEVAL) como primera etapa del proceso de <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a>. Es un examen estandarizado de opción múltiple que mide el dominio de las competencias profesionales de cada licenciatura.
+  </p>
+
+  <h2>Estructura del Examen</h2>
+
+  <p>
+    El EGAL es un examen de opción múltiple con reactivos diseñados específicamente para cada carrera. El número de preguntas y la duración varían según la licenciatura, pero generalmente consta de 180 a 300 reactivos distribuidos en sesiones de 4 a 8 horas. El examen se divide en áreas de conocimiento que corresponden a los campos fundamentales de la carrera.
+  </p>
+
+  <p>
+    Por ejemplo, el EGAL de <a href="/carreras/administracion/">Administración</a> evalúa áreas como planeación estratégica, finanzas corporativas, recursos humanos, mercadotecnia y operaciones. El de <a href="/carreras/derecho/">Derecho</a> abarca derecho constitucional, civil, penal, laboral, mercantil y administrativo. Cada carrera tiene su propio temario publicado por el CENEVAL en la guía de sustentante.
+  </p>
+
+  <h2>¿Cómo Prepararse?</h2>
+
+  <p>
+    La preparación para el EGAL debe ser sistemática y basada en el temario oficial de tu carrera. El CENEVAL publica guías de sustentante gratuitas que detallan las áreas de evaluación, el número de reactivos por área y la bibliografía de referencia. La preparación efectiva combina el estudio del temario con la práctica de reactivos similares y la identificación de áreas de fortaleza y debilidad.
+  </p>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso de preparación</a> que ofrecemos incluye material estructurado por área, simulacros de examen con retroalimentación y estrategias para optimizar tu desempeño. La experiencia laboral es tu mayor ventaja: las preguntas del EGAL evalúan conocimientos aplicados que se adquieren con la práctica profesional.
+  </p>
+
+  <h2>Sedes y Fechas de Aplicación</h2>
+
+  <p>
+    El examen EGAL se aplica en las sedes autorizadas del CENEVAL distribuidas en toda la República Mexicana. Las fechas de aplicación se publican en el <a href="/acuerdo-286/calendario-2026/">calendario de evaluaciones 2026</a> y generalmente hay múltiples periodos al año. Las <a href="/acuerdo-286/instituciones-evaluadoras/">instituciones evaluadoras autorizadas</a> coordinan el registro y la logística de aplicación.
+  </p>
+
+  <h2>Criterios de Aprobación</h2>
+
+  <p>
+    Para aprobar el EGAL debes obtener un puntaje mínimo establecido por el CENEVAL, que varía según la carrera. El resultado se reporta como testimonio de desempeño con niveles que van desde "aún no satisfactorio" hasta "sobresaliente". Aprobar el EGAL te habilita para presentar la segunda evaluación: el <a href="/acuerdo-286/examen-oral-exoal/">examen oral EXOAL</a>.
+  </p>
+
+  <p>
+    Si no apruebas en el primer intento, puedes presentar el examen nuevamente en el siguiente periodo de aplicación. Conoce los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos completos</a> del proceso y los <a href="/titulacion-por-experiencia-laboral/costo/">costos de evaluación</a> para planificar tu preparación.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Prepárate para el EGAL con Acompañamiento</h2>
+    <p>Nuestro programa de preparación personalizado te da las herramientas para enfrentar el examen con confianza.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Step 1: Evaluación de perfil -->
+  <circle cx="32" cy="32" r="30" fill="#F0F4FF"/>
+  <circle cx="32" cy="22" r="10" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+  <path d="M14 48C14 38 22 32 32 32C42 32 50 38 50 48" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M42 18L46 22L54 14" stroke="#E8A838" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,111 @@
+---
+/**
+ * SILO 1 SUB: /titulacion-por-experiencia-laboral/preguntas-frecuentes/
+ * Bracket: FAQ
+ * Keyword: preguntas frecuentes titulación experiencia
+ * Schema: FAQPage (solo porque FAQ es visible en prosa)
+ */
+import SiloLayout from '../../layouts/SiloLayout.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const siloNav = [
+  { name: 'Titulación por Experiencia', url: '/titulacion-por-experiencia-laboral/' },
+  { name: 'Requisitos', url: '/titulacion-por-experiencia-laboral/requisitos/' },
+  { name: 'Proceso Paso a Paso', url: '/titulacion-por-experiencia-laboral/proceso-paso-a-paso/' },
+  { name: 'Costo', url: '/titulacion-por-experiencia-laboral/costo/' },
+  { name: 'Beneficios', url: '/titulacion-por-experiencia-laboral/beneficios/' },
+  { name: 'Testimonios', url: '/titulacion-por-experiencia-laboral/testimonios/' },
+  { name: 'Preguntas Frecuentes', url: '/titulacion-por-experiencia-laboral/preguntas-frecuentes/', active: true },
+];
+
+const faqItems = [
+  {
+    question: '¿Es legal la titulación por experiencia laboral en México?',
+    answer: 'Sí, es completamente legal. El Acuerdo 286 de la Secretaría de Educación Pública, publicado en el Diario Oficial de la Federación en el año 2000, establece el marco legal para acreditar conocimientos adquiridos por experiencia laboral o de forma autodidacta. Los títulos son expedidos directamente por la SEP y tienen validez oficial en todo México. Puedes verificar la existencia del Acuerdo 286 en el sitio oficial de la DGAIR de la SEP.',
+  },
+  {
+    question: '¿Cuánto tiempo tarda el proceso completo de titulación?',
+    answer: 'El proceso de preparación y evaluaciones toma entre 3 y 6 meses. Después de aprobar los exámenes EGAL y EXOAL, el trámite administrativo del título ante la SEP toma de 4 a 6 meses adicionales. En total, desde que inicias hasta que tienes título y cédula profesional en mano, el proceso toma entre 7 y 12 meses. Desconfía de cualquier servicio que prometa tiempos menores, ya que los trámites gubernamentales tienen plazos establecidos.',
+  },
+  {
+    question: '¿Qué carreras puedo acreditar con el Acuerdo 286?',
+    answer: 'Actualmente hay 15 licenciaturas principales disponibles bajo el Acuerdo 286, divididas entre reguladas y no reguladas. Las más solicitadas incluyen Administración, Derecho, Contaduría, Mercadotecnia, Pedagogía, Ingeniería Industrial, Ciencias de la Comunicación, Turismo y Gastronomía, entre otras. Consulta la sección de carreras disponibles para ver el listado completo.',
+  },
+  {
+    question: '¿Necesito haber ido a la universidad para titularme por experiencia?',
+    answer: 'Depende de la carrera. Las carreras no reguladas — como Administración, Mercadotecnia, Pedagogía, Turismo o Ciencias de la Comunicación — no requieren créditos universitarios previos. Solo necesitas bachillerato y experiencia laboral comprobable. Las carreras reguladas — como Derecho, Contaduría o las ingenierías — sí requieren haber cursado al menos el 50% de los créditos de la licenciatura.',
+  },
+  {
+    question: '¿El título del Acuerdo 286 tiene la misma validez que uno universitario?',
+    answer: 'Sí, exactamente la misma. El título es expedido por la SEP, no por Titulación Express ni por ninguna escuela. Tiene validez oficial en todo México, te permite tramitar tu cédula profesional federal y es reconocido por instituciones públicas, privadas, universidades (para posgrados) y organismos internacionales. No existe diferencia legal entre este título y uno obtenido en una universidad.',
+  },
+  {
+    question: '¿Puedo hacer maestría con el título del Acuerdo 286?',
+    answer: 'Sí. Una vez que tienes tu título de licenciatura y cédula profesional, puedes inscribirte en cualquier programa de maestría o doctorado en México o el extranjero. El título no tiene restricciones ni anotaciones especiales que lo distingan de uno universitario. Varias universidades públicas y privadas ya han admitido a titulados del Acuerdo 286 en sus posgrados.',
+  },
+  {
+    question: '¿Qué pasa si no apruebo el examen EGAL o el EXOAL?',
+    answer: 'Si no apruebas alguna de las evaluaciones, puedes presentarla nuevamente en el siguiente periodo de aplicación del CENEVAL. No pierdes tu inversión en preparación ni tu registro. Lo que sí deberás cubrir son los derechos de evaluación del nuevo intento. Por eso la preparación adecuada es fundamental: nuestro programa busca que llegues al examen con la mayor certeza posible de aprobación.',
+  },
+  {
+    question: '¿Cuánto cuesta titularse por experiencia laboral?',
+    answer: 'El costo total incluye preparación académica, derechos de evaluación del CENEVAL (examen EGAL y EXOAL), y trámites gubernamentales de título y cédula profesional. El monto varía según la carrera (regulada vs no regulada) y el nivel de preparación que necesites. Consulta la sección de costos para un desglose completo, o solicita una cotización personalizada en la evaluación de perfil.',
+  },
+  {
+    question: '¿Cuántos años de experiencia necesito?',
+    answer: 'Aunque el Acuerdo 286 no especifica un número exacto de años, las instituciones evaluadoras generalmente solicitan un mínimo de 3 a 5 años de experiencia laboral comprobable en el campo de la carrera. Lo determinante no son solo los años, sino la profundidad y relevancia de tu experiencia respecto a las áreas que evalúa el examen EGAL de tu carrera específica.',
+  },
+  {
+    question: '¿Las empresas aceptan el título obtenido por experiencia laboral?',
+    answer: 'Sí. Las empresas verifican la cédula profesional, no la modalidad en que obtuviste el título. Tu cédula profesional electrónica es verificable en el sitio del gobierno federal y no indica si el título fue obtenido por vía universitaria o por el Acuerdo 286. Para fines prácticos, laborales y legales, el título es indistinguible de uno tradicional.',
+  },
+];
+---
+
+<SiloLayout
+  title="Preguntas Frecuentes sobre la Titulación por Experiencia Laboral | Titulación Express"
+  description="Resolvemos las dudas más comunes sobre la titulación por experiencia laboral: legalidad, tiempos, costos, validez del título, carreras disponibles y más. Guía 2026."
+  canonical="/titulacion-por-experiencia-laboral/preguntas-frecuentes/"
+  headerImage="/images/photos/open-book.jpg"
+  breadcrumbs={[
+    { name: 'Titulación por Experiencia Laboral', url: '/titulacion-por-experiencia-laboral/' },
+    { name: 'Preguntas Frecuentes', url: '/titulacion-por-experiencia-laboral/preguntas-frecuentes/' },
+  ]}
+  schemaType="faq"
+  faq={faqItems}
+  siloNav={siloNav}
+>
+
+  <h1>Preguntas Frecuentes sobre la Titulación por Experiencia Laboral</h1>
+
+  <p>
+    Hemos recopilado las preguntas que más recibimos de profesionales interesados en la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a>. Si tu pregunta no aparece aquí, contáctanos directamente y la resolveremos.
+  </p>
+
+  <FAQAccordion items={faqItems} />
+
+  <h2>¿Tienes Otra Pregunta?</h2>
+
+  <p>
+    Si necesitas información más específica sobre los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a>, el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso detallado</a>, los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> o las <a href="/acuerdo-286/carreras-disponibles/">carreras disponibles</a>, cada tema tiene su propia sección con información completa. También puedes revisar los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios de profesionales titulados</a> para conocer experiencias reales del proceso.
+  </p>
+
+  <!-- CTA -->
+  <div class="silo-cta">
+    <h2>Resolvemos tus Dudas Personalmente</h2>
+    <p>Solicita una evaluación de perfil gratuita y resuelve todas tus dudas con nuestro equipo de orientadores.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+  }
+  .silo-cta h2 { margin-top: 0; }
+</style>

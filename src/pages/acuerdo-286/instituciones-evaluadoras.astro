@@ -1,0 +1,74 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/' },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/', active: true },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+];
+---
+
+<SiloLayout
+  title="Instituciones Evaluadoras Autorizadas — Acuerdo 286 SEP | Titulación Express"
+  description="Conoce las instituciones evaluadoras autorizadas por la DGAIR para aplicar los exámenes del Acuerdo 286. Qué son, cómo verificarlas y su papel en tu titulación."
+  canonical="/acuerdo-286/instituciones-evaluadoras/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Instituciones Evaluadoras Autorizadas del Acuerdo 286</h1>
+
+  <p>
+    Las instituciones evaluadoras son las entidades autorizadas por la Dirección General de Acreditación, Incorporación y Revalidación (DGAIR) de la SEP para aplicar las evaluaciones del <a href="/acuerdo-286/que-es/">Acuerdo 286</a>. Estas instituciones coordinan la aplicación del <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> y la <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a>, verifican la documentación de los aspirantes y reportan los resultados a la DGAIR para la expedición del título.
+  </p>
+
+  <h2>¿Qué Hace una Institución Evaluadora?</h2>
+
+  <p>
+    Las instituciones evaluadoras funcionan como intermediarias autorizadas entre el aspirante y la SEP. Sus funciones incluyen recibir y verificar la documentación del aspirante, coordinar el registro ante el CENEVAL para el examen EGAL, organizar la logística de aplicación de evaluaciones, conformar el jurado de sinodales para el EXOAL, emitir el dictamen de aprobación y enviar los resultados a la DGAIR para que esta proceda con la expedición del título profesional.
+  </p>
+
+  <p>
+    Es importante distinguir entre la institución evaluadora y el CENEVAL. El CENEVAL diseña y califica el examen EGAL como organismo técnico especializado. La institución evaluadora es la entidad autorizada que administra todo el proceso, incluyendo la aplicación del EXOAL.
+  </p>
+
+  <h2>¿Cómo Verificar que una Institución Está Autorizada?</h2>
+
+  <p>
+    La DGAIR publica el listado de instituciones evaluadoras autorizadas vigentes. Antes de inscribirte con cualquier institución, verifica que cuente con autorización vigente de la DGAIR. Puedes consultar el directorio oficial en el sitio de la <a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">Secretaría de Educación Pública</a>. Desconfía de cualquier entidad que no pueda demostrar su autorización o que ofrezca procesos que se desvíen de lo establecido en el Acuerdo 286.
+  </p>
+
+  <h2>Sedes de Evaluación</h2>
+
+  <p>
+    Las sedes donde se aplican los exámenes están distribuidas en diversas ciudades de la República Mexicana. La disponibilidad de sedes varía según la carrera y el periodo de evaluación. Consulta el <a href="/acuerdo-286/calendario-2026/">calendario 2026</a> para conocer las fechas y sedes disponibles para tu carrera.
+  </p>
+
+  <h2>Relación con Titulación Express</h2>
+
+  <p>
+    Titulación Express no es una institución evaluadora. Somos un programa de acompañamiento y preparación que te guía durante todo el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso de titulación</a>: desde la evaluación de perfil inicial, pasando por la preparación para los exámenes, hasta el acompañamiento en los trámites de título y <a href="/cedula-profesional/">cédula profesional</a>. Las evaluaciones formales las presentas ante las instituciones evaluadoras autorizadas por la DGAIR. Conoce los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos completos</a> para iniciar.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Inicia tu Proceso con Orientación Profesional</h2>
+    <p>Te guiamos paso a paso, desde tu perfil hasta la obtención del título. Evaluación de perfil sin costo.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

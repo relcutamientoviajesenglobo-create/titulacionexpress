@@ -1,0 +1,60 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/engineering-blueprints.jpg"
+  nombre="Ingeniería Industrial"
+  slug="ingenieria-industrial"
+  tipo="regulada"
+  keyword="ingeniería industrial por experiencia laboral"
+  description="Titúlate en Ingeniería Industrial por experiencia laboral con el Acuerdo 286. Carrera regulada: requiere 50% de créditos. Para ingenieros en manufactura, operaciones y producción."
+  carrerasRelacionadas={[
+    { nombre: 'Administración', slug: 'administracion' },
+    { nombre: 'Ingeniería Computacional', slug: 'ingenieria-computacional' },
+    { nombre: 'Economía', slug: 'economia' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Ingeniería Industrial por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Ingeniería Industrial por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a profesionales de manufactura, producción, calidad, logística y optimización de procesos con créditos universitarios parciales obtener su título oficial y <a href="/cedula-profesional/">cédula profesional</a>. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera regulada</a>, requiere haber cursado al menos el 50% de los créditos en una institución con RVOE.
+  </p>
+
+  <p>
+    La cédula profesional de Ingeniería Industrial habilita para firmar planos de procesos, dictámenes de seguridad industrial, certificaciones de calidad y documentos técnicos que sin ella no tienen validez legal. Muchos ingenieros en ejercicio operan con esta limitación al no haber concluido su carrera.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Los candidatos son profesionales que cursaron al menos la mitad de Ingeniería Industrial y cuentan con experiencia en gerencia de planta o producción, ingeniería de procesos y mejora continua, gestión de calidad y sistemas ISO, logística, cadena de suministro y almacenes, seguridad industrial e higiene, planeación y control de la producción, o consultoría en eficiencia operativa. Se requiere experiencia comprobable en funciones de ingeniería industrial.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Ingeniería Industrial evalúa: ingeniería de métodos y estudio del trabajo, gestión de la calidad y control estadístico de procesos, investigación de operaciones y optimización, administración de operaciones y producción, logística y cadena de suministro, seguridad e higiene industrial, y diseño de instalaciones industriales. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> es particularmente técnica y evalúa tu capacidad de resolver problemas de ingeniería con argumentación cuantitativa.
+  </p>
+
+  <h2>Requisito de Créditos Universitarios</h2>
+
+  <p>
+    Como carrera regulada, necesitas demostrar haber cursado al menos el 50% de los créditos de Ingeniería Industrial en una institución con RVOE. Si cursaste varios semestres pero no concluiste la carrera — algo frecuente en ingenierías por su duración y dificultad — puedes aprovechar ese avance para obtener tu título. Consulta los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos completos</a> y los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> para carreras reguladas.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Héctor Villanueva R."
+    carrera="Ingeniería Industrial"
+    cita="Cursé 7 semestres de Ingeniería Industrial antes de que una oportunidad laboral me sacara de la universidad. 12 años después, como gerente de planta, necesitaba el título para firmar dictámenes de seguridad. El Acuerdo 286 cerró el ciclo que dejé abierto."
+    contexto="Gerente de planta, 12 años en manufactura"
+    anio="2024"
+  />
+
+</CarreraLayout>

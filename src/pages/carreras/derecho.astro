@@ -1,0 +1,70 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/lawyer-scales.jpg"
+  nombre="Derecho"
+  slug="derecho"
+  tipo="regulada"
+  keyword="licenciatura en derecho por experiencia laboral"
+  description="Titúlate en Derecho por experiencia laboral con el Acuerdo 286. Carrera regulada: requiere 50% de créditos universitarios. Obtén título y cédula para litigar legalmente."
+  carrerasRelacionadas={[
+    { nombre: 'Ciencias Políticas', slug: 'ciencias-politicas' },
+    { nombre: 'Administración', slug: 'administracion' },
+    { nombre: 'Economía', slug: 'economia' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Derecho por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Licenciatura en Derecho por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a profesionales del ámbito jurídico con créditos universitarios parciales y experiencia práctica obtener su título oficial y <a href="/cedula-profesional/">cédula profesional</a> para ejercer plenamente la abogacía en México. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera regulada</a>, requiere haber cursado al menos el 50% de los créditos de la licenciatura en una institución con RVOE.
+  </p>
+
+  <p>
+    Derecho es una de las carreras donde la cédula profesional tiene mayor impacto práctico. Sin ella, un profesional del derecho no puede litigar en ciertos tribunales, firmar contratos como abogado patrono, emitir dictámenes legales ni participar en concursos de oposición para cargos judiciales.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Esta carrera es para profesionales que cursaron al menos la mitad de la licenciatura en Derecho pero no la concluyeron, y que cuentan con experiencia práctica en el ámbito jurídico. El perfil incluye paralegales, auxiliares jurídicos, gestores legales, mediadores, funcionarios de áreas jurídicas del sector público, asesores laborales y profesionales que ejercen funciones legales en empresas. La experiencia comprobable en funciones jurídicas es fundamental para el proceso.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Derecho evalúa las ramas fundamentales de la disciplina: derecho constitucional y amparo, derecho civil y procesal civil, derecho penal y procesal penal, derecho laboral, derecho mercantil, derecho administrativo, y teoría general del derecho. Es uno de los EGAL más extensos, con múltiples sesiones de evaluación.
+  </p>
+
+  <p>
+    La preparación requiere tanto dominio teórico como capacidad de análisis de casos prácticos. Tu experiencia en tribunales, asesoría legal o gestión jurídica es una ventaja decisiva en las preguntas de aplicación. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> para Derecho es particularmente rigurosa, ya que los sinodales evalúan tu capacidad de argumentación jurídica.
+  </p>
+
+  <h2>Requisito de Créditos Universitarios</h2>
+
+  <p>
+    Como carrera regulada, necesitas demostrar haber cursado al menos el 50% de los créditos de la Licenciatura en Derecho en una institución educativa con Reconocimiento de Validez Oficial de Estudios. Esto se verifica mediante tu historial académico parcial. Si cursaste varios semestres de Derecho pero no concluiste la carrera, es muy probable que cumplas este requisito. Consulta los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos completos</a>.
+  </p>
+
+  <h2>Impacto Profesional del Título en Derecho</h2>
+
+  <p>
+    Los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios</a> de obtener el título y la cédula profesional en Derecho son particularmente significativos: habilitación plena para litigar en todos los tribunales, capacidad de firmar demandas, contratos y dictámenes como abogado patrono, elegibilidad para cargos judiciales, notarías y mediación, y acceso a maestrías en derecho. Los <a href="/titulacion-por-experiencia-laboral/costo/">costos del proceso</a> para carreras reguladas incluyen la verificación de créditos ante la DGAIR.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Javier Morales R."
+    carrera="Derecho"
+    cita="Trabajé como paralegal durante 10 años. Tenía el 60% de los créditos de Derecho y la experiencia práctica completa. La titulación por experiencia me permitió cerrar ese capítulo. El examen oral frente al jurado fue intimidante, pero mi experiencia real en tribunales habló por sí misma."
+    contexto="Ahora abogado litigante, ex-paralegal 10 años"
+    anio="2024"
+  />
+
+</CarreraLayout>

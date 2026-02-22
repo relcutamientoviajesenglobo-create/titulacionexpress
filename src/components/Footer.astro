@@ -1,0 +1,229 @@
+---
+/**
+ * Footer.astro — Footer estratégico
+ * Presente en TODAS las páginas. Distribuye PageRank hacia:
+ * - Carreras populares (SILO 3)
+ * - Recursos principales (SILO 1 + SILO 2)
+ * - Legal + contacto
+ * Declaración de autoridad + trust signals
+ */
+const baseUrl = 'https://titulacionexpress.com';
+
+const carrerasPopulares = [
+  { nombre: 'Administración', slug: 'administracion' },
+  { nombre: 'Derecho', slug: 'derecho' },
+  { nombre: 'Contaduría', slug: 'contaduria' },
+  { nombre: 'Mercadotecnia', slug: 'mercadotecnia' },
+  { nombre: 'Pedagogía', slug: 'pedagogia' },
+  { nombre: 'Ingeniería Industrial', slug: 'ingenieria-industrial' },
+];
+
+const recursosLinks = [
+  { nombre: 'Acuerdo 286 — Guía 2026', url: '/acuerdo-286/' },
+  { nombre: 'Requisitos', url: '/titulacion-por-experiencia-laboral/requisitos/' },
+  { nombre: 'Proceso Paso a Paso', url: '/titulacion-por-experiencia-laboral/proceso-paso-a-paso/' },
+  { nombre: 'Costos', url: '/titulacion-por-experiencia-laboral/costo/' },
+  { nombre: 'Cédula Profesional', url: '/cedula-profesional/' },
+  { nombre: 'Blog', url: '/blog/' },
+  { nombre: 'Preguntas Frecuentes', url: '/titulacion-por-experiencia-laboral/preguntas-frecuentes/' },
+];
+
+const legalLinks = [
+  { nombre: 'Nosotros', url: '/nosotros/' },
+  { nombre: 'Contacto', url: '/contacto/' },
+  { nombre: 'Aviso de Privacidad', url: '/aviso-de-privacidad/' },
+  { nombre: 'Términos y Condiciones', url: '/terminos-y-condiciones/' },
+];
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__main container">
+    <div class="footer__grid">
+      <!-- Brand Column -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="Titulación Express — Inicio">
+          <span class="footer__logo-icon">🎓</span>
+          <strong>Titulación</strong> Express
+        </a>
+        <p class="footer__tagline">
+          Programa de acompañamiento para obtener tu título de licenciatura mediante el Acuerdo 286 de la SEP. 15 carreras disponibles con validez oficial en todo México.
+        </p>
+        <div class="footer__trust">
+          <span class="trust-badge">✓ Validez oficial SEP</span>
+        </div>
+      </div>
+
+      <!-- Carreras Populares -->
+      <div class="footer__col">
+        <h3 class="footer__heading">Carreras Populares</h3>
+        <ul class="footer__list">
+          {carrerasPopulares.map(c => (
+            <li>
+              <a href={`/carreras/${c.slug}/`} class="footer__link">
+                Lic. en {c.nombre}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/carreras/" class="footer__link footer__link--all">
+              Ver las 15 carreras →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Recursos -->
+      <div class="footer__col">
+        <h3 class="footer__heading">Recursos</h3>
+        <ul class="footer__list">
+          {recursosLinks.map(r => (
+            <li>
+              <a href={r.url} class="footer__link">{r.nombre}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal + Contacto -->
+      <div class="footer__col">
+        <h3 class="footer__heading">Legal</h3>
+        <ul class="footer__list">
+          {legalLinks.map(l => (
+            <li>
+              <a href={l.url} class="footer__link">{l.nombre}</a>
+            </li>
+          ))}
+        </ul>
+        <div class="footer__contacto">
+          <h3 class="footer__heading">Contacto</h3>
+          <p class="footer__contact-item">📞 +52 55 0000 0000</p>
+          <p class="footer__contact-item">💬 WhatsApp</p>
+          <p class="footer__contact-item">✉ info@titulacionexpress.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p class="footer__copy">
+        © 2026 Titulación Express. Proceso avalado por el Acuerdo 286 de la Secretaría de Educación Pública de México.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-primary-dark);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer__main {
+    padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__logo-icon { font-size: 1.5rem; }
+
+  .footer__tagline {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-lg);
+    max-width: 300px;
+  }
+
+  .footer__trust {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .footer__heading {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+  }
+
+  .footer__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer__link {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  .footer__link:hover {
+    color: var(--color-accent-light);
+  }
+
+  .footer__link--all {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: var(--space-sm);
+  }
+
+  .footer__contacto {
+    margin-top: var(--space-xl);
+  }
+
+  .footer__contact-item {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-xs);
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-lg) 0;
+  }
+
+  .footer__bottom-inner {
+    text-align: center;
+  }
+
+  .footer__copy {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

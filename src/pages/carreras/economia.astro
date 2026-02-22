@@ -1,0 +1,56 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/economics-charts.jpg"
+  nombre="Economía"
+  slug="economia"
+  tipo="no-regulada"
+  keyword="licenciatura en economía por experiencia laboral"
+  description="Titúlate en Economía por experiencia laboral con el Acuerdo 286. Sin créditos previos. Para analistas económicos, consultores financieros y profesionales del sector público."
+  carrerasRelacionadas={[
+    { nombre: 'Administración', slug: 'administracion' },
+    { nombre: 'Contaduría', slug: 'contaduria' },
+    { nombre: 'Comercio Internacional', slug: 'comercio-internacional' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Economía por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Licenciatura en Economía por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a analistas económicos, consultores financieros, funcionarios del sector público y profesionales dedicados al análisis de mercados obtener su título oficial. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera no regulada</a>, no requiere créditos universitarios previos: basta con bachillerato y experiencia profesional comprobable.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Los candidatos ideales son profesionales con experiencia en análisis económico y financiero, consultoría empresarial y económica, planeación y evaluación de proyectos de inversión, funciones económicas en el sector público (banca de desarrollo, secretarías, organismos), investigación de mercados a nivel macroeconómico, comercio exterior y análisis de mercados internacionales, y docencia o divulgación en temas económicos. Se recomienda un mínimo de 3 a 5 años en funciones relacionadas con análisis económico.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Economía evalúa: microeconomía y teoría del consumidor, macroeconomía y política económica, econometría y métodos cuantitativos, economía mexicana y desarrollo económico, finanzas públicas y política fiscal, y economía internacional. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> profundiza en tu capacidad de analizar escenarios económicos reales con rigor metodológico.
+  </p>
+
+  <h2>El Proceso para Economía</h2>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso</a> es directo al ser carrera no regulada. Los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> son bachillerato, experiencia en análisis económico y documentación personal. Consulta los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> del proceso y los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios</a> de obtener tu título y <a href="/cedula-profesional/">cédula profesional</a>. Lee <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios</a> de profesionales que ya se titularon.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Carlos Ibarra M."
+    carrera="Economía"
+    cita="Trabajé 8 años como analista económico en una consultora. Cuando apliqué a un puesto en banca de desarrollo, el título era requisito indispensable. El EGAL de Economía es exigente en la parte cuantitativa, pero mi experiencia analizando datos me dio ventaja. Hoy estoy donde quería estar."
+    contexto="Analista en banca de desarrollo, 8 años de experiencia"
+    anio="2025"
+  />
+
+</CarreraLayout>

@@ -1,0 +1,60 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/chef-kitchen.jpg"
+  nombre="Gastronomía"
+  slug="gastronomia"
+  tipo="no-regulada"
+  keyword="licenciatura en gastronomía por experiencia laboral"
+  description="Titúlate en Gastronomía por experiencia laboral con el Acuerdo 286. Sin créditos previos. Para chefs, directores de alimentos y bebidas, y profesionales culinarios."
+  carrerasRelacionadas={[
+    { nombre: 'Turismo', slug: 'turismo' },
+    { nombre: 'Administración', slug: 'administracion' },
+    { nombre: 'Mercadotecnia', slug: 'mercadotecnia' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Gastronomía por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Licenciatura en Gastronomía por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a chefs, directores de alimentos y bebidas, propietarios de restaurantes y profesionales culinarios con trayectoria comprobable obtener su título oficial. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera no regulada</a>, no requiere créditos universitarios previos: basta con bachillerato y experiencia laboral en el sector gastronómico.
+  </p>
+
+  <p>
+    La gastronomía mexicana es Patrimonio Cultural Inmaterial de la Humanidad, y detrás de esa riqueza están miles de profesionales que aprendieron su oficio en cocinas reales, no en aulas. El Acuerdo 286 reconoce ese recorrido y lo formaliza con un título de la SEP que abre puertas a la docencia, consultoría y crecimiento empresarial.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Los candidatos ideales son chefs ejecutivos o de partida con experiencia en restaurantes, directores o gerentes de alimentos y bebidas en hoteles y cadenas, propietarios de restaurantes o servicios de catering, consultores gastronómicos, instructores de cocina y formadores culinarios, y profesionales de la industria alimentaria con funciones de desarrollo de producto o control de calidad. Se recomienda un mínimo de 3 años de experiencia profesional en el sector.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Gastronomía evalúa: técnicas culinarias y de preparación de alimentos, gestión de establecimientos de alimentos y bebidas, nutrición y ciencia de los alimentos, higiene y seguridad alimentaria, costos y administración de operaciones gastronómicas, y patrimonio gastronómico y enología. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> permite demostrar tu dominio práctico ante sinodales del campo.
+  </p>
+
+  <h2>El Proceso para Gastronomía</h2>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso</a> es directo al ser carrera no regulada. Los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> son bachillerato, experiencia gastronómica y documentación personal. La preparación complementa tu conocimiento práctico con los fundamentos teóricos que evalúa el EGAL. Consulta los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> y los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios</a> de obtener tu título y <a href="/cedula-profesional/">cédula profesional</a>.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Diego Ramírez C."
+    carrera="Gastronomía"
+    cita="Empecé lavando platos a los 17 años. A los 38 ya era chef ejecutivo de un restaurante con estrella, pero sin título. Cuando me invitaron a dar clases en una universidad, necesitaba cédula profesional. El Acuerdo 286 fue la solución perfecta para alguien que aprendió cocinando, no estudiando."
+    contexto="Chef Ejecutivo, 21 años en cocinas profesionales"
+    anio="2025"
+  />
+
+</CarreraLayout>

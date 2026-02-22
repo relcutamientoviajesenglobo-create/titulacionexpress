@@ -1,0 +1,106 @@
+---
+/**
+ * ProcesoTimeline.astro — Timeline visual del proceso de titulación
+ * 4 pasos con iconos SVG, título y descripción
+ */
+const pasos = [
+  {
+    icon: '/images/proceso/paso-1-evaluacion.svg',
+    numero: 'Paso 1',
+    titulo: 'Evaluación de Perfil',
+    descripcion: 'Analizamos tu experiencia laboral y determinamos la carrera y el proceso más adecuado para tu perfil profesional.',
+  },
+  {
+    icon: '/images/proceso/paso-2-preparacion.svg',
+    numero: 'Paso 2',
+    titulo: 'Preparación Académica',
+    descripcion: 'Te preparamos para los exámenes EGAL y EXOAL con material específico para tu carrera y simulacros de examen.',
+  },
+  {
+    icon: '/images/proceso/paso-3-evaluaciones.svg',
+    numero: 'Paso 3',
+    titulo: 'Evaluaciones CENEVAL',
+    descripcion: 'Presentas el examen escrito EGAL y la evaluación oral EXOAL ante la institución evaluadora autorizada.',
+  },
+  {
+    icon: '/images/proceso/paso-4-titulo.svg',
+    numero: 'Paso 4',
+    titulo: 'Título y Cédula',
+    descripcion: 'Obtienes tu título de licenciatura expedido por la SEP y tramitas tu cédula profesional federal.',
+  },
+];
+---
+
+<div class="proceso__grid">
+  {pasos.map((paso) => (
+    <div class="proceso__step">
+      <div class="proceso__number-wrap">
+        <img src={paso.icon} alt={paso.titulo} width="64" height="64" loading="lazy" class="proceso__icon-img" />
+        <span class="proceso__number">{paso.numero}</span>
+      </div>
+      <h3 class="proceso__title">{paso.titulo}</h3>
+      <p class="proceso__desc">{paso.descripcion}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .proceso__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-xl);
+    counter-reset: step;
+  }
+
+  .proceso__step {
+    position: relative;
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .proceso__number-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .proceso__icon-img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .proceso__number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent-dark);
+  }
+
+  .proceso__title {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary-dark);
+  }
+
+  .proceso__desc {
+    font-size: 0.9375rem;
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .proceso__step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      right: -1rem;
+      width: 2rem;
+      height: 2px;
+      background: var(--color-gray-200);
+    }
+  }
+</style>

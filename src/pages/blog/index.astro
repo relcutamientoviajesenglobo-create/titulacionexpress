@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const posts = [
+  { title: '¿Cómo Titularse sin Tesis en México? 7 Opciones Legales en 2026', url: '/blog/titularse-sin-tesis-opciones-mexico/', thumb: '/images/photos/blog-tesis.jpg', date: '2026-01-15', readTime: '8 min', excerpt: 'Conoce las formas de titulación sin tesis en México: examen CENEVAL, experiencia laboral, seminario, maestría y más.' },
+  { title: 'Formas de Titulación en México — Guía Completa 2026', url: '/blog/formas-de-titulacion-en-mexico/', thumb: '/images/photos/blog-formas-titulacion.jpg', date: '2026-01-20', readTime: '7 min', excerpt: 'Todas las modalidades de titulación vigentes en México: tesis, examen profesional, experiencia laboral, créditos de posgrado y más.' },
+  { title: 'Licenciatura Ejecutiva vs Titulación por Experiencia Laboral', url: '/blog/licenciatura-ejecutiva-vs-experiencia-laboral/', thumb: '/images/photos/blog-ejecutiva.jpg', date: '2026-01-25', readTime: '6 min', excerpt: 'Comparativa detallada: tiempos, costos, validez y para quién es mejor cada opción.' },
+  { title: '¿Cuánto Tiempo Tarda Titularse por Experiencia Laboral?', url: '/blog/cuanto-tiempo-tarda-titularse-por-experiencia/', thumb: '/images/photos/blog-tiempo.jpg', date: '2026-02-01', readTime: '5 min', excerpt: 'Tiempos reales del proceso: desde la evaluación de perfil hasta la cédula profesional en tu mano.' },
+  { title: 'Diferencia entre un Título Universitario y uno del Acuerdo 286', url: '/blog/diferencia-titulo-normal-acuerdo-286/', thumb: '/images/photos/blog-diferencia.jpg', date: '2026-02-05', readTime: '5 min', excerpt: '¿Hay diferencia legal? ¿Las empresas los distinguen? La verdad sobre el título del Acuerdo 286.' },
+  { title: '¿Las Empresas Aceptan el Título del Acuerdo 286?', url: '/blog/empresas-aceptan-titulo-acuerdo-286/', thumb: '/images/photos/blog-empresas.jpg', date: '2026-02-08', readTime: '5 min', excerpt: 'Qué verifican los empleadores, cómo funciona la cédula profesional y la realidad del mercado laboral.' },
+  { title: '¿Qué Pasa si No Apruebo el Examen del CENEVAL?', url: '/blog/que-pasa-si-no-apruebo-examen-ceneval/', thumb: '/images/photos/blog-no-apruebo.jpg', date: '2026-02-10', readTime: '5 min', excerpt: 'Opciones después de no aprobar el EGAL: reintentos, preparación y tiempos de espera.' },
+  { title: 'Cómo Prepararse para el Examen EGAL del CENEVAL', url: '/blog/como-prepararse-examen-egal/', thumb: '/images/photos/blog-prepararse-egal.jpg', date: '2026-02-12', readTime: '7 min', excerpt: 'Estrategias de preparación, materiales de estudio, simulacros y consejos de titulados exitosos.' },
+  { title: '9 Ventajas de Tener Título Profesional en México en 2026', url: '/blog/ventajas-titulo-profesional-mexico/', thumb: '/images/photos/blog-ventajas.jpg', date: '2026-02-14', readTime: '6 min', excerpt: 'Cédula profesional, mejor salario, posgrados, firmar documentos legales y más beneficios concretos.' },
+  { title: '¿Puedo Hacer una Maestría con el Título del Acuerdo 286?', url: '/blog/puedo-hacer-maestria-con-titulo-acuerdo-286/', thumb: '/images/photos/blog-maestria.jpg', date: '2026-02-16', readTime: '5 min', excerpt: 'Sí. El título de la SEP habilita para cualquier posgrado. Conoce cómo y dónde inscribirte.' },
+  { title: '¿Es Posible Titularse sin Bachillerato?', url: '/blog/titulacion-sin-bachillerato-es-posible/', thumb: '/images/photos/blog-sin-bachillerato.jpg', date: '2026-02-18', readTime: '4 min', excerpt: 'El bachillerato es requisito del Acuerdo 286, pero hay opciones para obtenerlo rápidamente.' },
+  { title: '¿Hay Edad Mínima o Máxima para Titularse por Experiencia?', url: '/blog/edad-minima-titulacion-experiencia/', thumb: '/images/photos/blog-edad.jpg', date: '2026-02-20', readTime: '4 min', excerpt: 'No hay límite de edad. Profesionales de 25 a 65 años se han titulado exitosamente.' },
+];
+---
+
+<BaseLayout
+  title="Blog — Titulación por Experiencia Laboral y Acuerdo 286 | Titulación Express"
+  description="Artículos informativos sobre titulación por experiencia laboral, Acuerdo 286, preparación para el CENEVAL, cédula profesional y opciones de titulación en México."
+  canonical="/blog/"
+  schemaType="page"
+  breadcrumbs={[{ name: 'Blog', url: '/blog/' }]}
+>
+
+  <div class="blog-index">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Blog', url: '/blog/' }]} />
+    </div>
+
+    <section class="blog-hero section photo-hero" style="background-image: url(/images/photos/library-books.jpg); min-height: 300px;">
+      <div class="container">
+        <h1>Blog — Titulación por Experiencia Laboral</h1>
+        <p class="blog-hero__lead">
+          Artículos informativos sobre el <a href="/acuerdo-286/que-es/">Acuerdo 286</a>, opciones de titulación en México, preparación para los exámenes del CENEVAL y todo lo que necesitas saber sobre la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+          {posts.map(post => (
+            <a href={post.url} class="blog-card blog-card--photo card">
+              {post.thumb && (
+                <div class="blog-card__thumb">
+                  <img src={post.thumb} alt={post.title} width="400" height="225" loading="lazy" />
+                </div>
+              )}
+              <div class="blog-card__body">
+                <h2 class="blog-card__title">{post.title}</h2>
+                <p class="blog-card__excerpt">{post.excerpt}</p>
+                <div class="blog-card__meta">
+                  <time datetime={post.date}>{new Date(post.date).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                  <span>·</span>
+                  <span>{post.readTime} de lectura</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--space-2xl) 0;
+  }
+  .blog-hero h1 { color: var(--color-white); margin-bottom: var(--space-md); }
+  .blog-hero__lead { color: rgba(255,255,255,0.85); max-width: 60ch; font-size: 1.125rem; line-height: 1.6; }
+  .blog-hero__lead a { color: var(--color-accent); }
+
+  .blog-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); }
+
+  .blog-card {
+    background: var(--color-white);
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  .blog-card:hover { border-color: var(--color-primary); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+  .blog-card__link { text-decoration: none; }
+  .blog-card__title { font-size: 1.25rem; margin: 0 0 var(--space-sm); color: var(--color-gray-900); line-height: 1.3; }
+  .blog-card__link:hover .blog-card__title { color: var(--color-primary); }
+  .blog-card__excerpt { font-size: 0.9375rem; color: var(--color-gray-500); line-height: 1.5; margin-bottom: var(--space-sm); }
+  .blog-card__meta { font-size: 0.8125rem; color: var(--color-gray-400); display: flex; gap: var(--space-xs); }
+
+  @media (min-width: 768px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+</style>

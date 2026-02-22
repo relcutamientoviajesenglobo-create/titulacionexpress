@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página No Encontrada — Titulación Express"
+  description="La página que buscas no existe. Explora nuestras opciones de titulación por experiencia laboral mediante el Acuerdo 286."
+  canonical="/404/"
+  schemaType="page"
+>
+
+  <section class="error-page">
+    <div class="container">
+      <div class="error-page__content">
+        <span class="error-page__code">404</span>
+        <h1>Página No Encontrada</h1>
+        <p>La página que buscas no existe o fue movida. Pero no te preocupes — aquí tienes las secciones principales del sitio para que encuentres lo que necesitas.</p>
+
+        <div class="error-page__links">
+          <div class="error-page__group">
+            <h2>Titulación por Experiencia</h2>
+            <a href="/titulacion-por-experiencia-laboral/">Cómo funciona el proceso</a>
+            <a href="/titulacion-por-experiencia-laboral/requisitos/">Requisitos</a>
+            <a href="/titulacion-por-experiencia-laboral/costo/">Costo</a>
+            <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">Proceso paso a paso</a>
+          </div>
+          <div class="error-page__group">
+            <h2>Acuerdo 286</h2>
+            <a href="/acuerdo-286/">Guía completa</a>
+            <a href="/acuerdo-286/que-es/">¿Qué es el Acuerdo 286?</a>
+            <a href="/acuerdo-286/carreras-disponibles/">Carreras disponibles</a>
+            <a href="/acuerdo-286/validez-oficial/">Validez oficial</a>
+          </div>
+          <div class="error-page__group">
+            <h2>Más Información</h2>
+            <a href="/carreras/">15 carreras disponibles</a>
+            <a href="/cedula-profesional/">Cédula profesional</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contacto/">Contacto</a>
+          </div>
+        </div>
+
+        <div class="error-page__cta">
+          <a href="/" class="btn btn--primary btn--large">Ir al Inicio</a>
+          <a href="/contacto/" class="btn btn--outline btn--large">Evalúa tu Perfil Gratis</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .error-page {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+  }
+  .error-page__content { max-width: 800px; margin: 0 auto; }
+  .error-page__code {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 800;
+    color: var(--color-primary);
+    opacity: 0.12;
+    line-height: 1;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+  .error-page h1 { margin-bottom: var(--space-md); }
+  .error-page > .container > .error-page__content > p {
+    color: var(--color-gray-500);
+    max-width: 55ch;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.6;
+  }
+  .error-page__links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    text-align: left;
+    margin-bottom: var(--space-2xl);
+  }
+  .error-page__group h2 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-sm);
+  }
+  .error-page__group a {
+    display: block;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+  }
+  .error-page__group a:hover { color: var(--color-accent); }
+  .error-page__cta { display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap; }
+</style>

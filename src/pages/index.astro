@@ -1,0 +1,950 @@
+---
+/**
+ * HOME — La Gran Distribuidora de Autoridad
+ * Bracket: CTA + Definicional
+ * Links internos: 10+ contextuales hacia todos los SILOs
+ * GEO: Declaración definicional de marca en prosa visible
+ * E-E-A-T: Trust signals, testimonios, cifras, autoridad SEP
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CarreraCard from '../components/CarreraCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const metaTitle = 'Titulación por Experiencia Laboral en México — Acuerdo 286 SEP | Titulación Express';
+const metaDesc = 'Obtén tu título de licenciatura mediante el Acuerdo 286 de la SEP. Titúlate por experiencia laboral con validez oficial. 15 carreras disponibles. Evalúa tu perfil gratis.';
+
+const carrerasDestacadas = [
+  {
+    nombre: 'Lic. en Administración',
+    slug: 'administracion',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para gerentes, directores y emprendedores con experiencia en gestión empresarial.',
+    foto: '/images/photos/business-meeting.jpg',
+  },
+  {
+    nombre: 'Lic. en Derecho',
+    slug: 'derecho',
+    tipo: 'regulada' as const,
+    descripcionCorta: 'Para profesionales con trayectoria en el ámbito jurídico y legal.',
+    foto: '/images/photos/lawyer-scales.jpg',
+  },
+  {
+    nombre: 'Lic. en Contaduría',
+    slug: 'contaduria',
+    tipo: 'regulada' as const,
+    descripcionCorta: 'Para contadores y financieros con años de práctica profesional.',
+    foto: '/images/photos/accounting-calculator.jpg',
+  },
+  {
+    nombre: 'Lic. en Mercadotecnia',
+    slug: 'mercadotecnia',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para especialistas en marketing, publicidad y estrategia comercial.',
+    foto: '/images/photos/marketing-strategy.jpg',
+  },
+  {
+    nombre: 'Lic. en Pedagogía',
+    slug: 'pedagogia',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para educadores y formadores con experiencia docente o de capacitación.',
+    foto: '/images/photos/teacher-classroom.jpg',
+  },
+  {
+    nombre: 'Lic. en Turismo',
+    slug: 'turismo',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para operadores turísticos, hoteleros y gestores de experiencias de viaje.',
+    foto: '/images/photos/tourism-travel.jpg',
+  },
+  {
+    nombre: 'Lic. en Gastronomía',
+    slug: 'gastronomia',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para chefs ejecutivos, restauranteros y profesionales culinarios con trayectoria.',
+    foto: '/images/photos/chef-kitchen.jpg',
+  },
+  {
+    nombre: 'Ing. Computacional',
+    slug: 'ingenieria-computacional',
+    tipo: 'regulada' as const,
+    descripcionCorta: 'Para desarrolladores, arquitectos de software y líderes técnicos de TI.',
+    foto: '/images/photos/computer-coding.jpg',
+  },
+  {
+    nombre: 'Lic. en Diseño Gráfico',
+    slug: 'diseno-grafico',
+    tipo: 'no-regulada' as const,
+    descripcionCorta: 'Para directores creativos, diseñadores senior y profesionales de branding.',
+    foto: '/images/photos/design-creative.jpg',
+  },
+];
+
+const faqItems = [
+  {
+    question: '¿Es legal la titulación por experiencia laboral en México?',
+    answer: 'Sí. El Acuerdo 286 de la Secretaría de Educación Pública establece el marco legal para acreditar conocimientos adquiridos por experiencia laboral o de forma autodidacta. Los títulos son expedidos directamente por la SEP y tienen validez oficial en todo el país. Puedes verificarlo en el sitio oficial de la DGAIR.',
+  },
+  {
+    question: '¿Cuánto tiempo tarda el proceso de titulación?',
+    answer: 'El proceso de preparación y evaluaciones toma entre 3 y 6 meses. Después de aprobar los exámenes EGAL y EXOAL, el trámite del título y la cédula profesional puede tomar de 4 a 6 meses adicionales. Los tiempos varían según la carrera y la institución evaluadora.',
+  },
+  {
+    question: '¿Qué carreras puedo acreditar con el Acuerdo 286?',
+    answer: 'Actualmente hay 27 licenciaturas disponibles bajo el Acuerdo 286, tanto reguladas como no reguladas. Entre las más solicitadas están Administración, Derecho, Contaduría, Mercadotecnia y Pedagogía. Consulta el listado completo en nuestra sección de carreras disponibles.',
+  },
+  {
+    question: '¿Puedo tramitar mi cédula profesional con el título del Acuerdo 286?',
+    answer: 'Sí. El título obtenido mediante el Acuerdo 286 tiene los mismos efectos legales que cualquier título universitario. Puedes tramitar tu cédula profesional federal ante la Dirección General de Profesiones sin ninguna restricción.',
+  },
+];
+---
+
+<BaseLayout
+  title={metaTitle}
+  description={metaDesc}
+  canonical="/"
+  schemaType="home"
+>
+
+  <!-- ========== HERO — CTA Principal + Declaración Definicional ========== -->
+  <section class="hero" id="hero-section">
+    <!-- Layered Animated Background -->
+    <div class="hero__canvas" aria-hidden="true">
+      <!-- Mesh gradient blobs -->
+      <div class="hero__mesh">
+        <div class="hero__blob hero__blob--gold"></div>
+        <div class="hero__blob hero__blob--blue"></div>
+        <div class="hero__blob hero__blob--teal"></div>
+        <div class="hero__blob hero__blob--purple"></div>
+      </div>
+      <!-- Noise texture overlay -->
+      <div class="hero__noise"></div>
+      <!-- Animated aurora streaks -->
+      <div class="hero__aurora">
+        <div class="hero__streak hero__streak--1"></div>
+        <div class="hero__streak hero__streak--2"></div>
+        <div class="hero__streak hero__streak--3"></div>
+      </div>
+      <!-- Floating dots constellation -->
+      <svg class="hero__constellation" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice">
+        <circle cx="120" cy="80" r="1.5" fill="rgba(232,168,56,0.7)"><animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="340" cy="200" r="2" fill="rgba(232,168,56,0.5)"><animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="580" cy="120" r="1" fill="rgba(100,180,255,0.6)"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="5s" repeatCount="indefinite"/></circle>
+        <circle cx="780" cy="350" r="2.5" fill="rgba(232,168,56,0.4)"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="950" cy="150" r="1.5" fill="rgba(100,180,255,0.5)"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="4.5s" repeatCount="indefinite"/></circle>
+        <circle cx="1100" cy="280" r="1" fill="rgba(232,168,56,0.6)"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="1280" cy="100" r="2" fill="rgba(100,180,255,0.4)"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="5.5s" repeatCount="indefinite"/></circle>
+        <circle cx="200" cy="500" r="1.5" fill="rgba(232,168,56,0.5)"><animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="650" cy="550" r="2" fill="rgba(100,180,255,0.3)"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite"/></circle>
+        <circle cx="1050" cy="480" r="1" fill="rgba(232,168,56,0.7)"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+        <!-- Connecting lines -->
+        <line x1="120" y1="80" x2="340" y2="200" stroke="rgba(232,168,56,0.08)" stroke-width="0.5"/>
+        <line x1="580" y1="120" x2="780" y2="350" stroke="rgba(100,180,255,0.06)" stroke-width="0.5"/>
+        <line x1="950" y1="150" x2="1100" y2="280" stroke="rgba(232,168,56,0.07)" stroke-width="0.5"/>
+        <line x1="340" y1="200" x2="580" y2="120" stroke="rgba(100,180,255,0.05)" stroke-width="0.5"/>
+        <line x1="1100" y1="280" x2="1280" y2="100" stroke="rgba(100,180,255,0.06)" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="hero__badge">✓ Validez oficial SEP · Acuerdo 286</span>
+
+        <h1 class="hero__title">
+          Obtén tu Título de Licenciatura
+          <span class="hero__highlight">por Experiencia Laboral</span>
+        </h1>
+
+        <p class="hero__desc">
+          Titulación Express es un programa de acompañamiento para profesionales mexicanos que desean obtener su título de licenciatura mediante el <a href="/acuerdo-286/">Acuerdo 286 de la Secretaría de Educación Pública</a>, un proceso legal que reconoce los conocimientos adquiridos a través de la experiencia laboral. 15 carreras disponibles con título expedido por la SEP y cédula profesional federal.
+        </p>
+
+        <div class="hero__actions">
+          <a href="/contacto/" class="hero__btn-primary">
+            <span>Evalúa tu Perfil Gratis</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/" class="hero__btn-glass">
+            ¿Cómo Funciona?
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-number">15</span>
+            <span class="hero__stat-label">Carreras disponibles</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">3-6</span>
+            <span class="hero__stat-label">Meses de proceso</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number">100%</span>
+            <span class="hero__stat-label">Validez oficial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__card-glow"></div>
+        <div class="hero__card">
+          <img src="/images/illustrations/hero-diploma.svg" alt="Título de licenciatura con sello oficial de la SEP obtenido por experiencia laboral mediante el Acuerdo 286" width="480" height="400" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUST SIGNALS — Glassmorphism ========== -->
+  <section class="home-trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-card__icon">
+            <img src="/images/trust/sep-shield.svg" alt="SEP" width="48" height="48" />
+          </div>
+          <h3 class="trust-card__title">Validez Oficial SEP</h3>
+          <p class="trust-card__desc">Título con los mismos efectos legales que cualquier universidad</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card__icon">
+            <img src="/images/trust/ceneval-badge.svg" alt="CENEVAL" width="48" height="48" />
+          </div>
+          <h3 class="trust-card__title">Evaluación CENEVAL</h3>
+          <p class="trust-card__desc">Exámenes diseñados por la máxima autoridad evaluadora de México</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card__icon">
+            <img src="/images/trust/cedula-card.svg" alt="Cédula" width="48" height="48" />
+          </div>
+          <h3 class="trust-card__title">Cédula Profesional</h3>
+          <p class="trust-card__desc">Trámite de cédula federal incluido en el acompañamiento</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUÉ ES — Con visual lateral ========== -->
+  <section class="home-about" id="que-es">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-label">¿Qué es?</span>
+          <h2>Titulación por Experiencia Laboral</h2>
+          <p>
+            La titulación por experiencia laboral es un proceso regulado por el <a href="/acuerdo-286/que-es/">Acuerdo 286</a> de la Secretaría de Educación Pública de México que permite a profesionales con mínimo 3 a 5 años de experiencia obtener un título de licenciatura con validez oficial en todo el país.
+          </p>
+          <p>
+            El proceso consta de dos evaluaciones principales: el <a href="/acuerdo-286/examen-egal-ceneval/">examen escrito EGAL</a> y la <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a>. Los títulos tienen los mismos efectos legales que cualquier título universitario y permiten <a href="/cedula-profesional/">tramitar la cédula profesional</a> federal.
+          </p>
+          <p>
+            Este proceso es ideal para gerentes, directores, emprendedores, docentes, contadores, abogados y profesionales que han construido su carrera con años de trabajo pero nunca obtuvieron un título universitario. Conoce los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos completos</a>.
+          </p>
+        </div>
+        <div class="about-visual">
+          <div class="about-photo-stack">
+            <img src="/images/photos/woman-professional.jpg" alt="Profesional mexicana" class="about-photo about-photo--main" width="400" height="500" loading="lazy" />
+            <img src="/images/photos/signing-document.jpg" alt="Firma de documentos" class="about-photo about-photo--accent" width="250" height="200" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESO — 4 Steps premium ========== -->
+  <section class="home-proceso" id="proceso">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">¿Cómo funciona?</span>
+        <h2>Tu título en 4 pasos</h2>
+        <p>El proceso de <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> es claro, estructurado y con acompañamiento en cada etapa.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card__number">01</div>
+          <div class="step-card__icon">
+            <img src="/images/proceso/paso-1-evaluacion.svg" alt="Evaluación de perfil" width="64" height="64" />
+          </div>
+          <h3 class="step-card__title">Evaluación de Perfil</h3>
+          <p class="step-card__desc">Analizamos tu experiencia laboral para determinar la carrera ideal y tu viabilidad de aprobación.</p>
+          <span class="step-card__time">📅 1-2 días</span>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">02</div>
+          <div class="step-card__icon">
+            <img src="/images/proceso/paso-2-preparacion.svg" alt="Preparación" width="64" height="64" />
+          </div>
+          <h3 class="step-card__title">Preparación Personalizada</h3>
+          <p class="step-card__desc">Material de estudio y simulacros diseñados para tu carrera y perfil específico.</p>
+          <span class="step-card__time">📅 2-4 meses</span>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">03</div>
+          <div class="step-card__icon">
+            <img src="/images/proceso/paso-3-evaluaciones.svg" alt="Evaluaciones" width="64" height="64" />
+          </div>
+          <h3 class="step-card__title">Evaluaciones EGAL + EXOAL</h3>
+          <p class="step-card__desc">Presentas el examen escrito del CENEVAL y la evaluación oral ante la institución autorizada.</p>
+          <span class="step-card__time">📅 1-2 semanas</span>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">04</div>
+          <div class="step-card__icon">
+            <img src="/images/proceso/paso-4-titulo.svg" alt="Título y Cédula" width="64" height="64" />
+          </div>
+          <h3 class="step-card__title">Título + Cédula Profesional</h3>
+          <p class="step-card__desc">Recibes tu título oficial de la SEP y tramitamos tu cédula profesional federal.</p>
+          <span class="step-card__time">📅 1-2 meses</span>
+        </div>
+      </div>
+      <div class="section-cta-center">
+        <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/" class="btn btn--outline">Ver el proceso completo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CARRERAS DESTACADAS ========== -->
+  <section class="home-carreras" id="carreras">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">15 licenciaturas</span>
+        <h2>Carreras Disponibles</h2>
+        <p>
+          Divididas entre <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carreras reguladas y no reguladas</a>. Las no reguladas no requieren créditos universitarios previos. Consulta el <a href="/acuerdo-286/carreras-disponibles/">catálogo completo</a>.
+        </p>
+      </div>
+      <div class="carreras-home-grid">
+        {carrerasDestacadas.map(c => (
+          <CarreraCard
+            nombre={c.nombre}
+            slug={c.slug}
+            tipo={c.tipo}
+            descripcionCorta={c.descripcionCorta}
+            foto={c.foto}
+          />
+        ))}
+      </div>
+      <div class="section-cta-center">
+        <a href="/carreras/" class="btn btn--primary">Ver las 15 Carreras Disponibles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACUERDO 286 — Dark premium section ========== -->
+  <section class="home-acuerdo" id="acuerdo-286">
+    <div class="home-acuerdo__bg" aria-hidden="true">
+      <div class="home-acuerdo__orb home-acuerdo__orb--1"></div>
+      <div class="home-acuerdo__orb home-acuerdo__orb--2"></div>
+    </div>
+    <div class="container">
+      <div class="acuerdo-grid">
+        <div class="acuerdo-content">
+          <span class="section-label section-label--light">Marco legal</span>
+          <h2>Respaldado por el Acuerdo 286 de la SEP</h2>
+          <p>
+            Disposición oficial publicada en el Diario Oficial de la Federación en el año 2000 que establece los procedimientos para acreditar conocimientos adquiridos por experiencia laboral. Las evaluaciones son aplicadas por <a href="/acuerdo-286/instituciones-evaluadoras/">instituciones autorizadas</a> por la DGAIR de la SEP.
+          </p>
+          <div class="acuerdo-features">
+            <div class="acuerdo-feat">
+              <span class="acuerdo-feat__icon">📋</span>
+              <span>Publicado en el DOF</span>
+            </div>
+            <div class="acuerdo-feat">
+              <span class="acuerdo-feat__icon">🏛️</span>
+              <span>Avalado por la SEP</span>
+            </div>
+            <div class="acuerdo-feat">
+              <span class="acuerdo-feat__icon">🎯</span>
+              <span>Exámenes CENEVAL</span>
+            </div>
+            <div class="acuerdo-feat">
+              <span class="acuerdo-feat__icon">✅</span>
+              <span>Cédula profesional</span>
+            </div>
+          </div>
+          <a href="/acuerdo-286/" class="home-acuerdo__btn">Guía Completa del Acuerdo 286 →</a>
+        </div>
+        <div class="acuerdo-visual">
+          <img src="/images/illustrations/acuerdo-286-document.svg" alt="Documento Acuerdo 286" width="380" height="320" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BANNER PARALLAX — Graduación ========== -->
+  <section class="home-parallax">
+    <div class="home-parallax__bg" style="background-image: url(/images/photos/graduation-hats.jpg)"></div>
+    <div class="home-parallax__overlay"></div>
+    <div class="container home-parallax__content">
+      <h2>Tu Título de Licenciatura Te Espera</h2>
+      <p>Únete a los profesionales mexicanos que ya validaron su experiencia y obtuvieron su título con validez oficial de la SEP.</p>
+      <a href="/contacto/" class="hero__btn-primary" style="display: inline-flex;">
+        <span>Evalúa tu Perfil Gratis</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== COSTOS — Card premium ========== -->
+  <section class="home-costos" id="inversion">
+    <div class="container">
+      <div class="costos-card">
+        <div class="costos-card__content">
+          <span class="section-label">Inversión</span>
+          <h2>Costos Transparentes</h2>
+          <p>
+            El costo incluye preparación personalizada, derechos de evaluación CENEVAL y trámites de título y cédula profesional. Los costos varían entre carreras reguladas y no reguladas.
+          </p>
+          <a href="/titulacion-por-experiencia-laboral/costo/" class="btn btn--primary">Ver desglose completo de costos →</a>
+        </div>
+        <div class="costos-card__visual">
+          <img src="/images/photos/costos-inversion.jpg" alt="Inversión transparente en titulación por experiencia laboral" width="480" height="320" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIOS — Premium cards ========== -->
+  <section class="home-testimonios" id="testimonios">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="section-label">Experiencias reales</span>
+        <h2>Profesionales que Ya Obtuvieron su Título</h2>
+        <p>Cada historia es un ejemplo real de cómo la <a href="/titulacion-por-experiencia-laboral/testimonios/">titulación por experiencia laboral</a> transforma carreras en México.</p>
+      </div>
+      <div class="testimonios-grid">
+        <div class="testi-card">
+          <div class="testi-card__stars">★★★★★</div>
+          <blockquote class="testi-card__quote">"Tenía 15 años dirigiendo empresas sin título. El proceso fue riguroso pero el acompañamiento hizo toda la diferencia. Hoy tengo mi cédula profesional."</blockquote>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar">RG</div>
+            <div>
+              <strong class="testi-card__name">Roberto García M.</strong>
+              <span class="testi-card__role">Director de Operaciones · Administración · 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-card__stars">★★★★★</div>
+          <blockquote class="testi-card__quote">"Trabajé 12 años como contadora sin título. Con el Acuerdo 286 pude acreditar todo lo que ya sabía. El examen EGAL fue exigente, pero estaba preparada."</blockquote>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar">MR</div>
+            <div>
+              <strong class="testi-card__name">María Elena Ríos</strong>
+              <span class="testi-card__role">Contadora independiente · Contaduría · 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-card__stars">★★★★★</div>
+          <blockquote class="testi-card__quote">"A los 42 años obtuve mi título de licenciatura. Nunca pensé que era posible sin regresar a la universidad. El equipo de Titulación Express me guió en todo."</blockquote>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar">LH</div>
+            <div>
+              <strong class="testi-card__name">Luis Hernández P.</strong>
+              <span class="testi-card__role">Director Comercial · Mercadotecnia · 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta-center">
+        <a href="/titulacion-por-experiencia-laboral/testimonios/" class="btn btn--outline">Ver más testimonios →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ — Clean accordion ========== -->
+  <section class="home-faq" id="preguntas-frecuentes">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-header">
+          <span class="section-label">Resuelve tus dudas</span>
+          <h2>Preguntas Frecuentes</h2>
+          <p>Las respuestas más comunes sobre la titulación por experiencia laboral.</p>
+          <a href="/titulacion-por-experiencia-laboral/preguntas-frecuentes/" class="btn btn--outline" style="margin-top: var(--space-lg);">Ver todas las preguntas →</a>
+        </div>
+        <div class="faq-content">
+          <FAQAccordion items={faqItems} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS — Animated counters ========== -->
+  <section class="home-stats">
+    <div class="container">
+      <div class="stats-grid-premium">
+        <div class="stat-card">
+          <span class="stat-card__number" data-count="15">15</span>
+          <span class="stat-card__label">Licenciaturas disponibles</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">11+</span>
+          <span class="stat-card__label">Años de experiencia</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">100%</span>
+          <span class="stat-card__label">Validez oficial SEP</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__number">3-6</span>
+          <span class="stat-card__label">Meses de proceso</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL — Mesh gradient premium ========== -->
+  <section class="home-cta-final" id="evalua-tu-perfil">
+    <div class="home-cta-final__bg" aria-hidden="true">
+      <div class="home-cta-final__orb home-cta-final__orb--1"></div>
+      <div class="home-cta-final__orb home-cta-final__orb--2"></div>
+      <div class="home-cta-final__orb home-cta-final__orb--3"></div>
+    </div>
+    <div class="container home-cta-final__content">
+      <h2>¿Tienes Experiencia Laboral?<br/><span>Podrías Titularte</span></h2>
+      <p>Miles de profesionales en México ya obtuvieron su título de licenciatura a través del Acuerdo 286. Si tienes mínimo 3 años de experiencia en tu campo, evalúa tu perfil sin costo.</p>
+      <div class="home-cta-final__actions">
+        <a href="/contacto/" class="hero__btn-primary">
+          <span>Evalúa tu Perfil Profesional Gratis</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/titulacion-por-experiencia-laboral/beneficios/" class="hero__btn-glass">Conoce los Beneficios</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ========== ASTRO-GRADE HERO ========== */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 8vw, 6rem) 0;
+    background: #060d1f;
+    color: #fff;
+  }
+
+  /* === CANVAS: Full background system === */
+  .hero__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  /* Mesh gradient blobs */
+  .hero__mesh {
+    position: absolute;
+    inset: 0;
+    filter: blur(100px);
+    opacity: 0.7;
+  }
+
+  .hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .hero__blob--gold {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232, 168, 56, 0.32) 0%, transparent 70%);
+    top: -20%;
+    right: 5%;
+    animation: blobDrift 20s ease-in-out infinite;
+  }
+
+  .hero__blob--blue {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(30, 80, 180, 0.35) 0%, transparent 70%);
+    bottom: -15%;
+    left: -5%;
+    animation: blobDrift 16s ease-in-out infinite reverse;
+  }
+
+  .hero__blob--teal {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.18) 0%, transparent 70%);
+    top: 40%;
+    left: 35%;
+    animation: blobDrift 24s ease-in-out infinite;
+    animation-delay: -8s;
+  }
+
+  .hero__blob--purple {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    top: 10%;
+    left: 15%;
+    animation: blobDrift 18s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  @keyframes blobDrift {
+    0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    20% { transform: translate(40px, -30px) scale(1.1) rotate(5deg); }
+    40% { transform: translate(-30px, 40px) scale(0.9) rotate(-3deg); }
+    60% { transform: translate(20px, 20px) scale(1.05) rotate(4deg); }
+    80% { transform: translate(-40px, -20px) scale(0.95) rotate(-5deg); }
+  }
+
+  /* Noise texture */
+  .hero__noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+  }
+
+  /* Aurora streaks */
+  .hero__aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero__streak {
+    position: absolute;
+    height: 2px;
+    border-radius: 999px;
+    opacity: 0;
+    animation: auroraSlide 8s ease-in-out infinite;
+  }
+
+  .hero__streak--1 {
+    width: 400px;
+    top: 20%;
+    left: -10%;
+    background: linear-gradient(90deg, transparent, rgba(232, 168, 56, 0.4), transparent);
+    animation-delay: 0s;
+  }
+
+  .hero__streak--2 {
+    width: 300px;
+    top: 55%;
+    right: -5%;
+    background: linear-gradient(90deg, transparent, rgba(100, 180, 255, 0.3), transparent);
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+
+  .hero__streak--3 {
+    width: 250px;
+    bottom: 25%;
+    left: 20%;
+    background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.3), transparent);
+    animation-delay: -5s;
+    animation-duration: 12s;
+  }
+
+  @keyframes auroraSlide {
+    0% { transform: translateX(-100%); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateX(calc(100vw + 100%)); opacity: 0; }
+  }
+
+  /* Constellation SVG */
+  .hero__constellation {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  /* === CONTENT LAYER === */
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .hero__content {
+    max-width: 680px;
+    animation: heroFadeIn 0.8s ease both;
+  }
+
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Badge */
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.125rem;
+    background: rgba(232, 168, 56, 0.12);
+    border: 1px solid rgba(232, 168, 56, 0.25);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #e8a838;
+    letter-spacing: 0.02em;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Title */
+  .hero__title {
+    color: #fff;
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    margin: var(--space-lg) 0;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__highlight {
+    display: block;
+    background: linear-gradient(135deg, #e8a838 0%, #f0c060 50%, #e8a838 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+  }
+
+  .hero__desc {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: var(--space-xl);
+    max-width: 58ch;
+  }
+
+  .hero__desc a {
+    color: #7cb8ff;
+    text-decoration: underline;
+    text-decoration-color: rgba(124, 184, 255, 0.3);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .hero__desc a:hover {
+    text-decoration-color: #7cb8ff;
+  }
+
+  /* CTA Buttons */
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .hero__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.9375rem 2rem;
+    background: linear-gradient(135deg, #e8a838 0%, #d49520 100%);
+    color: #0a1932;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(232, 168, 56, 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  .hero__btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232, 168, 56, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  .hero__btn-primary svg {
+    transition: transform 0.3s;
+  }
+
+  .hero__btn-primary:hover svg {
+    transform: translateX(4px);
+  }
+
+  .hero__btn-glass {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.9375rem 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero__btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Stats */
+  .hero__stats {
+    display: flex;
+    gap: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hero__stat-number {
+    display: block;
+    font-size: 1.875rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #e8a838, #f0c060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__stat-label {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 2px;
+  }
+
+  /* === ILLUSTRATION WITH GLOW === */
+  .hero__visual {
+    display: none;
+    position: relative;
+    animation: heroFadeIn 0.8s ease both;
+    animation-delay: 0.3s;
+  }
+
+  .hero__card-glow {
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle, rgba(232, 168, 56, 0.15) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .hero__card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2rem;
+    animation: cardFloat 8s ease-in-out infinite;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.05),
+      0 20px 60px rgba(0, 0, 0, 0.3),
+      0 0 80px rgba(232, 168, 56, 0.06);
+  }
+
+  .hero__card img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2));
+  }
+
+  @keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(0.5deg); }
+    50% { transform: translateY(-14px) rotate(0deg); }
+    75% { transform: translateY(-6px) rotate(-0.5deg); }
+  }
+
+  /* --- Section utilities --- */
+  .section__header {
+    max-width: 640px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section__header h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .section__header p {
+    color: var(--color-gray-600);
+    max-width: 60ch;
+  }
+
+  .section--dark .section__header p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .section__cta {
+    margin-top: var(--space-2xl);
+    text-align: center;
+  }
+
+  /* --- Responsive --- */
+  @media (min-width: 1024px) {
+    .hero__inner {
+      grid-template-columns: 1fr 440px;
+    }
+    .hero__visual {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 550px;
+      padding: var(--space-2xl) 0;
+    }
+
+    .hero__stats {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .hero__stat {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .hero__btn-primary,
+    .hero__btn-glass {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__blob,
+    .hero__streak,
+    .hero__card,
+    .hero__card-glow,
+    .hero__highlight,
+    .hero__constellation circle,
+    .hero__content {
+      animation: none !important;
+    }
+  }
+</style>

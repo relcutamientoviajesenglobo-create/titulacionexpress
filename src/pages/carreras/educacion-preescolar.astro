@@ -1,0 +1,60 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/preschool-education.jpg"
+  nombre="Educación Preescolar"
+  slug="educacion-preescolar"
+  tipo="no-regulada"
+  keyword="licenciatura en educación preescolar por experiencia laboral"
+  description="Titúlate en Educación Preescolar por experiencia laboral con el Acuerdo 286. Sin créditos previos. Para docentes de preescolar, directoras de CENDI y educadoras con experiencia."
+  carrerasRelacionadas={[
+    { nombre: 'Pedagogía', slug: 'pedagogia' },
+    { nombre: 'Administración', slug: 'administracion' },
+    { nombre: 'Ciencias de la Comunicación', slug: 'ciencias-de-la-comunicacion' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Educación Preescolar por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Licenciatura en Educación Preescolar por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a educadoras, maestras de preescolar, directoras de CENDI y profesionales de educación inicial con años de práctica docente obtener su título oficial. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera no regulada</a>, no requiere créditos universitarios previos.
+  </p>
+
+  <p>
+    En México, miles de educadoras trabajan en preescolares privados, CENDIs, estancias infantiles y programas de educación inicial sin contar con un título de licenciatura. Muchas fueron formadas en cursos técnicos o aprendieron directamente en la práctica. La titulación formaliza ese compromiso con la educación infantil y abre puertas a mejores condiciones laborales.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Las candidatas ideales son docentes frente a grupo en preescolares públicos o privados, directoras o coordinadoras de CENDIs y estancias infantiles, asistentes educativas con experiencia en educación inicial, profesionales de estimulación temprana y desarrollo infantil, y educadoras en programas comunitarios de atención a la primera infancia. Se recomienda un mínimo de 3 años de experiencia directa con niños en edad preescolar.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Educación Preescolar evalúa: desarrollo infantil y psicología del niño en edad preescolar, didáctica y planeación para educación preescolar, campos formativos del programa de educación preescolar, evaluación del aprendizaje en primera infancia, inclusión educativa y atención a la diversidad, y gestión escolar y normatividad de educación básica. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> permite demostrar tu experiencia pedagógica real con niños.
+  </p>
+
+  <h2>El Proceso para Educación Preescolar</h2>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso</a> es directo al ser carrera no regulada. Los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> son bachillerato, experiencia docente en educación preescolar y documentación personal. Consulta los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> y los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios</a> de titularte, especialmente el acceso a la carrera magisterial y posgrados en educación. Revisa los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios</a> de educadoras que ya completaron el proceso.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Laura Martínez E."
+    carrera="Educación Preescolar"
+    cita="Soy educadora desde hace 15 años en un preescolar privado. Cuando el programa de profesionalización docente exigió licenciatura, pensé que tendría que dejar de trabajar para estudiar. El Acuerdo 286 reconoció todo lo que aprendí en el aula y me dio mi título sin dejar a mis alumnos."
+    contexto="Educadora de preescolar, 15 años de experiencia"
+    anio="2025"
+  />
+
+</CarreraLayout>

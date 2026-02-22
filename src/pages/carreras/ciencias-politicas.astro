@@ -1,0 +1,56 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/political-science.jpg"
+  nombre="Ciencias Políticas"
+  slug="ciencias-politicas"
+  tipo="no-regulada"
+  keyword="licenciatura en ciencias políticas por experiencia laboral"
+  description="Titúlate en Ciencias Políticas por experiencia laboral con el Acuerdo 286. Sin créditos previos. Para funcionarios públicos, analistas políticos y profesionales del sector gobierno."
+  carrerasRelacionadas={[
+    { nombre: 'Derecho', slug: 'derecho' },
+    { nombre: 'Ciencias de la Comunicación', slug: 'ciencias-de-la-comunicacion' },
+    { nombre: 'Administración', slug: 'administracion' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Ciencias Políticas por Experiencia Laboral</h1>
+  </Fragment>
+
+  <p>
+    La Licenciatura en Ciencias Políticas por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a funcionarios públicos, analistas políticos, consultores gubernamentales y profesionales del sector público obtener su título oficial. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera no regulada</a>, no requiere créditos universitarios previos: basta con bachillerato y experiencia profesional comprobable en el ámbito político-administrativo.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Los candidatos ideales son funcionarios públicos de los tres niveles de gobierno, analistas políticos y consultores de asuntos públicos, profesionales de relaciones gubernamentales e institucionales, asesores parlamentarios y legislativos, coordinadores de campañas y comunicación política, profesionales de organismos internacionales y ONGs, y especialistas en políticas públicas y evaluación de programas. Se recomienda un mínimo de 3 años de experiencia en funciones político-administrativas.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Ciencias Políticas evalúa: teoría política y pensamiento político, sistema político mexicano e instituciones, administración pública y políticas públicas, relaciones internacionales, derecho constitucional y electoral, y metodología de investigación social. La <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> evalúa tu capacidad de análisis político y argumentación ante un jurado especializado.
+  </p>
+
+  <h2>El Proceso para Ciencias Políticas</h2>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso</a> es directo al ser carrera no regulada. Los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> son bachillerato, experiencia en el sector público o político y documentación personal. Consulta los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a> y los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios</a> de obtener tu título y <a href="/cedula-profesional/">cédula profesional</a>.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Miguel Ángel Rojas P."
+    carrera="Ciencias Políticas"
+    cita="Llevo 11 años en el sector público. Empecé como auxiliar en un ayuntamiento y hoy coordino programas sociales a nivel estatal. Cada convocatoria que me interesaba pedía licenciatura. El Acuerdo 286 me permitió formalizar mi carrera sin pedir licencia de mi puesto."
+    contexto="Coordinador de programas sociales, 11 años en gobierno"
+    anio="2025"
+  />
+
+</CarreraLayout>

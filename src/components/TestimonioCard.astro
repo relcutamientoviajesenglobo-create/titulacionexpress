@@ -1,0 +1,80 @@
+---
+/**
+ * TestimonioCard.astro — Card de testimonio con E-E-A-T signals
+ * Nombre real, carrera, contexto laboral
+ */
+interface Props {
+  nombre: string;
+  carrera: string;
+  cita: string;
+  contexto: string;
+  anio?: string;
+}
+
+const { nombre, carrera, cita, contexto, anio = '2025' } = Astro.props;
+---
+
+<blockquote class="testimonio card">
+  <p class="testimonio__cita">"{cita}"</p>
+  <footer class="testimonio__footer">
+    <div class="testimonio__avatar" aria-hidden="true">
+      {nombre.charAt(0)}
+    </div>
+    <div class="testimonio__info">
+      <cite class="testimonio__nombre">{nombre}</cite>
+      <p class="testimonio__meta">
+        Lic. en {carrera} · {contexto} · Titulado {anio}
+      </p>
+    </div>
+  </footer>
+</blockquote>
+
+<style>
+  .testimonio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .testimonio__cita {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-gray-700);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .testimonio__footer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .testimonio__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+  }
+
+  .testimonio__nombre {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--color-gray-800);
+    font-size: 0.9375rem;
+  }
+
+  .testimonio__meta {
+    font-size: 0.8125rem;
+    color: var(--color-gray-600);
+    margin: 2px 0 0;
+  }
+</style>

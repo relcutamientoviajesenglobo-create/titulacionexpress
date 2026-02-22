@@ -1,0 +1,71 @@
+---
+import CarreraLayout from '../../layouts/CarreraLayout.astro';
+import TestimonioCard from '../../components/TestimonioCard.astro';
+---
+
+<CarreraLayout
+  heroImage="/images/photos/business-meeting.jpg"
+  nombre="Administración"
+  slug="administracion"
+  tipo="no-regulada"
+  keyword="licenciatura en administración por experiencia laboral"
+  description="Titúlate en Administración por experiencia laboral con el Acuerdo 286. Carrera no regulada, sin requisito de créditos previos. Proceso de 3 a 6 meses con título de la SEP."
+  carrerasRelacionadas={[
+    { nombre: 'Contaduría', slug: 'contaduria' },
+    { nombre: 'Mercadotecnia', slug: 'mercadotecnia' },
+    { nombre: 'Comercio Internacional', slug: 'comercio-internacional' },
+  ]}
+>
+
+  <Fragment slot="header">
+    <h1>Licenciatura en Administración por Experiencia Laboral</h1>
+  </Fragment>
+
+  <!-- GEO: Declaración definicional -->
+  <p>
+    La Licenciatura en Administración por experiencia laboral mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite a profesionales con trayectoria en gestión empresarial, dirección de operaciones, recursos humanos, finanzas corporativas o emprendimiento obtener su título oficial expedido por la Secretaría de Educación Pública. Al ser una <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carrera no regulada</a>, no requiere créditos universitarios previos: solo certificado de bachillerato y experiencia laboral comprobable.
+  </p>
+
+  <p>
+    Administración es la carrera más solicitada del <a href="/acuerdo-286/">Acuerdo 286</a> porque abarca un espectro amplio de actividades profesionales. Desde gerentes de pequeñas empresas hasta directores de operaciones en corporativos, miles de profesionales en México ejercen funciones administrativas sin un título que lo respalde formalmente.
+  </p>
+
+  <h2>Perfil del Candidato Ideal</h2>
+
+  <p>
+    Los candidatos más exitosos en esta carrera son profesionales que se desempeñan o se han desempeñado en áreas como dirección general o gerencia de empresas, administración de recursos humanos, planeación estratégica, gestión financiera y contable a nivel gerencial, coordinación de operaciones y logística, desarrollo de negocios y ventas, o consultoría empresarial. La experiencia recomendada es de al menos 3 a 5 años en funciones administrativas o directivas.
+  </p>
+
+  <h2>Áreas de Evaluación del Examen EGAL</h2>
+
+  <p>
+    El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> para Administración evalúa seis áreas principales: administración estratégica y planeación, mercadotecnia y comercialización, finanzas y contabilidad gerencial, gestión de recursos humanos y comportamiento organizacional, operaciones y cadena de suministro, y marco jurídico empresarial. Cada área tiene un peso específico en la calificación final.
+  </p>
+
+  <p>
+    La preparación se enfoca en dominar estas áreas tanto a nivel teórico como aplicado. Tu experiencia laboral como administrador te da una ventaja significativa en las preguntas de aplicación práctica, que representan una parte importante del examen.
+  </p>
+
+  <h2>El Proceso para Administración</h2>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso completo</a> para titularte en Administración sigue las cuatro etapas del Acuerdo 286: evaluación de perfil, preparación académica personalizada, presentación del EGAL y el <a href="/acuerdo-286/examen-oral-exoal/">EXOAL</a>, y trámite del título ante la SEP. Al ser carrera no regulada, no necesitas presentar historial académico universitario, lo que simplifica los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> y agiliza el inicio del proceso.
+  </p>
+
+  <h2>¿Cuánto Cuesta Titularse en Administración?</h2>
+
+  <p>
+    Los <a href="/titulacion-por-experiencia-laboral/costo/">costos del proceso</a> para Administración incluyen la preparación académica, derechos de evaluación del CENEVAL y trámites de título y <a href="/cedula-profesional/">cédula profesional</a>. Al ser carrera no regulada, el proceso es más directo y generalmente tiene un costo menor que las carreras reguladas. Solicita una cotización personalizada en tu evaluación de perfil.
+  </p>
+
+  <h2>Testimonio Real</h2>
+
+  <TestimonioCard
+    nombre="Roberto García M."
+    carrera="Administración"
+    cita="Tenía 15 años dirigiendo empresas sin título. Mis empleados tenían licenciatura y yo no. El proceso fue riguroso — el examen EGAL no es fácil — pero el acompañamiento hizo toda la diferencia. Hoy tengo mi título y mi cédula profesional."
+    contexto="Director de Operaciones, 15 años de experiencia"
+    anio="2025"
+  />
+
+</CarreraLayout>

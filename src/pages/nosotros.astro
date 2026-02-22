@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TrustSignals from '../components/TrustSignals.astro';
+---
+
+<BaseLayout
+  title="Sobre Nosotros — Titulación Express | Especialistas en Acuerdo 286"
+  description="Titulación Express es un programa de acompañamiento para profesionales que desean titularse por experiencia laboral mediante el Acuerdo 286 de la SEP."
+  canonical="/nosotros/"
+  schemaType="page"
+  breadcrumbs={[{ name: 'Nosotros', url: '/nosotros/' }]}
+>
+
+  <div class="nosotros-page">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Nosotros', url: '/nosotros/' }]} />
+    </div>
+
+    <section class="nosotros-hero section photo-hero" style="background-image: url(/images/photos/professional-team.jpg); min-height: 350px;">
+      <div class="container">
+        <h1>Sobre Titulación Express</h1>
+        <p class="nosotros-hero__lead">
+          Somos un programa de acompañamiento especializado en la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a>. Guiamos a profesionales mexicanos desde la evaluación de su perfil hasta la obtención de su título y <a href="/cedula-profesional/">cédula profesional</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container nosotros-content">
+
+        <h2>Qué Hacemos</h2>
+
+        <p>
+          Titulación Express acompaña a profesionales con experiencia laboral comprobable en el proceso de obtener su título de licenciatura a través del marco legal del Acuerdo 286. No somos una universidad ni una <a href="/acuerdo-286/instituciones-evaluadoras/">institución evaluadora autorizada</a>. Somos un equipo de especialistas que prepara, orienta y acompaña a cada candidato durante todo el proceso: desde determinar su elegibilidad hasta el trámite final de la cédula profesional.
+        </p>
+
+        <p>
+          Nuestro trabajo consiste en evaluar el perfil profesional de cada candidato para confirmar su viabilidad, diseñar un plan de preparación personalizado según la carrera elegida, preparar al candidato para el <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL del CENEVAL</a> y la <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a>, y acompañarlo en la gestión administrativa hasta la obtención del título y la cédula.
+        </p>
+
+        <TrustSignals variant="full" />
+
+        <h2>Por Qué Existimos</h2>
+
+        <p>
+          En México hay millones de profesionales que han construido carreras exitosas sin un título universitario. Gerentes que dirigen equipos de 50 personas, contadores que llevan la contabilidad de empresas multimillonarias, maestros que forman generaciones de niños, ingenieros que mantienen plantas de producción funcionando. Su conocimiento es real, su contribución es medible, pero su reconocimiento formal está incompleto.
+        </p>
+
+        <p>
+          El <a href="/acuerdo-286/">Acuerdo 286</a> existe precisamente para resolver esta brecha. Pero el proceso puede ser complejo para quien lo navega solo: entender las diferencias entre <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carreras reguladas y no reguladas</a>, elegir la carrera correcta, prepararse para exámenes estandarizados, coordinar registros con el CENEVAL y tramitar documentos ante la SEP. Titulación Express simplifica ese camino.
+        </p>
+
+        <h2>Nuestro Compromiso</h2>
+
+        <p>
+          Creemos en la transparencia total. Antes de iniciar cualquier proceso, cada candidato recibe un diagnóstico honesto de su elegibilidad, un plan claro con tiempos y costos, y la certeza de que el proceso al que se incorpora es legal, respaldado por la SEP y verificable en los registros oficiales. Si un candidato no cumple los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a>, se lo decimos directamente y le orientamos sobre sus opciones.
+        </p>
+
+        <p>
+          No prometemos resultados garantizados porque las evaluaciones del Acuerdo 286 son rigurosas y dependen del desempeño de cada candidato. Lo que sí garantizamos es una preparación profesional, un acompañamiento completo y la honestidad de decirte si este camino es viable para tu perfil.
+        </p>
+
+        <h2>Resultados</h2>
+
+        <p>
+          Los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios de nuestros titulados</a> hablan por sí mismos: profesionales de <a href="/carreras/administracion/">Administración</a>, <a href="/carreras/derecho/">Derecho</a>, <a href="/carreras/contaduria/">Contaduría</a>, <a href="/carreras/mercadotecnia/">Mercadotecnia</a>, <a href="/carreras/pedagogia/">Pedagogía</a> y otras carreras que obtuvieron su título y cédula profesional, transformando sus oportunidades laborales y formalizando décadas de experiencia. Consulta las <a href="/acuerdo-286/carreras-disponibles/">15 carreras disponibles</a> para conocer tu opción.
+        </p>
+
+        <div class="nosotros-cta">
+          <h2>¿Listo para Formalizar tu Experiencia?</h2>
+          <p>El primer paso es una evaluación de perfil gratuita. Analizamos tu caso y te damos un diagnóstico honesto en menos de 24 horas.</p>
+          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .nosotros-hero {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--space-2xl) 0;
+  }
+  .nosotros-hero h1 { color: var(--color-white); margin-bottom: var(--space-md); }
+  .nosotros-hero__lead { color: rgba(255,255,255,0.85); max-width: 65ch; font-size: 1.125rem; line-height: 1.7; }
+  .nosotros-hero__lead a { color: var(--color-accent); }
+
+  .nosotros-content { max-width: 75ch; }
+  .nosotros-content h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
+  .nosotros-content p { margin-bottom: var(--space-md); line-height: 1.7; }
+
+  .nosotros-cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+  }
+  .nosotros-cta h2 { margin-top: 0; }
+</style>

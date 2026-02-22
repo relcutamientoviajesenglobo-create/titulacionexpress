@@ -1,0 +1,211 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  datePublished: string;
+  dateModified?: string;
+  author?: string;
+  authorTitle?: string;
+  readTime?: string;
+  heroImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  datePublished,
+  dateModified = datePublished,
+  author = 'Equipo Titulación Express',
+  authorTitle = 'Especialistas en Acuerdo 286',
+  readTime = '5 min',
+  heroImage,
+} = Astro.props;
+
+const blogPosts = [
+  { title: 'Cómo Titularse sin Tesis en México', url: '/blog/titularse-sin-tesis-opciones-mexico/' },
+  { title: 'Formas de Titulación en México', url: '/blog/formas-de-titulacion-en-mexico/' },
+  { title: 'Licenciatura Ejecutiva vs Experiencia Laboral', url: '/blog/licenciatura-ejecutiva-vs-experiencia-laboral/' },
+  { title: '¿Cuánto Tiempo Tarda Titularse?', url: '/blog/cuanto-tiempo-tarda-titularse-por-experiencia/' },
+  { title: 'Diferencia Título Normal vs Acuerdo 286', url: '/blog/diferencia-titulo-normal-acuerdo-286/' },
+  { title: '¿Las Empresas Aceptan el Título?', url: '/blog/empresas-aceptan-titulo-acuerdo-286/' },
+  { title: '¿Qué Pasa si No Apruebo el CENEVAL?', url: '/blog/que-pasa-si-no-apruebo-examen-ceneval/' },
+  { title: 'Cómo Prepararse para el EGAL', url: '/blog/como-prepararse-examen-egal/' },
+  { title: 'Ventajas del Título Profesional', url: '/blog/ventajas-titulo-profesional-mexico/' },
+  { title: '¿Maestría con Título del Acuerdo 286?', url: '/blog/puedo-hacer-maestria-con-titulo-acuerdo-286/' },
+  { title: 'Titulación sin Bachillerato', url: '/blog/titulacion-sin-bachillerato-es-posible/' },
+  { title: 'Edad Mínima para Titularse', url: '/blog/edad-minima-titulacion-experiencia/' },
+];
+
+const articleSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": {
+    "@type": "Person",
+    "name": author,
+    "jobTitle": authorTitle
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Titulación Express",
+    "url": "https://titulacionexpress.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://titulacionexpress.com${canonical}`
+  }
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaType="article"
+  breadcrumbs={[
+    { name: 'Blog', url: '/blog/' },
+    { name: title.split('—')[0].split('|')[0].trim(), url: canonical },
+  ]}
+>
+
+  <script type="application/ld+json" set:html={articleSchema} />
+
+  <div class="blog-post">
+    <div class="container">
+      <Breadcrumbs items={[
+        { name: 'Blog', url: '/blog/' },
+        { name: title.split('—')[0].split('|')[0].trim(), url: canonical },
+      ]} />
+    </div>
+
+    <div class="blog-post__layout container">
+      <article class="blog-post__content">
+      {heroImage && (
+        <div class="blog-post__hero-img" style="margin-bottom: var(--space-xl); border-radius: var(--radius-lg); overflow: hidden;">
+          <img src={heroImage} alt={title} width="900" height="400" loading="eager" style="width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-lg);" />
+        </div>
+      )}
+        <div class="blog-post__meta">
+          <span class="blog-post__author">{author}</span>
+          <span class="blog-post__sep">·</span>
+          <time datetime={datePublished}>{new Date(datePublished).toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+          <span class="blog-post__sep">·</span>
+          <span>{readTime} de lectura</span>
+        </div>
+
+        <slot />
+
+        <div class="blog-cta">
+          <h2>¿Listo para Dar el Siguiente Paso?</h2>
+          <p>Evalúa tu perfil profesional sin costo y conoce si puedes titularte por experiencia laboral.</p>
+          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+        </div>
+      </article>
+
+      <aside class="blog-post__sidebar" aria-label="Artículos relacionados">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Artículos del Blog</h3>
+          <ul class="sidebar-card__links">
+            {blogPosts.map(post => (
+              <li><a href={post.url} class={post.url === canonical ? 'active' : ''}>{post.title}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">El Proceso</h3>
+          <ul class="sidebar-card__links">
+            <li><a href="/titulacion-por-experiencia-laboral/">Titulación por Experiencia</a></li>
+            <li><a href="/acuerdo-286/">Guía del Acuerdo 286</a></li>
+            <li><a href="/carreras/">Carreras Disponibles</a></li>
+            <li><a href="/cedula-profesional/">Cédula Profesional</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-cta">
+          <p>¿Tienes experiencia profesional sin título?</p>
+          <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">Evalúa tu Perfil</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .blog-post { padding-bottom: var(--space-3xl); }
+
+  .blog-post__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .blog-post__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;
+  }
+  .blog-post__author { font-weight: 600; color: var(--color-gray-600); }
+  .blog-post__sep { color: var(--color-gray-300); }
+
+  .blog-post__content :global(h1) { margin-bottom: var(--space-md); line-height: 1.2; }
+  .blog-post__content :global(h2) { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
+  .blog-post__content :global(h3) { margin-top: var(--space-xl); margin-bottom: var(--space-sm); }
+  .blog-post__content :global(p) { margin-bottom: var(--space-md); max-width: 70ch; line-height: 1.7; }
+
+  .blog-cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+  }
+  .blog-cta h2 { margin-top: 0; }
+
+  .sidebar-card {
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .sidebar-card__title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-md);
+  }
+  .sidebar-card__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
+  .sidebar-card__links a { color: var(--color-primary); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-fast); }
+  .sidebar-card__links a:hover { color: var(--color-accent); }
+  .sidebar-card__links a.active { color: var(--color-accent); font-weight: 600; }
+
+  .sidebar-cta {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85); }
+
+  .blog-post__sidebar { display: flex; flex-direction: column; gap: var(--space-xl); }
+
+  @media (min-width: 1024px) {
+    .blog-post__layout { grid-template-columns: 1fr 280px; }
+    .blog-post__sidebar { position: sticky; top: calc(var(--header-height) + var(--space-lg)); align-self: start; }
+  }
+</style>

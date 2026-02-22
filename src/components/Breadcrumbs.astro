@@ -1,0 +1,71 @@
+---
+/**
+ * Breadcrumbs.astro — Breadcrumbs con Schema BreadcrumbList
+ * Presente en TODAS las páginas excepto Home
+ */
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const baseUrl = 'https://titulacionexpress.com';
+const allItems = [{ name: 'Inicio', url: '/' }, ...items];
+---
+
+<nav class="breadcrumbs" aria-label="Ubicación en el sitio">
+  <ol class="breadcrumbs__list">
+    {allItems.map((item, index) => (
+      <li class="breadcrumbs__item">
+        {index < allItems.length - 1 ? (
+          <>
+            <a href={item.url} class="breadcrumbs__link">{item.name}</a>
+            <span class="breadcrumbs__sep" aria-hidden="true">›</span>
+          </>
+        ) : (
+          <span class="breadcrumbs__current" aria-current="page">{item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    padding: var(--space-md) 0;
+  }
+
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumbs__link {
+    color: var(--color-gray-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumbs__link:hover {
+    color: var(--color-primary);
+  }
+
+  .breadcrumbs__sep {
+    color: var(--color-gray-300);
+    margin-inline: 2px;
+  }
+
+  .breadcrumbs__current {
+    color: var(--color-gray-800);
+    font-weight: 600;
+  }
+</style>

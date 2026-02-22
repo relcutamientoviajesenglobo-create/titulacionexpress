@@ -1,0 +1,129 @@
+---
+/**
+ * SchemaOrg.astro — Inyecta JSON-LD dinámico por tipo de página
+ * Schema SOLO refleja contenido visible (Koray Framework regla #2)
+ */
+interface Props {
+  type: 'home' | 'silo' | 'carrera' | 'blog' | 'faq' | 'page';
+  title?: string;
+  description?: string;
+  url?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  carrera?: {
+    nombre: string;
+    tipo: string;
+    duracion: string;
+  };
+  article?: {
+    author: string;
+    datePublished: string;
+    dateModified?: string;
+  };
+  faq?: Array<{ question: string; answer: string }>;
+}
+
+const {
+  type,
+  title,
+  description,
+  url,
+  breadcrumbs = [],
+  carrera,
+  article,
+  faq,
+} = Astro.props;
+
+const siteUrl = 'https://titulacionexpress.com';
+
+// Organization base (used in home + as provider)
+const organization = {
+  '@type': 'EducationalOrganization',
+  name: 'Titulación Express',
+  url: siteUrl,
+  description: 'Titulación por experiencia laboral en México mediante el Acuerdo 286 de la SEP',
+  telephone: '+52-55-0000-0000',
+  email: 'info@titulacionexpress.com',
+  sameAs: [],
+};
+
+// Breadcrumb schema
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`,
+  })),
+} : null;
+
+// Build schemas array
+const schemas: any[] = [];
+
+if (breadcrumbSchema) {
+  schemas.push(breadcrumbSchema);
+}
+
+if (type === 'home') {
+  schemas.push({
+    '@context': 'https://schema.org',
+    ...organization,
+  });
+}
+
+if (type === 'carrera' && carrera) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: `Titulación en ${carrera.nombre} por Experiencia Laboral`,
+    description: description,
+    provider: {
+      '@type': 'EducationalOrganization',
+      name: 'Titulación Express',
+      url: siteUrl,
+    },
+    educationalCredentialAwarded: 'Título de Licenciatura expedido por la SEP',
+    timeRequired: carrera.duracion,
+  });
+}
+
+if (type === 'blog' && article) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    author: {
+      '@type': 'Person',
+      name: article.author,
+    },
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Titulación Express',
+      url: siteUrl,
+    },
+  });
+}
+
+if (type === 'faq' && faq && faq.length > 0) {
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  });
+}
+---
+
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

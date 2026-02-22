@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TrustSignals from '../components/TrustSignals.astro';
+---
+
+<BaseLayout
+  title="Contacto — Evalúa tu Perfil Profesional Gratis | Titulación Express"
+  description="Solicita una evaluación de perfil gratuita para conocer si puedes titularte por experiencia laboral. Respuesta en 24 horas. WhatsApp, teléfono y formulario."
+  canonical="/contacto/"
+  schemaType="page"
+  breadcrumbs={[{ name: 'Contacto', url: '/contacto/' }]}
+>
+
+  <div class="contacto-page">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Contacto', url: '/contacto/' }]} />
+    </div>
+
+    <section class="contacto-hero section photo-hero" style="background-image: url(/images/photos/office-working.jpg); min-height: 300px;">
+      <div class="container">
+        <h1>Evalúa tu Perfil Profesional — Sin Costo</h1>
+  <figure class="content-illustration">
+    <img src="/images/illustrations/contacto-evaluacion.svg" alt="Solicita evaluación gratuita de tu perfil profesional para titulación por experiencia laboral" width="400" height="300" loading="lazy" />
+  </figure>
+        <p class="contacto-hero__subtitle">
+          Analizamos tu experiencia laboral y te orientamos sobre la mejor ruta para obtener tu título de licenciatura mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a>. Respuesta en menos de 24 horas.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contacto-grid">
+
+        <!-- Formulario -->
+        <div class="contacto-form-wrap">
+          <h2>Solicita tu Evaluación de Perfil</h2>
+          <p>Completa el formulario y un asesor especializado analizará tu caso. La evaluación es gratuita y sin compromiso.</p>
+
+          <form class="contacto-form" action="#" method="POST" id="contactForm">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="telefono">WhatsApp o teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required placeholder="55 1234 5678" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="carrera">Carrera de interés</label>
+                <select id="carrera" name="carrera" required>
+                  <option value="">Selecciona una carrera</option>
+                  <optgroup label="No reguladas (sin créditos previos)">
+                    <option value="administracion">Administración</option>
+                    <option value="mercadotecnia">Mercadotecnia</option>
+                    <option value="pedagogia">Pedagogía</option>
+                    <option value="ciencias-comunicacion">Ciencias de la Comunicación</option>
+                    <option value="turismo">Turismo</option>
+                    <option value="gastronomia">Gastronomía</option>
+                    <option value="diseno-grafico">Diseño Gráfico</option>
+                    <option value="economia">Economía</option>
+                    <option value="comercio-internacional">Comercio Internacional</option>
+                    <option value="ciencias-politicas">Ciencias Políticas</option>
+                    <option value="educacion-preescolar">Educación Preescolar</option>
+                  </optgroup>
+                  <optgroup label="Reguladas (requieren 50% créditos)">
+                    <option value="derecho">Derecho</option>
+                    <option value="contaduria">Contaduría</option>
+                    <option value="ingenieria-industrial">Ingeniería Industrial</option>
+                    <option value="ingenieria-computacional">Ingeniería Computacional</option>
+                  </optgroup>
+                  <option value="no-se">No estoy seguro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experiencia">Años de experiencia laboral</label>
+                <select id="experiencia" name="experiencia" required>
+                  <option value="">Selecciona</option>
+                  <option value="1-3">1 a 3 años</option>
+                  <option value="3-5">3 a 5 años</option>
+                  <option value="5-10">5 a 10 años</option>
+                  <option value="10-15">10 a 15 años</option>
+                  <option value="15+">Más de 15 años</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">¿En qué área te desempeñas? (opcional)</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="Describe brevemente tu experiencia profesional y en qué sector trabajas..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--large contacto-form__submit">
+              Solicitar Evaluación de Perfil Gratis
+            </button>
+
+            <p class="contacto-form__disclaimer">
+              Tu información es confidencial. No compartimos tus datos con terceros.
+            </p>
+          </form>
+        </div>
+
+        <!-- Info lateral -->
+        <div class="contacto-info">
+          <div class="contacto-info__card">
+            <h3>WhatsApp Directo</h3>
+            <p>Escríbenos y recibe orientación inmediata sobre tu caso.</p>
+            <a href="https://wa.me/5215512345678?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+              Abrir WhatsApp
+            </a>
+          </div>
+
+          <div class="contacto-info__card">
+            <h3>Teléfono</h3>
+            <p>Llámanos de lunes a viernes, 9:00 a 18:00 hrs (CDMX).</p>
+            <a href="tel:+5215512345678" class="contacto-info__tel">55 1234 5678</a>
+          </div>
+
+          <div class="contacto-info__card">
+            <h3>Correo Electrónico</h3>
+            <p>Para consultas detalladas o envío de documentos.</p>
+            <a href="mailto:info@titulacionexpress.com">info@titulacionexpress.com</a>
+          </div>
+
+          <TrustSignals variant="compact" />
+
+          <div class="contacto-info__links">
+            <h3>¿Necesitas Más Información?</h3>
+            <p>Consulta estas secciones antes de tu evaluación:</p>
+            <ul>
+              <li><a href="/titulacion-por-experiencia-laboral/requisitos/">Requisitos para titularte</a></li>
+              <li><a href="/acuerdo-286/carreras-disponibles/">Carreras disponibles</a></li>
+              <li><a href="/titulacion-por-experiencia-laboral/costo/">Costos del proceso</a></li>
+              <li><a href="/titulacion-por-experiencia-laboral/preguntas-frecuentes/">Preguntas frecuentes</a></li>
+              <li><a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">Reguladas vs no reguladas</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .contacto-hero {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--space-2xl) 0;
+  }
+  .contacto-hero h1 { color: var(--color-white); margin-bottom: var(--space-md); }
+  .contacto-hero__subtitle { color: rgba(255,255,255,0.85); max-width: 60ch; font-size: 1.125rem; line-height: 1.6; }
+  .contacto-hero__subtitle a { color: var(--color-accent); }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .contacto-form-wrap h2 { margin-top: 0; }
+
+  .contacto-form { display: flex; flex-direction: column; gap: var(--space-md); margin-top: var(--space-xl); }
+  .form-group { display: flex; flex-direction: column; gap: var(--space-xs); }
+  .form-group label { font-weight: 600; font-size: 0.875rem; color: var(--color-gray-600); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition-fast);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(27,58,92,0.1);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+
+  .contacto-form__submit { margin-top: var(--space-md); }
+  .contacto-form__disclaimer { font-size: 0.8125rem; color: var(--color-gray-400); text-align: center; }
+
+  .contacto-info { display: flex; flex-direction: column; gap: var(--space-xl); }
+  .contacto-info__card {
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .contacto-info__card h3 { margin-top: 0; margin-bottom: var(--space-sm); font-size: 1rem; }
+  .contacto-info__card p { font-size: 0.9375rem; color: var(--color-gray-500); margin-bottom: var(--space-md); }
+  .contacto-info__tel { font-size: 1.25rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
+
+  .contacto-info__links { background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: var(--space-xl); }
+  .contacto-info__links h3 { margin-top: 0; font-size: 1rem; }
+  .contacto-info__links ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-xs); }
+  .contacto-info__links a { color: var(--color-primary); text-decoration: none; font-size: 0.9375rem; }
+  .contacto-info__links a:hover { color: var(--color-accent); }
+
+  @media (min-width: 1024px) {
+    .contacto-grid { grid-template-columns: 1.5fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

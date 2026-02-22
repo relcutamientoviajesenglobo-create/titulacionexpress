@@ -1,0 +1,39 @@
+---
+/**
+ * TrustSignals.astro — Señales de confianza E-E-A-T
+ * Muestra iconos SVG de autoridad + cifras de impacto + validación
+ */
+interface Props {
+  variant?: 'full' | 'compact';
+}
+
+const { variant = 'full' } = Astro.props;
+const iconSize = variant === 'compact' ? 32 : 40;
+---
+
+<section class={`trust ${variant === 'compact' ? 'trust--compact' : ''}`}>
+  <div class="trust__badges">
+    <div class="trust__badge">
+      <img src="/images/trust/sep-shield.svg" alt="" width={iconSize} height={iconSize} loading="lazy" aria-hidden="true" class="trust__icon" />
+      <span class="trust__label">Avalado por la SEP</span>
+    </div>
+    <div class="trust__badge">
+      <img src="/images/trust/ceneval-badge.svg" alt="" width={iconSize} height={iconSize} loading="lazy" aria-hidden="true" class="trust__icon" />
+      <span class="trust__label">Evaluaciones CENEVAL</span>
+    </div>
+    <div class="trust__badge">
+      <img src="/images/trust/cedula-card.svg" alt="" width={iconSize} height={iconSize} loading="lazy" aria-hidden="true" class="trust__icon" />
+      <span class="trust__label">Cédula Profesional</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust { padding: var(--space-xl) 0; }
+  .trust--compact { padding: var(--space-md) 0; }
+  .trust__badges { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-xl); }
+  .trust__badge { display: flex; align-items: center; gap: var(--space-sm); }
+  .trust__icon { flex-shrink: 0; }
+  .trust__label { font-size: 0.875rem; font-weight: 600; color: var(--color-gray-600); }
+  .trust--compact .trust__label { font-size: 0.8125rem; }
+</style>

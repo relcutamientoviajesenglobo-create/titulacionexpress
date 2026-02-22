@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" fill="none">
+  <circle cx="200" cy="150" r="130" fill="#1B3A5C" opacity="0.03"/>
+  <!-- Main document -->
+  <rect x="120" y="30" width="160" height="220" rx="6" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <!-- Header ribbon -->
+  <rect x="120" y="30" width="160" height="35" rx="6" fill="#1B3A5C" opacity="0.05"/>
+  <text x="200" y="52" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#1B3A5C" text-anchor="middle" letter-spacing="1">DIARIO OFICIAL DE LA FEDERACIÓN</text>
+  <!-- Content lines -->
+  <text x="200" y="85" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#1B3A5C" text-anchor="middle">Acuerdo 286</text>
+  <rect x="145" y="95" width="110" height="3" rx="1.5" fill="#E8A838" opacity="0.4"/>
+  <rect x="140" y="110" width="120" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="120" width="100" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="130" width="115" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="140" width="80" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="158" width="120" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="168" width="95" height="4" rx="2" fill="#E2E8F0"/>
+  <rect x="140" y="178" width="110" height="4" rx="2" fill="#E2E8F0"/>
+  <!-- Official seal -->
+  <circle cx="200" cy="215" r="18" fill="none" stroke="#1B3A5C" stroke-width="1.5" opacity="0.25"/>
+  <circle cx="200" cy="215" r="13" fill="none" stroke="#1B3A5C" stroke-width="1" opacity="0.15"/>
+  <text x="200" y="213" font-family="system-ui,sans-serif" font-size="6" font-weight="600" fill="#1B3A5C" text-anchor="middle" opacity="0.3">ESTADOS</text>
+  <text x="200" y="221" font-family="system-ui,sans-serif" font-size="6" font-weight="600" fill="#1B3A5C" text-anchor="middle" opacity="0.3">UNIDOS</text>
+  <!-- Year badge -->
+  <g transform="translate(285, 40)">
+    <rect width="60" height="28" rx="14" fill="#E8A838"/>
+    <text x="30" y="19" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">2000</text>
+  </g>
+  <!-- Arrow to checkmark -->
+  <g transform="translate(295, 130)">
+    <circle cx="30" cy="30" r="28" fill="#10B981" opacity="0.1"/>
+    <circle cx="30" cy="30" r="22" fill="#10B981" opacity="0.15"/>
+    <path d="M20 30L27 37L40 23" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Decorative elements -->
+  <circle cx="80" cy="80" r="4" fill="#E8A838" opacity="0.2"/>
+  <circle cx="340" cy="250" r="3" fill="#1B3A5C" opacity="0.15"/>
+  <circle cx="100" cy="240" r="5" fill="#E8A838" opacity="0.1"/>
+</svg>

@@ -1,0 +1,78 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/' },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/', active: true },
+];
+---
+
+<SiloLayout
+  title="Calendario de Evaluaciones Acuerdo 286 — Fechas 2026 | Titulación Express"
+  description="Calendario actualizado 2026 de evaluaciones del Acuerdo 286: fechas de registro, aplicación del examen EGAL y periodos del EXOAL. Planifica tu titulación."
+  canonical="/acuerdo-286/calendario-2026/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Calendario de Evaluaciones del Acuerdo 286 — 2026</h1>
+
+  <p>
+    El <a href="https://talento286.ceneval.edu.mx/" target="_blank" rel="noopener noreferrer">CENEVAL</a> publica anualmente el calendario de aplicación del <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL</a> para las <a href="/acuerdo-286/carreras-disponibles/">carreras disponibles</a> bajo el <a href="/acuerdo-286/que-es/">Acuerdo 286</a>. Las fechas de la <a href="/acuerdo-286/examen-oral-exoal/">evaluación oral EXOAL</a> las coordinan las <a href="/acuerdo-286/instituciones-evaluadoras/">instituciones evaluadoras autorizadas</a> en periodos posteriores a la publicación de resultados del EGAL.
+  </p>
+
+  <h2>Periodos de Evaluación 2026</h2>
+
+  <p>
+    El calendario 2026 contempla múltiples periodos de registro y evaluación distribuidos a lo largo del año. Cada periodo incluye una fase de registro (generalmente de 4 a 6 semanas antes del examen), una fase de aplicación del EGAL en las sedes autorizadas del CENEVAL, y una fase posterior donde las instituciones evaluadoras programan las evaluaciones orales EXOAL para quienes aprobaron el examen escrito.
+  </p>
+
+  <p>
+    Las fechas exactas de cada periodo se actualizan directamente desde el portal del CENEVAL. Te recomendamos consultar las fechas vigentes en el sitio oficial de <a href="https://talento286.ceneval.edu.mx/" target="_blank" rel="noopener noreferrer">CENEVAL Talento 286</a> para confirmar las fechas de registro y aplicación de tu carrera específica, ya que algunas carreras tienen calendarios diferenciados.
+  </p>
+
+  <h2>¿Cómo Planificar tu Preparación?</h2>
+
+  <p>
+    La preparación para el EGAL requiere entre 2 y 4 meses dependiendo de tu nivel de dominio previo en la materia. Lo ideal es iniciar la preparación al menos 3 meses antes de la fecha de evaluación que elijas. Esto te da tiempo suficiente para cubrir el temario completo, realizar simulacros de examen e identificar áreas que necesiten refuerzo.
+  </p>
+
+  <p>
+    El <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso paso a paso</a> incluye una evaluación de perfil inicial que te ayuda a determinar cuánto tiempo de preparación necesitas. Si inicias tu evaluación de perfil hoy, podemos orientarte sobre el periodo de evaluación más conveniente para tu caso.
+  </p>
+
+  <h2>Fechas Límite de Registro</h2>
+
+  <p>
+    El registro ante el CENEVAL tiene fechas límite estrictas. Una vez cerrado el periodo de registro, no es posible inscribirse para esa aplicación y deberás esperar al siguiente periodo. Por eso es importante planificar con anticipación: primero verifica que cumples los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a>, luego inicia tu preparación, y finalmente regístrate para la evaluación con tiempo suficiente.
+  </p>
+
+  <h2>Disponibilidad por Carrera</h2>
+
+  <p>
+    No todas las carreras se evalúan en todos los periodos. Las carreras con mayor demanda — como <a href="/carreras/administracion/">Administración</a>, <a href="/carreras/derecho/">Derecho</a> y <a href="/carreras/contaduria/">Contaduría</a> — generalmente tienen más fechas de evaluación al año. Carreras menos solicitadas pueden tener periodos más limitados. Consulta el <a href="/acuerdo-286/carreras-disponibles/">catálogo de carreras</a> y verifica la disponibilidad para la tuya.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Planifica tu Titulación en 2026</h2>
+    <p>Evalúa tu perfil hoy y te orientamos sobre el mejor periodo para presentar tus evaluaciones según tu nivel de preparación.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

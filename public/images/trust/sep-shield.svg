@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <path d="M24 4L6 14V24C6 35.1 13.8 45.2 24 48C34.2 45.2 42 35.1 42 24V14L24 4Z" fill="#1B3A5C" opacity="0.08"/>
+  <path d="M24 4L6 14V24C6 35.1 13.8 45.2 24 48C34.2 45.2 42 35.1 42 24V14L24 4Z" fill="none" stroke="#1B3A5C" stroke-width="2"/>
+  <path d="M17 24L22 29L31 19" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="24" y="42" font-family="system-ui,sans-serif" font-size="6" font-weight="700" fill="#1B3A5C" text-anchor="middle">SEP</text>
+</svg>

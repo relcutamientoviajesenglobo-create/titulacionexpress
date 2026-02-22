@@ -1,0 +1,175 @@
+---
+/**
+ * CarreraCard.astro — Airbnb-style career card with photo
+ */
+interface Props {
+  nombre: string;
+  slug: string;
+  tipo: 'regulada' | 'no-regulada';
+  descripcionCorta: string;
+  foto?: string;
+}
+
+const { nombre, slug, tipo, descripcionCorta, foto } = Astro.props;
+---
+
+<a href={`/carreras/${slug}/`} class="cc">
+  <div class="cc__media">
+    {foto ? (
+      <img src={foto} alt={nombre} width="400" height="260" loading="lazy" class="cc__img" />
+    ) : (
+      <div class="cc__placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/></svg>
+      </div>
+    )}
+    <div class="cc__badge-wrap">
+      <span class={`cc__badge ${tipo === 'regulada' ? 'cc__badge--reg' : 'cc__badge--noreg'}`}>
+        {tipo === 'regulada' ? '🎓 Regulada' : '✨ Sin créditos previos'}
+      </span>
+    </div>
+  </div>
+  <div class="cc__body">
+    <h3 class="cc__name">{nombre}</h3>
+    <p class="cc__desc">{descripcionCorta}</p>
+    <span class="cc__link">
+      Conocer requisitos
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .cc {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .cc:hover {
+    box-shadow:
+      0 8px 30px rgba(0,0,0,0.08),
+      0 2px 8px rgba(0,0,0,0.04);
+    transform: translateY(-4px);
+  }
+
+  /* Media / Image */
+  .cc__media {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8edf2 0%, #d1d9e2 100%);
+  }
+
+  .cc__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cc:hover .cc__img {
+    transform: scale(1.08);
+  }
+
+  .cc__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.2);
+  }
+
+  /* Badge over image */
+  .cc__badge-wrap {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+  }
+
+  .cc__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .cc__badge--reg {
+    background: rgba(21, 101, 192, 0.85);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.25);
+  }
+
+  .cc__badge--noreg {
+    background: rgba(255, 255, 255, 0.88);
+    color: #1b3a5c;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Body */
+  .cc__body {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .cc__name {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .cc__desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .cc__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #e8a838;
+    margin-top: 0.5rem;
+    transition: gap 0.3s ease;
+  }
+
+  .cc:hover .cc__link {
+    gap: 10px;
+    color: #d49520;
+  }
+
+  .cc__link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .cc:hover .cc__link svg {
+    transform: translateX(3px);
+  }
+</style>

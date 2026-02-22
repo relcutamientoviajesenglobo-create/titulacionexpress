@@ -1,0 +1,77 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Cédula Profesional — Guía', url: '/cedula-profesional/' },
+  { name: 'Cómo Tramitarla', url: '/cedula-profesional/como-tramitarla/' },
+  { name: 'Requisitos', url: '/cedula-profesional/requisitos/', active: true },
+  { name: 'Después del Acuerdo 286', url: '/cedula-profesional/despues-del-acuerdo-286/' },
+];
+---
+
+<SiloLayout
+  title="Requisitos para la Cédula Profesional en México 2026 | Titulación Express"
+  description="Lista completa de requisitos para tramitar tu cédula profesional: documentos, fotografías, pago de derechos y condiciones. Guía actualizada 2026."
+  canonical="/cedula-profesional/requisitos/"
+  headerImage="/images/photos/desk-documents.jpg"
+  breadcrumbs={[
+    { name: 'Cédula Profesional', url: '/cedula-profesional/' },
+    { name: 'Requisitos', url: '/cedula-profesional/requisitos/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Requisitos para Tramitar la Cédula Profesional en 2026</h1>
+
+  <p>
+    Los requisitos para obtener la <a href="/cedula-profesional/">cédula profesional</a> son establecidos por la Dirección General de Profesiones de la SEP y aplican tanto para titulados universitarios como para quienes obtuvieron su título mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286</a>. A continuación se detallan todos los documentos y condiciones necesarios para el trámite.
+  </p>
+
+  <h2>Documentos Requeridos</h2>
+
+  <p>
+    Para tramitar la cédula profesional necesitas reunir los siguientes documentos: título profesional registrado ante la Dirección General de Profesiones (original y copia digitalizada), acta de nacimiento actualizada (no mayor a 6 meses en algunos casos), CURP actualizada e impresa desde el portal oficial del gobierno, identificación oficial vigente (INE/IFE o pasaporte mexicano), y fotografías digitales en formato y especificaciones indicadas por el portal de Profesiones.
+  </p>
+
+  <h2>Registro Previo del Título</h2>
+
+  <p>
+    El requisito fundamental es contar con un título profesional registrado ante la Dirección General de Profesiones. Si tu título fue expedido por la SEP mediante el <a href="/acuerdo-286/">Acuerdo 286</a>, el registro lo gestiona la propia DGAIR como parte del proceso de expedición del título. Si tu título proviene de una universidad, la institución educativa realiza el registro. Sin título registrado, no es posible iniciar el trámite de la cédula.
+  </p>
+
+  <h2>Pago de Derechos</h2>
+
+  <p>
+    El trámite de la cédula profesional requiere el pago de derechos establecidos en la Ley Federal de Derechos. El monto se actualiza anualmente y varía según el nivel educativo (licenciatura, maestría, doctorado). El pago se realiza mediante línea de captura generada por el sistema, en ventanilla bancaria o transferencia electrónica. Este es un pago al gobierno federal, no a Titulación Express ni a ninguna empresa privada.
+  </p>
+
+  <h2>Especificaciones de las Fotografías</h2>
+
+  <p>
+    Las fotografías para la cédula profesional deben cumplir especificaciones técnicas precisas: formato digital (JPG o PNG), fondo blanco, rostro descubierto sin lentes, cabello recogido (si aplica), y dimensiones específicas indicadas en el portal. Es recomendable acudir a un estudio fotográfico que conozca las especificaciones de la cédula profesional para evitar rechazos.
+  </p>
+
+  <h2>Requisitos Adicionales para Carreras Reguladas</h2>
+
+  <p>
+    Para carreras <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">reguladas</a> como <a href="/carreras/derecho/">Derecho</a>, <a href="/carreras/contaduria/">Contaduría</a> o las ingenierías, el trámite de la cédula puede requerir documentación adicional específica de la profesión, como actas de examen profesional o constancias de servicio social. Los requisitos exactos dependen de la normatividad vigente de cada profesión regulada.
+  </p>
+
+  <h2>¿Qué Pasa si No Tienes Título?</h2>
+
+  <p>
+    Sin título profesional no puedes tramitar la cédula. Si cuentas con experiencia laboral pero no tienes título de licenciatura, la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> mediante el Acuerdo 286 es una vía legal para obtenerlo. Conoce los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos de titulación</a>, el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso paso a paso</a> y los <a href="/titulacion-por-experiencia-laboral/costo/">costos</a>. Una vez que tengas tu título, el proceso de <a href="/cedula-profesional/como-tramitarla/">cédula profesional</a> es directo.
+  </p>
+
+  <div class="silo-cta">
+    <h2>¿Necesitas Obtener tu Título Primero?</h2>
+    <p>Si no tienes título de licenciatura, evalúa si puedes titularte por experiencia laboral y después tramitar tu cédula profesional.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

@@ -1,0 +1,79 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+import TrustSignals from '../../components/TrustSignals.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/' },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/', active: true },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+];
+---
+
+<SiloLayout
+  title="Validez Oficial del Título del Acuerdo 286 — ¿Es Legal? | Titulación Express"
+  description="El título del Acuerdo 286 tiene validez oficial plena en México. Expedido por la SEP, permite tramitar cédula profesional y tiene los mismos efectos que un título universitario."
+  canonical="/acuerdo-286/validez-oficial/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Validez Oficial del Título Obtenido por el Acuerdo 286</h1>
+
+  <p>
+    El título profesional expedido mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> tiene validez oficial plena en todo el territorio mexicano. Es emitido directamente por la Secretaría de Educación Pública — no por una universidad ni por una empresa privada — y tiene exactamente los mismos efectos legales que un título obtenido por la vía universitaria tradicional.
+  </p>
+
+  <TrustSignals variant="full" />
+
+  <h2>¿Quién Expide el Título?</h2>
+
+  <p>
+    El título es expedido por la Secretaría de Educación Pública a través de la Dirección General de Acreditación, Incorporación y Revalidación (DGAIR). Esto es fundamental: no es un documento emitido por Titulación Express, por una escuela privada ni por ningún tercero. Es un título oficial del gobierno de México, registrado en los sistemas de la SEP y verificable en sus bases de datos.
+  </p>
+
+  <h2>Cédula Profesional Federal</h2>
+
+  <p>
+    Con el título del Acuerdo 286 puedes <a href="/cedula-profesional/como-tramitarla/">tramitar tu cédula profesional federal</a> ante la Dirección General de Profesiones de la SEP. La cédula profesional electrónica es verificable en el registro público del gobierno federal. No contiene ninguna anotación que distinga la modalidad de obtención del título, lo que significa que para fines prácticos, laborales y legales, es indistinguible de una cédula obtenida por vía universitaria.
+  </p>
+
+  <h2>¿Para Qué Sirve el Título?</h2>
+
+  <p>
+    El título del Acuerdo 286 te habilita para todas las funciones que requieren título y cédula profesional: ejercer profesiones reguladas (como <a href="/carreras/derecho/">Derecho</a>, <a href="/carreras/contaduria/">Contaduría</a> o ingenierías), firmar dictámenes, peritajes y documentos legales, acceder a puestos de gobierno que exigen licenciatura, inscribirte en programas de maestría y doctorado en México y el extranjero, y participar en concursos y oposiciones del sector público. Conoce todos los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios de obtener tu título</a>.
+  </p>
+
+  <h2>Marco Legal que lo Respalda</h2>
+
+  <p>
+    La validez del título se sustenta en el Acuerdo 286 publicado en el Diario Oficial de la Federación el 30 de octubre de 2000, con fundamento en el Artículo 45 de la Ley General de Educación y el Artículo 5° constitucional. El proceso está supervisado por la DGAIR de la SEP y las evaluaciones son aplicadas por <a href="/acuerdo-286/instituciones-evaluadoras/">instituciones evaluadoras autorizadas</a>. El examen EGAL es diseñado por el <a href="https://talento286.ceneval.edu.mx/" target="_blank" rel="noopener noreferrer">CENEVAL</a>, organismo con más de 30 años de experiencia en evaluación educativa.
+  </p>
+
+  <h2>¿Las Empresas lo Reconocen?</h2>
+
+  <p>
+    Las empresas verifican la cédula profesional, no la modalidad en que se obtuvo el título. Tu cédula profesional electrónica aparece en el registro público federal con los mismos datos que cualquier otra. Los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios de profesionales titulados</a> confirman que no han enfrentado ningún obstáculo laboral derivado de la modalidad de titulación. Para iniciar, verifica que cumples los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos del proceso</a>.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Obtén un Título con Validez Oficial de la SEP</h2>
+    <p>Evalúa tu perfil profesional sin costo y conoce tu elegibilidad para el proceso del Acuerdo 286.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

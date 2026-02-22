@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CarreraCard from '../../components/CarreraCard.astro';
+import TrustSignals from '../../components/TrustSignals.astro';
+
+const reguladas = [
+  { nombre: 'Lic. en Derecho', slug: 'derecho', foto: '/images/photos/lawyer-scales.jpg', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para profesionales del ámbito jurídico.' },
+  { nombre: 'Lic. en Contaduría', slug: 'contaduria', foto: '/images/photos/accounting-calculator.jpg', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para contadores y financieros en ejercicio.' },
+  { nombre: 'Ing. Industrial', slug: 'ingenieria-industrial', foto: '/images/photos/engineering-blueprints.jpg', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para ingenieros en manufactura y operaciones.' },
+  { nombre: 'Ing. Computacional', slug: 'ingenieria-computacional', foto: '/images/photos/computer-coding.jpg', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para profesionales de TI y desarrollo.' },
+];
+
+const noReguladas = [
+  { nombre: 'Lic. en Administración', slug: 'administracion', foto: '/images/photos/business-meeting.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para gerentes y directores empresariales.' },
+  { nombre: 'Lic. en Mercadotecnia', slug: 'mercadotecnia', foto: '/images/photos/marketing-strategy.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para especialistas en marketing y ventas.' },
+  { nombre: 'Lic. en Pedagogía', slug: 'pedagogia', foto: '/images/photos/teacher-classroom.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para educadores y formadores con experiencia.' },
+  { nombre: 'Lic. en Ciencias de la Comunicación', slug: 'ciencias-de-la-comunicacion', foto: '/images/photos/communication-media.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para periodistas y comunicadores.' },
+  { nombre: 'Lic. en Turismo', slug: 'turismo', foto: '/images/photos/tourism-travel.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para operadores y gestores turísticos.' },
+  { nombre: 'Lic. en Gastronomía', slug: 'gastronomia', foto: '/images/photos/chef-kitchen.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para chefs y profesionales culinarios.' },
+  { nombre: 'Lic. en Diseño Gráfico', slug: 'diseno-grafico', foto: '/images/photos/design-creative.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para diseñadores y creativos visuales.' },
+  { nombre: 'Lic. en Economía', slug: 'economia', foto: '/images/photos/economics-charts.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para analistas y consultores económicos.' },
+  { nombre: 'Lic. en Comercio Internacional', slug: 'comercio-internacional', foto: '/images/photos/international-trade.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para profesionales de importación y exportación.' },
+  { nombre: 'Lic. en Ciencias Políticas', slug: 'ciencias-politicas', foto: '/images/photos/political-science.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para funcionarios y analistas del sector público.' },
+  { nombre: 'Lic. en Educación Preescolar', slug: 'educacion-preescolar', foto: '/images/photos/preschool-education.jpg', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para docentes de educación inicial.' },
+];
+---
+
+<BaseLayout
+  title="Carreras Disponibles para Titulación por Experiencia Laboral — Acuerdo 286 | Titulación Express"
+  description="15 licenciaturas disponibles para titularte por experiencia laboral: Administración, Derecho, Contaduría, Mercadotecnia, Pedagogía y más. Carreras reguladas y no reguladas."
+  canonical="/carreras/"
+  headerImage="/images/photos/graduation-hats.jpg"
+  schemaType="page"
+  breadcrumbs={[{ name: 'Carreras', url: '/carreras/' }]}
+>
+
+  <div class="carreras-page">
+    <div class="container">
+      <Breadcrumbs items={[{ name: 'Carreras', url: '/carreras/' }]} />
+    </div>
+
+    <section class="carreras-hero section">
+      <div class="container">
+        <h1>15 Carreras Disponibles para Titulación por Experiencia Laboral</h1>
+        <p class="carreras-hero__lead">
+          El <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite titularte en 15 licenciaturas mediante la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a>. Elige la carrera que se ajusta a tu trayectoria profesional. Las carreras no reguladas no requieren créditos universitarios previos.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <TrustSignals variant="compact" />
+
+        <h2>Carreras No Reguladas — Sin Créditos Universitarios Previos</h2>
+
+        <p>
+          Las <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carreras no reguladas</a> son la opción más accesible: no exigen haber cursado estudios universitarios. Cualquier profesional con certificado de bachillerato y experiencia laboral comprobable puede aplicar directamente al proceso de evaluación.
+        </p>
+
+        <div class="carreras-grid grid grid--3">
+          {noReguladas.map(c => (
+            <CarreraCard nombre={c.nombre} slug={c.slug} tipo={c.tipo} descripcionCorta={c.descripcionCorta} foto={c.foto} />
+          ))}
+        </div>
+
+        <h2>Carreras Reguladas — Requieren 50% de Créditos Universitarios</h2>
+
+        <p>
+          Las <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">carreras reguladas</a> requieren que el aspirante haya cursado al menos el 50% de los créditos de la licenciatura en una institución con RVOE. Son ideales para profesionales que comenzaron la carrera universitaria pero no la concluyeron.
+        </p>
+
+        <div class="carreras-grid grid grid--2">
+          {reguladas.map(c => (
+            <CarreraCard nombre={c.nombre} slug={c.slug} tipo={c.tipo} descripcionCorta={c.descripcionCorta} foto={c.foto} />
+          ))}
+        </div>
+
+        <div class="carreras-info">
+          <h2>¿No Sabes Cuál Carrera Elegir?</h2>
+
+          <p>
+            La elección debe basarse en tu experiencia laboral real. La carrera que elijas debe corresponder al campo donde has trabajado, porque el <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL</a> evalúa conocimientos aplicados que se adquieren con la práctica profesional. Si tienes dudas, la evaluación de perfil te ayuda a determinar la mejor opción.
+          </p>
+
+          <p>
+            Consulta los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos generales</a> del proceso, el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso paso a paso</a>, los <a href="/titulacion-por-experiencia-laboral/costo/">costos por tipo de carrera</a> y los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios de profesionales titulados</a> en diversas carreras. También puedes revisar las <a href="/titulacion-por-experiencia-laboral/preguntas-frecuentes/">preguntas frecuentes</a> sobre el proceso.
+          </p>
+        </div>
+
+        <div class="carreras-cta">
+          <h2>Descubre la Carrera Ideal para tu Perfil</h2>
+          <p>Evalúa tu perfil profesional sin costo. Analizamos tu experiencia y te orientamos sobre la carrera que mejor se ajusta a tu trayectoria.</p>
+          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .carreras-hero {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--space-2xl) 0;
+  }
+  .carreras-hero h1 { color: var(--color-white); margin-bottom: var(--space-md); }
+  .carreras-hero__lead { color: rgba(255,255,255,0.85); max-width: 65ch; font-size: 1.125rem; line-height: 1.7; }
+  .carreras-hero__lead a { color: var(--color-accent); }
+
+  .carreras-grid { margin: var(--space-xl) 0 var(--space-2xl); }
+
+  .carreras-info { max-width: 70ch; }
+  .carreras-info h2 { margin-top: var(--space-2xl); }
+  .carreras-info p { margin-bottom: var(--space-md); }
+
+  .carreras-cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+  }
+  .carreras-cta h2 { margin-top: 0; }
+</style>

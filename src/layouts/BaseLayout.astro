@@ -1,0 +1,131 @@
+---
+/**
+ * BaseLayout.astro — Layout base de TODAS las páginas
+ * SEO meta tags, Open Graph, canonical, View Transitions, Schema
+ * CSS inline para above-the-fold, fonts locales
+ */
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schemaType?: 'home' | 'silo' | 'carrera' | 'blog' | 'faq' | 'page';
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  carrera?: {
+    nombre: string;
+    tipo: string;
+    duracion: string;
+  };
+  article?: {
+    author: string;
+    datePublished: string;
+    dateModified?: string;
+  };
+  faq?: Array<{ question: string; answer: string }>;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-image.jpg',
+  noindex = false,
+  schemaType = 'page',
+  breadcrumbs = [],
+  carrera,
+  article,
+  faq,
+} = Astro.props;
+
+const siteUrl = 'https://titulacionexpress.com';
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- SEO Primary -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="Titulación Express" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#1B3A5C" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <!-- Preload critical font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+
+  <!-- Schema Markup -->
+  <SchemaOrg
+    type={schemaType}
+    title={title}
+    description={description}
+    url={canonicalUrl}
+    breadcrumbs={breadcrumbs.length > 0 ? [{ name: 'Inicio', url: '/' }, ...breadcrumbs] : []}
+    carrera={carrera}
+    article={article}
+    faq={faq}
+  />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <Header currentPath={Astro.url.pathname} />
+
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+  <script>
+    const header = document.getElementById('header');
+    if (header) {
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            header.classList.toggle('header--scrolled', window.scrollY > 20);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

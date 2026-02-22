@@ -1,0 +1,98 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+import CarreraCard from '../../components/CarreraCard.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/', active: true },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+];
+
+const reguladas = [
+  { nombre: 'Lic. en Derecho', slug: 'derecho', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para profesionales del ámbito jurídico.', foto: '/images/photos/lawyer-scales.jpg'},
+  { nombre: 'Lic. en Contaduría', slug: 'contaduria', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para contadores y financieros en ejercicio.', foto: '/images/photos/accounting-calculator.jpg'},
+  { nombre: 'Ing. Industrial', slug: 'ingenieria-industrial', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para ingenieros en manufactura y operaciones.', foto: '/images/photos/engineering-blueprints.jpg'},
+  { nombre: 'Ing. Computacional', slug: 'ingenieria-computacional', tipo: 'regulada' as const, descripcionCorta: 'Requiere 50% de créditos. Para profesionales de TI y desarrollo.', foto: '/images/photos/computer-coding.jpg'},
+];
+
+const noReguladas = [
+  { nombre: 'Lic. en Administración', slug: 'administracion', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para gerentes y directores empresariales.', foto: '/images/photos/business-meeting.jpg'},
+  { nombre: 'Lic. en Mercadotecnia', slug: 'mercadotecnia', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para especialistas en marketing y ventas.', foto: '/images/photos/marketing-strategy.jpg'},
+  { nombre: 'Lic. en Pedagogía', slug: 'pedagogia', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para educadores y formadores con experiencia.', foto: '/images/photos/teacher-classroom.jpg'},
+  { nombre: 'Lic. en Ciencias de la Comunicación', slug: 'ciencias-de-la-comunicacion', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para periodistas y comunicadores.', foto: '/images/photos/communication-media.jpg'},
+  { nombre: 'Lic. en Ciencias Políticas', slug: 'ciencias-politicas', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para profesionales del sector público.', foto: '/images/photos/political-science.jpg'},
+  { nombre: 'Lic. en Turismo', slug: 'turismo', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para operadores y gestores turísticos.', foto: '/images/photos/tourism-travel.jpg'},
+  { nombre: 'Lic. en Gastronomía', slug: 'gastronomia', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para chefs y profesionales culinarios.', foto: '/images/photos/chef-kitchen.jpg'},
+  { nombre: 'Lic. en Diseño Gráfico', slug: 'diseno-grafico', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para diseñadores y creativos visuales.', foto: '/images/photos/design-creative.jpg'},
+  { nombre: 'Lic. en Economía', slug: 'economia', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para analistas y consultores económicos.', foto: '/images/photos/economics-charts.jpg'},
+  { nombre: 'Lic. en Comercio Internacional', slug: 'comercio-internacional', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para profesionales de importación/exportación.', foto: '/images/photos/international-trade.jpg'},
+  { nombre: 'Lic. en Educación Preescolar', slug: 'educacion-preescolar', tipo: 'no-regulada' as const, descripcionCorta: 'Sin requisito de créditos. Para docentes de educación inicial.', foto: '/images/photos/preschool-education.jpg'},
+];
+---
+
+<SiloLayout
+  title="Carreras Disponibles en el Acuerdo 286 — 15 Licenciaturas 2026 | Titulación Express"
+  description="Lista completa de las 15 carreras disponibles para titularte por experiencia laboral con el Acuerdo 286: reguladas y no reguladas. Consulta requisitos por carrera."
+  canonical="/acuerdo-286/carreras-disponibles/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Carreras Disponibles en el Acuerdo 286 — Catálogo 2026</h1>
+
+  <p>
+    El <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> permite acreditar 15 licenciaturas principales mediante la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a>. Estas carreras se dividen en dos categorías con <a href="/acuerdo-286/carreras-reguladas-vs-no-reguladas/">requisitos distintos</a>: reguladas (requieren créditos universitarios previos) y no reguladas (accesibles sin estudios universitarios). Cada carrera tiene un temario de evaluación específico aplicado por el <a href="/acuerdo-286/examen-egal-ceneval/">CENEVAL mediante el examen EGAL</a>.
+  </p>
+
+  <h2>Carreras Reguladas (Requieren 50% de Créditos Universitarios)</h2>
+
+  <p>
+    Las carreras reguladas son aquellas que por su naturaleza profesional requieren que el aspirante haya cursado al menos el 50% de los créditos de la licenciatura en una institución educativa con RVOE. Esto se debe a que involucran el ejercicio de actividades que impactan directamente en derechos fundamentales o la seguridad pública.
+  </p>
+
+  <div class="carreras-grid grid grid--2">
+    {reguladas.map(c => (
+      <CarreraCard nombre={c.nombre} slug={c.slug} tipo={c.tipo} descripcionCorta={c.descripcionCorta} foto={c.foto} />
+    ))}
+  </div>
+
+  <h2>Carreras No Reguladas (Sin Requisito de Créditos)</h2>
+
+  <p>
+    Las carreras no reguladas son la opción más accesible del Acuerdo 286 porque no exigen créditos universitarios previos. Cualquier profesional con bachillerato y experiencia laboral comprobable en el campo puede aplicar directamente. Son las más solicitadas y representan la mayoría de las titulaciones exitosas.
+  </p>
+
+  <div class="carreras-grid grid grid--3">
+    {noReguladas.map(c => (
+      <CarreraCard nombre={c.nombre} slug={c.slug} tipo={c.tipo} descripcionCorta={c.descripcionCorta} foto={c.foto} />
+    ))}
+  </div>
+
+  <h2>¿Cómo Elegir tu Carrera?</h2>
+
+  <p>
+    La elección debe basarse en tu experiencia laboral real, no en la carrera que te gustaría haber estudiado. El <a href="/acuerdo-286/examen-egal-ceneval/">examen EGAL</a> evalúa conocimientos aplicados que normalmente se adquieren con años de práctica profesional. Si tienes dudas sobre cuál carrera se ajusta mejor a tu perfil, la evaluación de perfil gratuita te ayuda a determinarlo. Consulta los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos específicos</a> y los <a href="/titulacion-por-experiencia-laboral/costo/">costos por carrera</a>.
+  </p>
+
+  <div class="silo-cta">
+    <h2>¿Cuál Carrera se Ajusta a tu Perfil?</h2>
+    <p>Evalúa tu perfil sin costo y descubre la carrera ideal según tu experiencia profesional.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Descubre tu Carrera Ideal</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .carreras-grid { margin: var(--space-xl) 0; }
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

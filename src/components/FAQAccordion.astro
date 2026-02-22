@@ -1,0 +1,28 @@
+---
+/**
+ * FAQAccordion.astro — Acordeón de FAQ CSS-only
+ * Usa <details><summary> nativo — Zero JS
+ * El contenido es visible en el DOM para LLMs (GEO)
+ */
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="faq-accordion">
+  {items.map((item) => (
+    <details class="faq-accordion__item">
+      <summary class="faq-accordion__question">{item.question}</summary>
+      <div class="faq-accordion__answer">
+        <p>{item.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>

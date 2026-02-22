@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <!-- Step 4: Título y Cédula -->
+  <circle cx="32" cy="32" r="30" fill="#FFFBEB"/>
+  <!-- Graduation cap -->
+  <path d="M10 28L32 16L54 28L32 40Z" fill="#1B3A5C"/>
+  <path d="M32 40L32 48" stroke="#1B3A5C" stroke-width="2.5"/>
+  <path d="M20 34L20 44C20 48 32 54 44 44L44 34" fill="none" stroke="#1B3A5C" stroke-width="2"/>
+  <circle cx="32" cy="50" r="3" fill="#E8A838"/>
+  <!-- Tassel -->
+  <path d="M48 28L48 38" stroke="#E8A838" stroke-width="2"/>
+  <path d="M45 38L48 43L51 38" fill="#E8A838"/>
+  <!-- Stars -->
+  <g fill="#E8A838" opacity="0.6">
+    <circle cx="14" cy="16" r="2"/>
+    <circle cx="50" cy="14" r="1.5"/>
+    <circle cx="8" cy="42" r="1.5"/>
+    <circle cx="56" cy="46" r="2"/>
+  </g>
+</svg>

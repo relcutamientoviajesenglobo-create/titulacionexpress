@@ -1,0 +1,81 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Cédula Profesional — Guía', url: '/cedula-profesional/' },
+  { name: 'Cómo Tramitarla', url: '/cedula-profesional/como-tramitarla/', active: true },
+  { name: 'Requisitos', url: '/cedula-profesional/requisitos/' },
+  { name: 'Después del Acuerdo 286', url: '/cedula-profesional/despues-del-acuerdo-286/' },
+];
+---
+
+<SiloLayout
+  title="Cómo Tramitar la Cédula Profesional — Paso a Paso 2026 | Titulación Express"
+  description="Guía paso a paso para tramitar tu cédula profesional en México: registro en línea, documentos necesarios, pago de derechos y tiempos de expedición. Actualizado 2026."
+  canonical="/cedula-profesional/como-tramitarla/"
+  headerImage="/images/photos/desk-documents.jpg"
+  breadcrumbs={[
+    { name: 'Cédula Profesional', url: '/cedula-profesional/' },
+    { name: 'Cómo Tramitarla', url: '/cedula-profesional/como-tramitarla/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Cómo Tramitar la Cédula Profesional — Paso a Paso</h1>
+
+  <p>
+    El trámite de la <a href="/cedula-profesional/">cédula profesional</a> se realiza ante la Dirección General de Profesiones de la SEP. Desde la implementación del sistema electrónico, el proceso puede realizarse en línea a través del portal del gobierno federal. Esta guía detalla cada etapa del trámite, tanto para titulados universitarios como para quienes obtuvieron su título por el <a href="/acuerdo-286/que-es/">Acuerdo 286</a>.
+  </p>
+
+  <h2>Paso 1: Registro de Título Profesional</h2>
+
+  <p>
+    Antes de tramitar la cédula, tu título profesional debe estar registrado ante la Dirección General de Profesiones. Si obtuviste tu título mediante la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> y el Acuerdo 286, la SEP se encarga del registro como parte del proceso de expedición del título. Si tu título fue emitido por una universidad, la institución educativa gestiona el registro. Una vez registrado, puedes proceder con la solicitud de la cédula.
+  </p>
+
+  <h2>Paso 2: Crear Cuenta en el Portal de Profesiones</h2>
+
+  <p>
+    El trámite inicia creando una cuenta en el portal de la Dirección General de Profesiones del gobierno federal. Necesitarás tu CURP, un correo electrónico activo y crear una contraseña. Una vez dentro del sistema, podrás iniciar la solicitud de expedición de cédula profesional electrónica seleccionando el nivel educativo de licenciatura.
+  </p>
+
+  <h2>Paso 3: Carga de Documentos Digitalizados</h2>
+
+  <p>
+    El sistema te solicitará cargar en formato digital los <a href="/cedula-profesional/requisitos/">documentos requeridos</a>: título profesional registrado, acta de nacimiento, CURP, identificación oficial vigente y fotografías en formato específico. Todos los documentos deben estar en formato PDF o imagen legible. Es importante que las digitalizaciones sean claras y completas para evitar rechazos que demoren el proceso.
+  </p>
+
+  <h2>Paso 4: Pago de Derechos</h2>
+
+  <p>
+    Una vez aprobada la documentación, el sistema genera una línea de captura para el pago de derechos por expedición de cédula profesional. El monto es establecido por la Ley Federal de Derechos y se actualiza anualmente. El pago puede realizarse en ventanilla bancaria o por transferencia electrónica. Conserva tu comprobante de pago, ya que es necesario para completar el trámite.
+  </p>
+
+  <h2>Paso 5: Expedición de la e-Cédula</h2>
+
+  <p>
+    Tras verificar el pago, la Dirección General de Profesiones procesa la solicitud y expide la cédula profesional electrónica (e-cédula). El tiempo de expedición varía entre 4 y 8 semanas dependiendo de la carga de trabajo de la dependencia. Recibirás una notificación por correo electrónico cuando tu cédula esté disponible para descarga en el portal. La e-cédula es un documento digital con firma electrónica que tiene plena validez legal.
+  </p>
+
+  <h2>Verificación Pública de tu Cédula</h2>
+
+  <p>
+    Una vez expedida, tu cédula profesional queda registrada en la base de datos pública de la Dirección General de Profesiones. Cualquier persona, empresa o institución puede verificar la autenticidad de tu cédula ingresando tu nombre o número de cédula en el portal de consulta del gobierno federal. Este registro es permanente y no distingue la modalidad en que obtuviste tu título.
+  </p>
+
+  <p>
+    Si aún no tienes título profesional, el primer paso es obtenerlo. Conoce el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso de titulación por experiencia laboral</a>, verifica los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> y los <a href="/titulacion-por-experiencia-laboral/costo/">costos del proceso completo</a>. Para quienes ya aprobaron las evaluaciones del Acuerdo 286, consulta el proceso específico de <a href="/cedula-profesional/despues-del-acuerdo-286/">cédula profesional después del Acuerdo 286</a>.
+  </p>
+
+  <div class="silo-cta">
+    <h2>¿Necesitas Título para Tramitar tu Cédula?</h2>
+    <p>Si aún no tienes título de licenciatura, evalúa si puedes obtenerlo por experiencia laboral mediante el Acuerdo 286.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

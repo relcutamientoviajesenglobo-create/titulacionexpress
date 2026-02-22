@@ -1,0 +1,81 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+
+const siloNav = [
+  { name: 'Acuerdo 286 — Guía', url: '/acuerdo-286/' },
+  { name: '¿Qué es el Acuerdo 286?', url: '/acuerdo-286/que-es/' },
+  { name: 'Carreras Disponibles', url: '/acuerdo-286/carreras-disponibles/' },
+  { name: 'Reguladas vs No Reguladas', url: '/acuerdo-286/carreras-reguladas-vs-no-reguladas/' },
+  { name: 'Examen EGAL CENEVAL', url: '/acuerdo-286/examen-egal-ceneval/' },
+  { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/', active: true },
+  { name: 'Instituciones Evaluadoras', url: '/acuerdo-286/instituciones-evaluadoras/' },
+  { name: 'Validez Oficial', url: '/acuerdo-286/validez-oficial/' },
+  { name: 'Calendario 2026', url: '/acuerdo-286/calendario-2026/' },
+];
+---
+
+<SiloLayout
+  title="Examen Oral EXOAL — Evaluación Oral del Acuerdo 286 | Titulación Express"
+  description="Todo sobre la evaluación oral EXOAL del Acuerdo 286: cómo funciona, qué preguntan, cómo prepararte para defender tus conocimientos ante el jurado."
+  canonical="/acuerdo-286/examen-oral-exoal/"
+  headerImage="/images/photos/classroom-lecture.jpg"
+  breadcrumbs={[
+    { name: 'Acuerdo 286', url: '/acuerdo-286/' },
+    { name: 'Examen Oral EXOAL', url: '/acuerdo-286/examen-oral-exoal/' },
+  ]}
+  siloNav={siloNav}
+>
+
+  <h1>Examen Oral EXOAL — Evaluación Oral del Acuerdo 286</h1>
+  <figure class="content-illustration">
+    <img src="/images/illustrations/examen-exoal.svg" alt="Evaluación oral EXOAL del Acuerdo 286 — sustentante ante jurado evaluador" width="400" height="300" loading="lazy" />
+  </figure>
+
+  <p>
+    El Examen Oral ante Jurado (EXOAL) es la segunda y última evaluación del proceso de <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286</a>. Se presenta después de haber aprobado el <a href="/acuerdo-286/examen-egal-ceneval/">examen escrito EGAL</a> y consiste en una defensa oral ante un jurado de mínimo tres sinodales especializados en el campo de la licenciatura. Aprobar el EXOAL completa el proceso de evaluación y te habilita para recibir tu título profesional.
+  </p>
+
+  <h2>¿Cómo Funciona el EXOAL?</h2>
+
+  <p>
+    El EXOAL es una evaluación presencial donde el aspirante defiende sus conocimientos y experiencia profesional ante un panel de evaluadores. Los sinodales son profesionistas acreditados en el campo de la carrera que realizan preguntas sobre los temas fundamentales de la licenciatura, casos prácticos y la experiencia laboral del aspirante. La duración típica es de 45 minutos a una hora.
+  </p>
+
+  <p>
+    A diferencia del EGAL (que es de opción múltiple), el EXOAL evalúa la capacidad de argumentación, análisis y aplicación de conocimientos en escenarios reales. Es aquí donde tu experiencia laboral se convierte en tu mayor fortaleza: los sinodales valoran la capacidad de resolver problemas profesionales con base en conocimiento práctico comprobable.
+  </p>
+
+  <h2>¿Qué Preguntan los Sinodales?</h2>
+
+  <p>
+    Las preguntas del EXOAL se centran en las mismas áreas de conocimiento que evalúa el EGAL, pero con un enfoque más práctico y argumentativo. Los sinodales pueden presentar casos hipotéticos del campo profesional y pedir que los resuelvas, preguntar sobre tu experiencia laboral específica y cómo la relacionas con la teoría de la disciplina, solicitar que expliques conceptos fundamentales de la carrera y evaluar tu capacidad de análisis crítico.
+  </p>
+
+  <h2>¿Cómo Prepararse para el EXOAL?</h2>
+
+  <p>
+    La preparación para el EXOAL combina dominio teórico con capacidad de comunicación oral. Recomendamos repasar los temas principales del temario de tu carrera (los mismos del EGAL), practicar la exposición oral de temas técnicos con claridad, preparar ejemplos concretos de tu experiencia laboral que demuestren aplicación de conocimientos, y realizar simulacros de evaluación oral con retroalimentación.
+  </p>
+
+  <p>
+    El programa de preparación incluye sesiones específicas de práctica oral donde simulamos las condiciones del EXOAL. Los <a href="/titulacion-por-experiencia-laboral/testimonios/">testimonios de titulados</a> coinciden en que la práctica oral es tan importante como el estudio teórico. Conoce el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso completo</a> y los <a href="/titulacion-por-experiencia-laboral/requisitos/">requisitos</a> para llegar preparado.
+  </p>
+
+  <h2>Después del EXOAL</h2>
+
+  <p>
+    Una vez aprobado el EXOAL, la <a href="/acuerdo-286/instituciones-evaluadoras/">institución evaluadora</a> notifica a la DGAIR de la SEP el resultado aprobatorio. La SEP inicia entonces el proceso de expedición del título profesional, que toma entre 4 y 6 meses. Posteriormente puedes <a href="/cedula-profesional/como-tramitarla/">tramitar tu cédula profesional</a> ante la Dirección General de Profesiones.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Prepárate para Ambas Evaluaciones</h2>
+    <p>Nuestro programa cubre tanto el EGAL como el EXOAL con preparación personalizada para tu carrera.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>

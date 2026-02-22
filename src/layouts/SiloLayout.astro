@@ -1,0 +1,213 @@
+---
+/**
+ * SiloLayout.astro — Layout para páginas de SILO (hubs y subpáginas)
+ * Incluye breadcrumbs, sidebar de navegación del silo, CTA
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  breadcrumbs: Array<{ name: string; url: string }>;
+  schemaType?: 'silo' | 'faq' | 'page';
+  faq?: Array<{ question: string; answer: string }>;
+  siloNav?: Array<{ name: string; url: string; active?: boolean }>;
+  headerImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  breadcrumbs,
+  schemaType = 'silo',
+  faq,
+  siloNav = [],
+  headerImage,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaType={schemaType}
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+>
+  <div class="silo-page">
+    {headerImage && (
+      <div class="silo-photo-header" style={`background-image: url(${headerImage})`}>
+        <div class="container">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+      </div>
+    )}
+    {!headerImage && (
+      <div class="container">
+        <Breadcrumbs items={breadcrumbs} />
+      </div>
+    )}
+
+    <div class="silo-page__layout container">
+      <!-- Main Content -->
+      <article class="silo-page__content">
+        <slot />
+      </article>
+
+      <!-- Sidebar: SILO Navigation -->
+      {siloNav.length > 0 && (
+        <aside class="silo-page__sidebar" aria-label="Navegación del tema">
+          <nav class="silo-nav">
+            <h3 class="silo-nav__title">En esta sección</h3>
+            <ul class="silo-nav__list">
+              {siloNav.map(item => (
+                <li>
+                  <a
+                    href={item.url}
+                    class={`silo-nav__link ${item.active ? 'silo-nav__link--active' : ''}`}
+                    aria-current={item.active ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <!-- CTA Sidebar -->
+          <div class="silo-sidebar-cta">
+            <p class="silo-sidebar-cta__text">¿Tienes experiencia laboral? Evalúa si puedes titularte.</p>
+            <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">
+              Evalúa tu Perfil Gratis
+            </a>
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .silo-page {
+    padding-bottom: var(--space-3xl);
+  }
+
+  .silo-page__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .silo-page__content {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .silo-page__content :global(h1) {
+    margin-bottom: var(--space-lg);
+  }
+
+  .silo-page__content :global(h2) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .silo-page__content :global(h3) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .silo-page__content :global(p) {
+    margin-bottom: var(--space-md);
+    max-width: 70ch;
+  }
+
+  .silo-page__content :global(ul),
+  .silo-page__content :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-xl);
+  }
+
+  .silo-page__content :global(li) {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
+  }
+
+  /* Sidebar */
+  .silo-page__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .silo-nav {
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-gray-200);
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-lg));
+  }
+
+  .silo-nav__title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-md);
+  }
+
+  .silo-nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .silo-nav__link {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-gray-600);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    border-left: 3px solid transparent;
+  }
+
+  .silo-nav__link:hover {
+    background: var(--color-white);
+    color: var(--color-primary);
+  }
+
+  .silo-nav__link--active {
+    background: var(--color-white);
+    color: var(--color-primary);
+    font-weight: 600;
+    border-left-color: var(--color-accent);
+  }
+
+  .silo-sidebar-cta {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .silo-sidebar-cta__text {
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-md);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+  }
+
+  @media (min-width: 1024px) {
+    .silo-page__layout {
+      grid-template-columns: 1fr 300px;
+    }
+  }
+</style>

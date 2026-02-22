@@ -1,0 +1,192 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TrustSignals from '../components/TrustSignals.astro';
+
+interface CarreraRelacionada {
+  nombre: string;
+  slug: string;
+}
+
+interface Props {
+  nombre: string;
+  slug: string;
+  tipo: 'regulada' | 'no-regulada';
+  keyword: string;
+  description: string;
+  carrerasRelacionadas?: CarreraRelacionada[];
+  heroImage?: string;
+}
+
+const {
+  nombre,
+  slug,
+  tipo,
+  keyword,
+  description,
+  carrerasRelacionadas = [],
+  heroImage,
+} = Astro.props;
+
+const title = `Licenciatura en ${nombre} por Experiencia Laboral — Acuerdo 286 | Titulación Express`;
+const canonical = `/carreras/${slug}/`;
+const tipoLabel = tipo === 'regulada' ? 'Carrera Regulada' : 'Carrera No Regulada';
+const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  schemaType="carrera"
+  breadcrumbs={[
+    { name: 'Carreras', url: '/carreras/' },
+    { name: nombre, url: canonical },
+  ]}
+>
+  <div class="carrera-page">
+    <div class="container">
+      <Breadcrumbs items={[
+        { name: 'Carreras', url: '/carreras/' },
+        { name: nombre, url: canonical },
+      ]} />
+    </div>
+
+    <div class="carrera-page__layout container">
+      <article class="carrera-page__content">
+        <div class="carrera-page__header">
+          <span class={`tag ${tipoClass}`}>{tipoLabel}</span>
+          <slot name="header" />
+        </div>
+
+        <TrustSignals variant="compact" />
+
+        <slot />
+
+        <!-- CTA Final -->
+        <div class="carrera-cta">
+          <h2>¿Tienes Experiencia en {nombre}? Titúlate</h2>
+          <p>Evalúa tu perfil profesional sin costo y conoce si puedes obtener tu título de Licenciatura en {nombre} mediante el Acuerdo 286.</p>
+          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="carrera-page__sidebar" aria-label="Información relacionada">
+        <!-- Quick Info -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Datos Rápidos</h3>
+          <dl class="sidebar-card__dl">
+            <dt>Tipo</dt>
+            <dd><span class={`tag tag--sm ${tipoClass}`}>{tipoLabel}</span></dd>
+            <dt>Créditos previos</dt>
+            <dd>{tipo === 'regulada' ? 'Requiere 50%' : 'No requiere'}</dd>
+            <dt>Preparación</dt>
+            <dd>3 a 6 meses</dd>
+            <dt>Validez</dt>
+            <dd>Oficial SEP</dd>
+          </dl>
+        </div>
+
+        <!-- Related careers -->
+        {carrerasRelacionadas.length > 0 && (
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Carreras Relacionadas</h3>
+            <ul class="sidebar-card__links">
+              {carrerasRelacionadas.map(c => (
+                <li><a href={`/carreras/${c.slug}/`}>{c.nombre}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Process links -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">El Proceso</h3>
+          <ul class="sidebar-card__links">
+            <li><a href="/titulacion-por-experiencia-laboral/requisitos/">Requisitos</a></li>
+            <li><a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">Proceso Paso a Paso</a></li>
+            <li><a href="/titulacion-por-experiencia-laboral/costo/">Costos</a></li>
+            <li><a href="/acuerdo-286/examen-egal-ceneval/">Examen EGAL</a></li>
+            <li><a href="/titulacion-por-experiencia-laboral/testimonios/">Testimonios</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div class="sidebar-cta">
+          <p>¿Listo para titularte en {nombre}?</p>
+          <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">Evalúa tu Perfil</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .carrera-page { padding-bottom: var(--space-3xl); }
+
+  .carrera-page__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .carrera-page__header { margin-bottom: var(--space-xl); }
+
+  .carrera-page__content :global(h1) { margin-top: var(--space-md); margin-bottom: var(--space-lg); }
+  .carrera-page__content :global(h2) { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
+  .carrera-page__content :global(h3) { margin-top: var(--space-xl); margin-bottom: var(--space-sm); }
+  .carrera-page__content :global(p) { margin-bottom: var(--space-md); max-width: 70ch; }
+
+  .tag--regulada { background: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
+  .tag--no-regulada { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+  .tag--sm { font-size: 0.75rem; padding: 2px 8px; }
+
+  .sidebar-card {
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+
+  .sidebar-card__title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-400);
+    margin-bottom: var(--space-md);
+  }
+
+  .sidebar-card__dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-xs) var(--space-md); font-size: 0.9375rem; }
+  .sidebar-card__dl dt { color: var(--color-gray-500); font-weight: 500; }
+  .sidebar-card__dl dd { color: var(--color-gray-700); }
+
+  .sidebar-card__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
+  .sidebar-card__links a { color: var(--color-primary); text-decoration: none; font-size: 0.9375rem; transition: color var(--transition-fast); }
+  .sidebar-card__links a:hover { color: var(--color-accent); }
+
+  .sidebar-cta {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85); }
+
+  .carrera-cta {
+    margin-top: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gray-200);
+  }
+  .carrera-cta h2 { margin-top: 0; }
+
+  .carrera-page__sidebar { display: flex; flex-direction: column; gap: var(--space-xl); }
+
+  @media (min-width: 1024px) {
+    .carrera-page__layout { grid-template-columns: 1fr 300px; }
+    .carrera-page__sidebar { position: sticky; top: calc(var(--header-height) + var(--space-lg)); align-self: start; }
+  }
+</style>

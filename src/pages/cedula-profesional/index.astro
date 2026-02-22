@@ -1,0 +1,80 @@
+---
+import SiloLayout from '../../layouts/SiloLayout.astro';
+import TrustSignals from '../../components/TrustSignals.astro';
+
+const siloNav = [
+  { name: 'Cédula Profesional — Guía', url: '/cedula-profesional/', active: true },
+  { name: 'Cómo Tramitarla', url: '/cedula-profesional/como-tramitarla/' },
+  { name: 'Requisitos', url: '/cedula-profesional/requisitos/' },
+  { name: 'Después del Acuerdo 286', url: '/cedula-profesional/despues-del-acuerdo-286/' },
+];
+---
+
+<SiloLayout
+  title="Cédula Profesional en México — Guía Completa 2026 | Titulación Express"
+  description="Todo sobre la cédula profesional: qué es, para qué sirve, cómo tramitarla, requisitos y cómo obtenerla después del Acuerdo 286. Guía actualizada 2026."
+  canonical="/cedula-profesional/"
+  headerImage="/images/photos/desk-documents.jpg"
+  breadcrumbs={[{ name: 'Cédula Profesional', url: '/cedula-profesional/' }]}
+  siloNav={siloNav}
+>
+
+  <h1>Cédula Profesional en México — Guía Completa 2026</h1>
+
+  <!-- GEO: Declaración definicional -->
+  <p>
+    La cédula profesional es el documento oficial expedido por la Dirección General de Profesiones de la Secretaría de Educación Pública que autoriza y habilita legalmente a una persona para ejercer una profesión en México. Es el paso final después de obtener un título de licenciatura y es requisito indispensable para ejercer profesiones reguladas como <a href="/carreras/derecho/">Derecho</a>, <a href="/carreras/contaduria/">Contaduría</a> o las ingenierías. Todo profesional que obtiene su título mediante el <a href="/acuerdo-286/que-es/">Acuerdo 286 de la SEP</a> puede tramitar su cédula profesional federal con los mismos derechos que un egresado universitario.
+  </p>
+
+  <TrustSignals variant="compact" />
+
+  <h2>¿Para Qué Sirve la Cédula Profesional?</h2>
+
+  <p>
+    La cédula profesional cumple funciones legales, laborales y académicas fundamentales. En el ámbito legal, habilita para firmar dictámenes, peritajes, auditorías y documentos que requieren respaldo profesional. En el ámbito laboral, es requisito de contratación para miles de vacantes en el sector público y privado, y es verificable por cualquier empleador en el registro público de la Dirección General de Profesiones. En el ámbito académico, es necesaria para inscribirte en programas de posgrado en la mayoría de las universidades de México y del extranjero.
+  </p>
+
+  <p>
+    Sin cédula profesional, un contador no puede firmar estados financieros ante el SAT, un abogado no puede litigar en ciertos tribunales, un ingeniero no puede firmar planos o dictámenes técnicos, y cualquier profesional queda excluido de oportunidades que exigen este documento como filtro de selección.
+  </p>
+
+  <h2><a href="/cedula-profesional/como-tramitarla/">¿Cómo Tramitar tu Cédula Profesional?</a></h2>
+
+  <p>
+    El trámite de la cédula profesional se realiza ante la Dirección General de Profesiones de la SEP, actualmente de forma electrónica a través del portal del gobierno federal. El proceso incluye la presentación de documentos, el pago de derechos y la expedición de la cédula electrónica. Los tiempos de expedición varían, pero generalmente toman entre 4 y 8 semanas una vez presentada la solicitud completa. Consulta la guía detallada con el <a href="/cedula-profesional/como-tramitarla/">proceso paso a paso para tramitar tu cédula</a>.
+  </p>
+
+  <h2><a href="/cedula-profesional/requisitos/">Requisitos para la Cédula Profesional</a></h2>
+
+  <p>
+    Los <a href="/cedula-profesional/requisitos/">requisitos para tramitar la cédula profesional</a> incluyen título profesional registrado ante la SEP, acta de nacimiento, CURP, identificación oficial, fotografías y el pago de derechos correspondientes. Para quienes obtienen su título por el Acuerdo 286, el proceso es el mismo que para cualquier egresado universitario: el título expedido por la SEP cumple todos los requisitos para el registro.
+  </p>
+
+  <h2><a href="/cedula-profesional/despues-del-acuerdo-286/">Cédula Profesional Después del Acuerdo 286</a></h2>
+
+  <p>
+    Si obtuviste tu título mediante la <a href="/titulacion-por-experiencia-laboral/">titulación por experiencia laboral</a> y el <a href="/acuerdo-286/">Acuerdo 286</a>, el trámite de la cédula profesional es idéntico al de cualquier titulado universitario. Tu título fue expedido por la SEP y cumple todos los requisitos legales. La cédula electrónica que recibirás es verificable en el registro público y no contiene ninguna anotación sobre la modalidad de titulación. Conoce el <a href="/cedula-profesional/despues-del-acuerdo-286/">proceso específico después del Acuerdo 286</a>.
+  </p>
+
+  <h2>Cédula Profesional Electrónica</h2>
+
+  <p>
+    Desde 2018, la Dirección General de Profesiones expide la cédula profesional en formato electrónico (e-cédula). Este documento digital tiene la misma validez legal que la cédula física anterior, es verificable en línea por cualquier persona o institución, y puede imprimirse cuando sea necesario. El registro de tu cédula es público y consultable en el sitio del gobierno federal, lo que facilita la verificación por parte de empleadores, clientes y organismos reguladores.
+  </p>
+
+  <p>
+    Para conocer los <a href="/titulacion-por-experiencia-laboral/beneficios/">beneficios completos</a> de contar con cédula profesional, o si aún no tienes título y deseas conocer el <a href="/titulacion-por-experiencia-laboral/proceso-paso-a-paso/">proceso de titulación</a>, consulta las secciones correspondientes. También puedes revisar las <a href="/titulacion-por-experiencia-laboral/preguntas-frecuentes/">preguntas frecuentes</a> sobre el proceso completo.
+  </p>
+
+  <div class="silo-cta">
+    <h2>Obtén tu Título y Cédula Profesional</h2>
+    <p>Si aún no tienes título de licenciatura, evalúa tu perfil profesional sin costo y conoce si puedes titularte por experiencia laboral para después tramitar tu cédula.</p>
+    <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+  </div>
+
+</SiloLayout>
+
+<style>
+  .silo-cta { margin-top: var(--space-2xl); padding: var(--space-2xl); background: var(--color-gray-50); border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); }
+  .silo-cta h2 { margin-top: 0; }
+</style>
