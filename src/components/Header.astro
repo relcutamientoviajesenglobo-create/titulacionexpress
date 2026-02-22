@@ -49,9 +49,9 @@ const recursos = [
           <a href="/titulacion-por-experiencia-laboral/" class="header__link">Titulación</a>
         </li>
         <li class="header__item header__item--mega">
-          <button class="header__link header__link--dropdown" aria-expanded="false" aria-haspopup="true">
+          <a href="/carreras/" class="header__link header__link--dropdown" aria-haspopup="true">
             Carreras <span class="header__chevron" aria-hidden="true">▾</span>
-          </button>
+          </a>
           <div class="mega-menu" role="menu" aria-label="Carreras disponibles">
             <div class="mega-menu__inner container">
               <div class="mega-menu__col">
@@ -262,14 +262,14 @@ const recursos = [
     transition: color 0.15s, background 0.15s;
     background: none; border: none; cursor: pointer; font-family: inherit; white-space: nowrap;
   }
-  .header__link:hover { color: #1B3A5C; background: #F8F9FA; }
+  .header__link:hover { color: #0F2640; background: #F0F2F5; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .header__link--cta { padding: 0.5rem 1.25rem; font-size: 0.875rem; }
   .header__chevron { font-size: 0.625rem; transition: transform 0.3s; display: inline-flex; }
 
   /* ===== MEGA MENU ===== */
   .mega-menu {
     position: absolute; top: 100%; left: 0; width: 100%;
-    background: #fff; box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+    background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,0.18), 0 15px 35px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05);
     opacity: 0; visibility: hidden; transform: translateY(8px);
     transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
     z-index: 999; border-radius: 0 0 16px 16px; overflow: hidden;
@@ -285,7 +285,7 @@ const recursos = [
   .mega-menu__subtext { font-size: 0.6875rem; color: #ADB5BD; margin-bottom: 1rem; }
   .mega-menu__list { list-style: none; display: flex; flex-direction: column; gap: 1px; }
   .mega-menu__link { display: block; padding: 8px 12px; color: #495057; text-decoration: none; font-size: 0.9375rem; border-radius: 8px; transition: background 0.15s, color 0.15s; }
-  .mega-menu__link:hover { background: #F8F9FA; color: #0F2640; }
+  .mega-menu__link:hover { background: #F0F4F8; color: #0F2640; box-shadow: inset 3px 0 0 #F0A500; }
   .mega-menu__ver-todas { display: inline-flex; margin-top: 1.25rem; padding: 0.625rem 1rem; font-size: 0.8125rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, #F0A500, #B07A08); text-decoration: none; border-radius: 8px; }
 
   /* ===== MOBILE TOGGLE — 3 bars to X ===== */
