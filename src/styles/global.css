@@ -147,6 +147,23 @@
     --duration-base: 300ms;
     --duration-slow: 500ms;
     --duration-cinematic: 800ms;
+
+    /* Legacy token compatibility — maps old names → v10 tokens */
+    --color-white: #fff;
+    --color-primary: var(--brand);
+    --color-primary-dark: var(--brand-dark);
+    --color-primary-light: var(--brand-light);
+    --color-accent: var(--accent);
+    --color-secondary: var(--brand-light);
+    --color-gray-50: var(--surface-1);
+    --color-gray-100: var(--surface-2);
+    --color-gray-200: var(--border-subtle);
+    --color-gray-300: var(--border-default);
+    --color-gray-400: var(--text-muted);
+    --color-gray-500: var(--text-secondary);
+    --color-gray-600: var(--text-secondary);
+    --color-gray-900: var(--text-primary);
+    --transition-fast: 150ms var(--ease-out);
   }
 }
 
