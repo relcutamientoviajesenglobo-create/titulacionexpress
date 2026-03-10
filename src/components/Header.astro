@@ -357,8 +357,10 @@ const recursos = [
     filter: blur(80px);
     opacity: 0;
     transition: opacity 0.8s ease 0.2s;
+    will-change: transform, opacity;
+    animation-play-state: paused;
   }
-  .mob.is-open .mob__orb { opacity: 1; }
+  .mob.is-open .mob__orb { opacity: 1; animation-play-state: running; }
   .mob__orb--1 {
     width: 300px; height: 300px;
     background: radial-gradient(circle, rgba(240,165,0,0.2) 0%, transparent 70%);
