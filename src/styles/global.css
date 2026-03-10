@@ -1468,6 +1468,28 @@
     z-index: 2;
   }
 
+  .photo-hero h1,
+  .photo-hero h2,
+  .photo-hero h3 {
+    color: white;
+    text-shadow: 0 2px 12px oklch(0% 0 0 / 0.3);
+  }
+
+  .photo-hero p,
+  .photo-hero li {
+    color: oklch(100% 0 0 / 0.88);
+  }
+
+  .photo-hero a:not(.btn) {
+    color: oklch(100% 0 0 / 0.9);
+    text-decoration-color: oklch(100% 0 0 / 0.4);
+  }
+
+  .photo-hero a:not(.btn):hover {
+    color: white;
+    text-decoration-color: white;
+  }
+
   .stats-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
