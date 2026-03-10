@@ -106,7 +106,7 @@ const articleSchema = JSON.stringify({
         <div class="blog-cta">
           <h2>¿Listo para Dar el Siguiente Paso?</h2>
           <p>Evalúa tu perfil profesional sin costo y conoce si puedes titularte por experiencia laboral.</p>
-          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+          <a href="https://wa.me/5215563277530?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Evalúa tu Perfil Gratis</a>
         </div>
       </article>
 
@@ -132,7 +132,7 @@ const articleSchema = JSON.stringify({
 
         <div class="sidebar-cta">
           <p>¿Tienes experiencia profesional sin título?</p>
-          <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">Evalúa tu Perfil</a>
+          <a href="https://wa.me/5215563277530?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--primary" style="width:100%;text-align:center;" target="_blank" rel="noopener noreferrer">Evalúa tu Perfil</a>
         </div>
       </aside>
     </div>
@@ -154,12 +154,12 @@ const articleSchema = JSON.stringify({
     align-items: center;
     gap: var(--space-xs);
     font-size: 0.875rem;
-    color: var(--color-gray-400);
+    color: var(--text-muted);
     margin-bottom: var(--space-xl);
     flex-wrap: wrap;
   }
-  .blog-post__author { font-weight: 600; color: var(--color-gray-600); }
-  .blog-post__sep { color: var(--color-gray-300); }
+  .blog-post__author { font-weight: 600; color: var(--text-secondary); }
+  .blog-post__sep { color: var(--border-default); }
 
   .blog-post__content :global(h1) { margin-bottom: var(--space-md); line-height: 1.2; }
   .blog-post__content :global(h2) { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
@@ -169,15 +169,15 @@ const articleSchema = JSON.stringify({
   .blog-cta {
     margin-top: var(--space-2xl);
     padding: var(--space-2xl);
-    background: var(--color-gray-50);
+    background: var(--surface-1);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--color-gray-200);
+    border: 1px solid var(--border-subtle);
   }
   .blog-cta h2 { margin-top: 0; }
 
   .sidebar-card {
-    background: var(--color-gray-50);
-    border: 1px solid var(--color-gray-200);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
   }
@@ -186,21 +186,21 @@ const articleSchema = JSON.stringify({
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-gray-400);
+    color: var(--text-muted);
     margin-bottom: var(--space-md);
   }
   .sidebar-card__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
-  .sidebar-card__links a { color: var(--color-primary); text-decoration: none; font-size: 0.875rem; transition: color var(--transition-fast); }
-  .sidebar-card__links a:hover { color: var(--color-accent); }
-  .sidebar-card__links a.active { color: var(--color-accent); font-weight: 600; }
+  .sidebar-card__links a { color: var(--brand); text-decoration: none; font-size: 0.875rem; transition: color var(--duration-fast) var(--ease-out); }
+  .sidebar-card__links a:hover { color: var(--accent); }
+  .sidebar-card__links a.active { color: var(--accent); font-weight: 600; }
 
   .sidebar-cta {
-    background: var(--color-primary-dark);
-    color: var(--color-white);
+    background: var(--surface-dark);
+    color: var(--text-on-dark);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
   }
-  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85); }
+  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: var(--text-on-dark-muted); }
 
   .blog-post__sidebar { display: flex; flex-direction: column; gap: var(--space-xl); }
 

@@ -97,6 +97,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'auto',
   },
+  server: {
+    port: 4322,
+  },
   vite: {
     build: {
       cssMinify: true,

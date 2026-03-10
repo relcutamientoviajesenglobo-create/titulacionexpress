@@ -45,19 +45,34 @@ const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
   ]}
 >
   <div class="carrera-page">
-    <div class="container">
-      <Breadcrumbs items={[
-        { name: 'Carreras', url: '/carreras/' },
-        { name: nombre, url: canonical },
-      ]} />
-    </div>
-
-    <div class="carrera-page__layout container">
-      <article class="carrera-page__content">
-        <div class="carrera-page__header">
+    {heroImage ? (
+      <div class="silo-photo-header" style={`background-image: url(${heroImage})`}>
+        <div class="container">
+          <Breadcrumbs items={[
+            { name: 'Carreras', url: '/carreras/' },
+            { name: nombre, url: canonical },
+          ]} />
           <span class={`tag ${tipoClass}`}>{tipoLabel}</span>
           <slot name="header" />
         </div>
+      </div>
+    ) : (
+      <div class="container">
+        <Breadcrumbs items={[
+          { name: 'Carreras', url: '/carreras/' },
+          { name: nombre, url: canonical },
+        ]} />
+      </div>
+    )}
+
+    <div class="carrera-page__layout container">
+      <article class="carrera-page__content">
+        {!heroImage && (
+          <div class="carrera-page__header">
+            <span class={`tag ${tipoClass}`}>{tipoLabel}</span>
+            <slot name="header" />
+          </div>
+        )}
 
         <TrustSignals variant="compact" />
 
@@ -67,7 +82,7 @@ const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
         <div class="carrera-cta">
           <h2>¿Tienes Experiencia en {nombre}? Titúlate</h2>
           <p>Evalúa tu perfil profesional sin costo y conoce si puedes obtener tu título de Licenciatura en {nombre} mediante el Acuerdo 286.</p>
-          <a href="/contacto/" class="btn btn--primary btn--large">Evalúa tu Perfil Gratis</a>
+          <a href="https://wa.me/5215563277530?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Evalúa tu Perfil Gratis</a>
         </div>
       </article>
 
@@ -115,7 +130,7 @@ const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
         <!-- CTA -->
         <div class="sidebar-cta">
           <p>¿Listo para titularte en {nombre}?</p>
-          <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">Evalúa tu Perfil</a>
+          <a href="https://wa.me/5215563277530?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--primary" style="width:100%;text-align:center;" target="_blank" rel="noopener noreferrer">Evalúa tu Perfil</a>
         </div>
       </aside>
     </div>
@@ -133,18 +148,36 @@ const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
 
   .carrera-page__header { margin-bottom: var(--space-xl); }
 
+  /* Hero header image tag styles */
+  .silo-photo-header :global(.tag) {
+    background: oklch(100% 0 0 / 0.18);
+    color: white;
+    border-color: oklch(100% 0 0 / 0.25);
+    backdrop-filter: blur(6px);
+    margin-bottom: var(--space-sm);
+    display: inline-block;
+  }
+
+  .silo-photo-header :global(h1) {
+    color: white;
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+    text-shadow: 0 2px 12px oklch(0% 0 0 / 0.3);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
   .carrera-page__content :global(h1) { margin-top: var(--space-md); margin-bottom: var(--space-lg); }
   .carrera-page__content :global(h2) { margin-top: var(--space-2xl); margin-bottom: var(--space-md); }
   .carrera-page__content :global(h3) { margin-top: var(--space-xl); margin-bottom: var(--space-sm); }
   .carrera-page__content :global(p) { margin-bottom: var(--space-md); max-width: 70ch; }
 
-  .tag--regulada { background: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
-  .tag--no-regulada { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+  .tag--regulada { background: oklch(92% 0.06 60); color: oklch(40% 0.12 40); border: 1px solid oklch(85% 0.08 60); }
+  .tag--no-regulada { background: oklch(94% 0.04 150); color: oklch(38% 0.1 150); border: 1px solid oklch(85% 0.06 150); }
   .tag--sm { font-size: 0.75rem; padding: 2px 8px; }
 
   .sidebar-card {
-    background: var(--color-gray-50);
-    border: 1px solid var(--color-gray-200);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
   }
@@ -154,32 +187,32 @@ const tipoClass = tipo === 'regulada' ? 'tag--regulada' : 'tag--no-regulada';
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-gray-400);
+    color: var(--text-muted);
     margin-bottom: var(--space-md);
   }
 
   .sidebar-card__dl { display: grid; grid-template-columns: auto 1fr; gap: var(--space-xs) var(--space-md); font-size: 0.9375rem; }
-  .sidebar-card__dl dt { color: var(--color-gray-500); font-weight: 500; }
-  .sidebar-card__dl dd { color: var(--color-gray-700); }
+  .sidebar-card__dl dt { color: var(--text-muted); font-weight: 500; }
+  .sidebar-card__dl dd { color: var(--text-primary); }
 
   .sidebar-card__links { list-style: none; display: flex; flex-direction: column; gap: var(--space-xs); }
-  .sidebar-card__links a { color: var(--color-primary); text-decoration: none; font-size: 0.9375rem; transition: color var(--transition-fast); }
-  .sidebar-card__links a:hover { color: var(--color-accent); }
+  .sidebar-card__links a { color: var(--brand); text-decoration: none; font-size: 0.9375rem; transition: color var(--duration-fast) var(--ease-out); }
+  .sidebar-card__links a:hover { color: var(--accent); }
 
   .sidebar-cta {
-    background: var(--color-primary-dark);
-    color: var(--color-white);
+    background: var(--surface-dark);
+    color: var(--text-on-dark);
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
   }
-  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: rgba(255,255,255,0.85); }
+  .sidebar-cta p { font-size: 0.9375rem; margin-bottom: var(--space-md); color: var(--text-on-dark-muted); }
 
   .carrera-cta {
     margin-top: var(--space-2xl);
     padding: var(--space-2xl);
-    background: var(--color-gray-50);
+    background: var(--surface-1);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--color-gray-200);
+    border: 1px solid var(--border-subtle);
   }
   .carrera-cta h2 { margin-top: 0; }
 

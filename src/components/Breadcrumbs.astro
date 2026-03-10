@@ -50,22 +50,22 @@ const allItems = [{ name: 'Inicio', url: '/' }, ...items];
   }
 
   .breadcrumbs__link {
-    color: var(--color-gray-600);
+    color: var(--text-secondary);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color var(--duration-fast) var(--ease-out);
   }
 
   .breadcrumbs__link:hover {
-    color: var(--color-primary);
+    color: var(--brand);
   }
 
   .breadcrumbs__sep {
-    color: var(--color-gray-300);
+    color: var(--border-default);
     margin-inline: 2px;
   }
 
   .breadcrumbs__current {
-    color: var(--color-gray-800);
+    color: var(--text-primary);
     font-weight: 600;
   }
 </style>

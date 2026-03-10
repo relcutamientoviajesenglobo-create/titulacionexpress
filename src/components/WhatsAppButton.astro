@@ -8,7 +8,7 @@ interface Props {
   message?: string;
 }
 
-const { phone = '5500000000', message = 'Hola, me interesa información sobre la titulación por experiencia laboral.' } = Astro.props;
+const { phone = '5563277530', message = 'Hola, me interesa información sobre la titulación por experiencia laboral.' } = Astro.props;
 
 const waUrl = `https://wa.me/52${phone}?text=${encodeURIComponent(message)}`;
 ---
@@ -40,7 +40,7 @@ const waUrl = `https://wa.me/52${phone}?text=${encodeURIComponent(message)}`;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
     z-index: 900;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
     text-decoration: none;
   }
 

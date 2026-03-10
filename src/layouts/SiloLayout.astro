@@ -80,7 +80,7 @@ const {
           <!-- CTA Sidebar -->
           <div class="silo-sidebar-cta">
             <p class="silo-sidebar-cta__text">¿Tienes experiencia laboral? Evalúa si puedes titularte.</p>
-            <a href="/contacto/" class="btn btn--primary" style="width:100%;text-align:center;">
+            <a href="https://wa.me/5215563277530?text=Hola%2C%20quiero%20evaluar%20mi%20perfil%20para%20titulación%20por%20experiencia%20laboral" class="btn btn--primary" style="width:100%;text-align:center;" target="_blank" rel="noopener noreferrer">
               Evalúa tu Perfil Gratis
             </a>
           </div>
@@ -144,70 +144,75 @@ const {
   }
 
   .silo-nav {
-    background: var(--color-gray-50);
+    background: var(--surface-1);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
-    border: 1px solid var(--color-gray-200);
-    position: sticky;
-    top: calc(var(--header-height) + var(--space-lg));
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--border-subtle);
   }
 
   .silo-nav__title {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-gray-400);
-    margin-bottom: var(--space-md);
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
   }
 
   .silo-nav__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
   }
 
   .silo-nav__link {
     display: block;
-    padding: var(--space-sm) var(--space-md);
-    color: var(--color-gray-600);
+    padding: 0.375rem var(--space-sm);
+    color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
     border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+    transition: all var(--duration-fast) var(--ease-out);
     border-left: 3px solid transparent;
   }
 
   .silo-nav__link:hover {
-    background: var(--color-white);
-    color: var(--color-primary);
+    background: var(--surface-0);
+    color: var(--brand);
   }
 
   .silo-nav__link--active {
-    background: var(--color-white);
-    color: var(--color-primary);
+    background: var(--surface-0);
+    color: var(--brand);
     font-weight: 600;
-    border-left-color: var(--color-accent);
+    border-left-color: var(--accent);
   }
 
   .silo-sidebar-cta {
-    background: var(--color-primary-dark);
-    color: var(--color-white);
+    background: var(--surface-dark);
+    color: var(--text-on-dark);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
   }
 
   .silo-sidebar-cta__text {
-    font-size: 0.9375rem;
-    margin-bottom: var(--space-md);
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.5;
+    font-size: 0.8125rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-on-dark-muted);
+    line-height: 1.4;
   }
 
   @media (min-width: 1024px) {
     .silo-page__layout {
       grid-template-columns: 1fr 300px;
+    }
+
+    .silo-page__sidebar {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-lg));
+      align-self: start;
     }
   }
 </style>
