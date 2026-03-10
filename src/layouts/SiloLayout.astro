@@ -15,6 +15,7 @@ interface Props {
   faq?: Array<{ question: string; answer: string }>;
   siloNav?: Array<{ name: string; url: string; active?: boolean }>;
   headerImage?: string;
+  pageTitle?: string;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   faq,
   siloNav = [],
   headerImage,
+  pageTitle,
 } = Astro.props;
 ---
 
@@ -42,6 +44,7 @@ const {
       <div class="silo-photo-header" style={`background-image: url(${headerImage})`}>
         <div class="container">
           <Breadcrumbs items={breadcrumbs} />
+          {pageTitle && <h1>{pageTitle}</h1>}
         </div>
       </div>
     )}
